@@ -1,0 +1,2 @@
+listen = "127.0.0.1:18765"
+data_dir = "/var/lib/tickdesk"

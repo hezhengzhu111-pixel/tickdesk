@@ -1,0 +1,6 @@
+# Replace both placeholders with distinct SHA-256(ASCII(base64url token)) digests.
+[pairs.demo.app]
+sha256 = "SET_APP_DIGEST"
+
+[pairs.demo.local]
+sha256 = "SET_LOCAL_DIGEST"

@@ -1,0 +1,43 @@
+{
+  "type": "object",
+  "properties": {
+    "protocol": {
+      "enum": [
+        2
+      ]
+    },
+    "relayUrl": {
+      "type": "string",
+      "pattern": "^wss://[^/]+:8443/relay/v2/connect$"
+    },
+    "pairId": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64,
+      "pattern": "^[A-Za-z0-9_-]+$"
+    },
+    "appToken": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_-]{43}$"
+    },
+    "pins": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^sha256/[A-Za-z0-9+/]{43}=$"
+      },
+      "maxItems": 2,
+      "minItems": 1,
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "protocol",
+    "relayUrl",
+    "pairId",
+    "appToken",
+    "pins"
+  ],
+  "additionalProperties": false,
+  "$schema": "https://json-schema.org/draft/2020-12/schema"
+}

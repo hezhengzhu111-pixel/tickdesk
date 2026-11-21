@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">TickDesk</string>
+    <string name="tab_inbox">事项</string>
+    <string name="tab_chat">对话</string>
+    <string name="tab_discover">选股</string>
+    <string name="tab_portfolio">持仓</string>
+    <string name="tab_settings">设置</string>
+</resources>

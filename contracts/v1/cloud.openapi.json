@@ -1,0 +1,1851 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "TickDesk cloud consumption profile (existing im-foundation)",
+    "version": "1.0.0",
+    "description": "已导入源码的消费子集，不是新增云端 API。业务 JSON 作为 TEXT content 透传；请同时遵循 docs/11。"
+  },
+  "servers": [
+    {
+      "url": "https://{host}:8443",
+      "variables": {
+        "host": {
+          "default": "127.0.0.1",
+          "description": "部署时替换为 IP SAN 对应公网 IP；示例不是线上地址"
+        }
+      }
+    }
+  ],
+  "paths": {
+    "/api/user/login": {
+      "post": {
+        "operationId": "login",
+        "summary": "App 固定租户登录；持久化 Set-Cookie",
+        "security": [],
+        "responses": {
+          "200": {
+            "description": "成功；HTTP/IM 成功不代表 TickDesk 业务执行完成",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "const": 200
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/LoginData"
+                    },
+                    "success": {
+                      "const": true
+                    },
+                    "timestamp": {
+                      "type": "integer",
+                      "format": "int64"
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message",
+                    "data",
+                    "success",
+                    "timestamp"
+                  ],
+                  "additionalProperties": true
+                }
+              }
+            },
+            "headers": {
+              "Set-Cookie": {
+                "description": "可能多条；逐条交给 CookieJar，不以逗号拼接",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "认证/权限/参数/服务错误；不得解码为业务 ack",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "x-source": "im-foundation/rust/apps/api-server/src/modules/account/user/handlers.rs",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginRequest"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/me": {
+      "get": {
+        "operationId": "me",
+        "summary": "me",
+        "security": [
+          {
+            "accessCookie": []
+          },
+          {
+            "bearer": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功；HTTP/IM 成功不代表 TickDesk 业务执行完成",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "const": 200
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/Me"
+                    },
+                    "success": {
+                      "const": true
+                    },
+                    "timestamp": {
+                      "type": "integer",
+                      "format": "int64"
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message",
+                    "data",
+                    "success",
+                    "timestamp"
+                  ],
+                  "additionalProperties": true
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "认证/权限/参数/服务错误；不得解码为业务 ack",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "x-source": "im-foundation/rust/apps/api-server/src/modules/authz/me.rs"
+      }
+    },
+    "/api/auth/refresh": {
+      "post": {
+        "operationId": "refresh",
+        "summary": "Cookie 刷新；客户端必须 single-flight",
+        "security": [
+          {
+            "refreshCookie": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功；HTTP/IM 成功不代表 TickDesk 业务执行完成",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "const": 200
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/Refresh"
+                    },
+                    "success": {
+                      "const": true
+                    },
+                    "timestamp": {
+                      "type": "integer",
+                      "format": "int64"
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message",
+                    "data",
+                    "success",
+                    "timestamp"
+                  ],
+                  "additionalProperties": true
+                }
+              }
+            },
+            "headers": {
+              "Set-Cookie": {
+                "description": "可能多条；逐条交给 CookieJar，不以逗号拼接",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "认证/权限/参数/服务错误；不得解码为业务 ack",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "x-source": "im-foundation/rust/apps/api-server/src/modules/auth/token.rs",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {},
+                "required": [],
+                "additionalProperties": false
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/user/logout": {
+      "post": {
+        "operationId": "logout",
+        "summary": "logout",
+        "security": [
+          {
+            "accessCookie": []
+          },
+          {
+            "bearer": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功；HTTP/IM 成功不代表 TickDesk 业务执行完成",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "const": 200
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "type": "string"
+                    },
+                    "success": {
+                      "const": true
+                    },
+                    "timestamp": {
+                      "type": "integer",
+                      "format": "int64"
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message",
+                    "data",
+                    "success",
+                    "timestamp"
+                  ],
+                  "additionalProperties": true
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "认证/权限/参数/服务错误；不得解码为业务 ack",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "x-source": "im-foundation/rust/apps/api-server/src/modules/account/user/handlers.rs"
+      }
+    },
+    "/api/auth/ws-ticket": {
+      "post": {
+        "operationId": "wsTicket",
+        "summary": "wsTicket",
+        "security": [
+          {
+            "accessCookie": []
+          },
+          {
+            "bearer": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功；HTTP/IM 成功不代表 TickDesk 业务执行完成",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "const": 200
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/WsTicket"
+                    },
+                    "success": {
+                      "const": true
+                    },
+                    "timestamp": {
+                      "type": "integer",
+                      "format": "int64"
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message",
+                    "data",
+                    "success",
+                    "timestamp"
+                  ],
+                  "additionalProperties": true
+                }
+              }
+            },
+            "headers": {
+              "Set-Cookie": {
+                "description": "可能多条；逐条交给 CookieJar，不以逗号拼接",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "认证/权限/参数/服务错误；不得解码为业务 ack",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "x-source": "im-foundation/rust/apps/api-server/src/modules/auth/ws.rs"
+      }
+    },
+    "/api/auth/internal/token": {
+      "post": {
+        "operationId": "internalToken",
+        "summary": "internalToken",
+        "security": [
+          {
+            "internalSignature": [],
+            "internalTimestamp": [],
+            "internalNonce": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功；HTTP/IM 成功不代表 TickDesk 业务执行完成",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "const": 200
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/TokenPair"
+                    },
+                    "success": {
+                      "const": true
+                    },
+                    "timestamp": {
+                      "type": "integer",
+                      "format": "int64"
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message",
+                    "data",
+                    "success",
+                    "timestamp"
+                  ],
+                  "additionalProperties": true
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "认证/权限/参数/服务错误；不得解码为业务 ack",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "x-source": "im-foundation/rust/apps/api-server/src/modules/auth/token.rs",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InternalTokenRequest"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/message/send/private": {
+      "post": {
+        "operationId": "sendPrivate",
+        "summary": "sendPrivate",
+        "security": [
+          {
+            "accessCookie": []
+          },
+          {
+            "bearer": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功；HTTP/IM 成功不代表 TickDesk 业务执行完成",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "const": 200
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/Message"
+                    },
+                    "success": {
+                      "const": true
+                    },
+                    "timestamp": {
+                      "type": "integer",
+                      "format": "int64"
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message",
+                    "data",
+                    "success",
+                    "timestamp"
+                  ],
+                  "additionalProperties": true
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "认证/权限/参数/服务错误；不得解码为业务 ack",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "x-source": "im-foundation/rust/apps/api-server/src/modules/messaging/message/message_send.rs",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SendPrivate"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/message/private/{peerId}/cursor": {
+      "get": {
+        "operationId": "privateHistory",
+        "summary": "返回降序消息数组；增量先取 after 之后最早一批，再降序返回，无 nextCursor",
+        "security": [
+          {
+            "accessCookie": []
+          },
+          {
+            "bearer": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功；HTTP/IM 成功不代表 TickDesk 业务执行完成",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "const": 200
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Message"
+                      }
+                    },
+                    "success": {
+                      "const": true
+                    },
+                    "timestamp": {
+                      "type": "integer",
+                      "format": "int64"
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message",
+                    "data",
+                    "success",
+                    "timestamp"
+                  ],
+                  "additionalProperties": true
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "认证/权限/参数/服务错误；不得解码为业务 ack",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "x-source": "im-foundation/rust/apps/api-server/src/modules/messaging/message/message_read.rs",
+        "parameters": [
+          {
+            "name": "peerId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[1-9][0-9]*$"
+            }
+          },
+          {
+            "name": "after_message_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "pattern": "^[1-9][0-9]*$"
+            }
+          },
+          {
+            "name": "last_message_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "pattern": "^[1-9][0-9]*$"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
+              "default": 20
+            }
+          }
+        ]
+      }
+    },
+    "/api/message/config": {
+      "get": {
+        "operationId": "messageConfig",
+        "summary": "messageConfig",
+        "security": [
+          {
+            "accessCookie": []
+          },
+          {
+            "bearer": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功；HTTP/IM 成功不代表 TickDesk 业务执行完成",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "const": 200
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/MessageConfig"
+                    },
+                    "success": {
+                      "const": true
+                    },
+                    "timestamp": {
+                      "type": "integer",
+                      "format": "int64"
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message",
+                    "data",
+                    "success",
+                    "timestamp"
+                  ],
+                  "additionalProperties": true
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "认证/权限/参数/服务错误；不得解码为业务 ack",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "x-source": "im-foundation/rust/apps/api-server/src/modules/messaging/message/message_types.rs"
+      }
+    },
+    "/api/file/upload/image": {
+      "post": {
+        "operationId": "uploadImage",
+        "summary": "uploadImage",
+        "security": [
+          {
+            "accessCookie": []
+          },
+          {
+            "bearer": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功；HTTP/IM 成功不代表 TickDesk 业务执行完成",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "const": 200
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/Upload"
+                    },
+                    "success": {
+                      "const": true
+                    },
+                    "timestamp": {
+                      "type": "integer",
+                      "format": "int64"
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message",
+                    "data",
+                    "success",
+                    "timestamp"
+                  ],
+                  "additionalProperties": true
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "认证/权限/参数/服务错误；不得解码为业务 ack",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "x-source": "im-foundation/rust/apps/api-server/src/modules/file/handlers.rs",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                },
+                "required": [
+                  "file"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/file/download": {
+      "get": {
+        "operationId": "downloadFile",
+        "summary": "downloadFile",
+        "security": [
+          {
+            "accessCookie": []
+          },
+          {
+            "bearer": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "原始文件流",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "认证/权限/参数/服务错误；不得解码为业务 ack",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "x-source": "im-foundation/rust/apps/api-server/src/modules/file/handlers.rs",
+        "parameters": [
+          {
+            "name": "category",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "date",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "filename",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/api/file/info": {
+      "post": {
+        "operationId": "fileInfo",
+        "summary": "fileInfo",
+        "security": [
+          {
+            "accessCookie": []
+          },
+          {
+            "bearer": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功；HTTP/IM 成功不代表 TickDesk 业务执行完成",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "const": 200
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/FileInfo"
+                    },
+                    "success": {
+                      "const": true
+                    },
+                    "timestamp": {
+                      "type": "integer",
+                      "format": "int64"
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message",
+                    "data",
+                    "success",
+                    "timestamp"
+                  ],
+                  "additionalProperties": true
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "认证/权限/参数/服务错误；不得解码为业务 ack",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "x-source": "im-foundation/rust/apps/api-server/src/modules/file/handlers.rs",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Locator"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/file/delete": {
+      "delete": {
+        "operationId": "deleteFile",
+        "summary": "定位符必须放 query；仅所有者/现有授权身份可删除",
+        "security": [
+          {
+            "accessCookie": []
+          },
+          {
+            "bearer": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功；HTTP/IM 成功不代表 TickDesk 业务执行完成",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "const": 200
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "type": "boolean"
+                    },
+                    "success": {
+                      "const": true
+                    },
+                    "timestamp": {
+                      "type": "integer",
+                      "format": "int64"
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message",
+                    "data",
+                    "success",
+                    "timestamp"
+                  ],
+                  "additionalProperties": true
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "认证/权限/参数/服务错误；不得解码为业务 ack",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "x-source": "im-foundation/rust/apps/api-server/src/modules/file/handlers.rs",
+        "parameters": [
+          {
+            "name": "category",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "date",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "filename",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/websocket/{userId}": {
+      "get": {
+        "operationId": "websocket",
+        "summary": "一次性 Cookie ticket 握手；仅收云端通知，业务发送走 REST",
+        "security": [
+          {
+            "wsCookie": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[1-9][0-9]*$"
+            }
+          }
+        ],
+        "responses": {
+          "101": {
+            "description": "Switching Protocols；MESSAGE / HEARTBEAT 格式见 components"
+          },
+          "401": {
+            "description": "重新登录或重新获取一次性票据"
+          }
+        },
+        "x-source": "im-foundation/rust/apps/im-server/src/modules/realtime/web.rs"
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "message": {
+            "type": "string"
+          },
+          "success": {
+            "const": false
+          },
+          "timestamp": {
+            "type": "integer",
+            "format": "int64"
+          }
+        },
+        "required": [
+          "code",
+          "message",
+          "success",
+          "timestamp"
+        ],
+        "additionalProperties": true
+      },
+      "LoginRequest": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "tenantId": {
+            "type": "string",
+            "pattern": "^[1-9][0-9]*$"
+          },
+          "rememberMe": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "username",
+          "password",
+          "tenantId"
+        ],
+        "additionalProperties": false
+      },
+      "User": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[1-9][0-9]*$"
+          },
+          "username": {
+            "type": "string"
+          },
+          "nickname": {
+            "type": "string"
+          },
+          "avatar": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "email": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "phone": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "gender": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "birthday": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "signature": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "location": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "status": {
+            "type": "string"
+          },
+          "lastLoginTime": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "createTime": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "username",
+          "nickname",
+          "avatar",
+          "email",
+          "phone",
+          "gender",
+          "birthday",
+          "signature",
+          "location",
+          "status",
+          "lastLoginTime",
+          "createTime"
+        ],
+        "additionalProperties": true
+      },
+      "LoginData": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string"
+          },
+          "user": {
+            "$ref": "#/components/schemas/User"
+          },
+          "token": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "refreshToken": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "expiresInMs": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "format": "int64"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "refreshExpiresInMs": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "format": "int64"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "permissions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "success",
+          "message",
+          "user",
+          "token",
+          "refreshToken",
+          "expiresInMs",
+          "refreshExpiresInMs",
+          "permissions"
+        ],
+        "additionalProperties": true
+      },
+      "Me": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string",
+            "pattern": "^[1-9][0-9]*$"
+          },
+          "tenantId": {
+            "type": "string",
+            "pattern": "^[1-9][0-9]*$"
+          },
+          "username": {
+            "type": "string"
+          },
+          "roles": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "resources": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "userId",
+          "tenantId",
+          "username",
+          "roles",
+          "resources"
+        ],
+        "additionalProperties": true
+      },
+      "Refresh": {
+        "type": "object",
+        "properties": {
+          "authenticated": {
+            "type": "boolean"
+          },
+          "expiresInMs": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "format": "int64"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "refreshExpiresInMs": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "format": "int64"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "accessToken": {
+            "type": "string"
+          },
+          "refreshToken": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "authenticated",
+          "expiresInMs",
+          "refreshExpiresInMs"
+        ],
+        "additionalProperties": true
+      },
+      "WsTicket": {
+        "type": "object",
+        "properties": {
+          "ticket": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "expiresInMs": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "format": "int64"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "ticket",
+          "expiresInMs"
+        ],
+        "additionalProperties": true
+      },
+      "InternalTokenRequest": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string",
+            "pattern": "^[1-9][0-9]*$"
+          },
+          "tenantId": {
+            "type": "string",
+            "pattern": "^[1-9][0-9]*$"
+          },
+          "username": {
+            "type": "string"
+          },
+          "permissions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "rememberMe": {
+            "const": false
+          }
+        },
+        "required": [
+          "userId",
+          "tenantId",
+          "username",
+          "permissions",
+          "rememberMe"
+        ],
+        "additionalProperties": false
+      },
+      "TokenPair": {
+        "type": "object",
+        "properties": {
+          "accessToken": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "refreshToken": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "expiresInMs": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "format": "int64"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "refreshExpiresInMs": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "format": "int64"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "accessToken",
+          "refreshToken",
+          "expiresInMs",
+          "refreshExpiresInMs"
+        ],
+        "additionalProperties": true
+      },
+      "SendPrivate": {
+        "type": "object",
+        "properties": {
+          "receiverId": {
+            "type": "string",
+            "pattern": "^[1-9][0-9]*$"
+          },
+          "clientMessageId": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64
+          },
+          "messageType": {
+            "enum": [
+              "TEXT",
+              "IMAGE"
+            ]
+          },
+          "content": {
+            "type": "string",
+            "maxLength": 2000
+          },
+          "mediaUrl": {
+            "type": "string"
+          },
+          "mediaSize": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "mediaName": {
+            "type": "string"
+          },
+          "thumbnailUrl": {
+            "type": "string"
+          },
+          "replyToMessageId": {
+            "type": "string",
+            "pattern": "^[1-9][0-9]*$"
+          }
+        },
+        "required": [
+          "receiverId",
+          "clientMessageId",
+          "messageType"
+        ],
+        "additionalProperties": false,
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "messageType": {
+                  "const": "TEXT"
+                }
+              }
+            },
+            "then": {
+              "required": [
+                "content"
+              ],
+              "properties": {
+                "content": {
+                  "minLength": 1
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "messageType": {
+                  "const": "IMAGE"
+                }
+              }
+            },
+            "then": {
+              "required": [
+                "mediaUrl",
+                "mediaSize",
+                "mediaName",
+                "content"
+              ]
+            }
+          }
+        ]
+      },
+      "Message": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[1-9][0-9]*$"
+          },
+          "messageId": {
+            "type": "string",
+            "pattern": "^[1-9][0-9]*$"
+          },
+          "senderId": {
+            "type": "string",
+            "pattern": "^[1-9][0-9]*$"
+          },
+          "receiverId": {
+            "type": "string",
+            "pattern": "^[1-9][0-9]*$"
+          },
+          "clientMessageId": {
+            "type": "string"
+          },
+          "conversationSeq": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "format": "int64"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "isGroupChat": {
+            "type": "boolean"
+          },
+          "isGroup": {
+            "type": "boolean"
+          },
+          "messageType": {
+            "type": "string"
+          },
+          "content": {
+            "type": "string"
+          },
+          "mediaUrl": {
+            "type": "string"
+          },
+          "mediaSize": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "mediaName": {
+            "type": "string"
+          },
+          "thumbnailUrl": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "createdTime": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string"
+          },
+          "threadId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "messageId",
+          "senderId",
+          "conversationSeq",
+          "isGroupChat",
+          "isGroup",
+          "messageType",
+          "status",
+          "createdTime",
+          "createdAt"
+        ],
+        "additionalProperties": true
+      },
+      "Locator": {
+        "type": "object",
+        "properties": {
+          "category": {
+            "type": "string"
+          },
+          "date": {
+            "type": "string"
+          },
+          "filename": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "category",
+          "date",
+          "filename"
+        ],
+        "additionalProperties": false
+      },
+      "Upload": {
+        "type": "object",
+        "properties": {
+          "originalFilename": {
+            "type": "string"
+          },
+          "filename": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "size": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "contentType": {
+            "type": "string"
+          },
+          "category": {
+            "type": "string"
+          },
+          "uploadDate": {
+            "type": "string"
+          },
+          "uploadTime": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "uploaderId": {
+            "type": "integer",
+            "format": "int64"
+          }
+        },
+        "required": [
+          "originalFilename",
+          "filename",
+          "url",
+          "size",
+          "contentType",
+          "category",
+          "uploadDate",
+          "uploadTime",
+          "uploaderId"
+        ],
+        "additionalProperties": true
+      },
+      "FileInfo": {
+        "type": "object",
+        "properties": {
+          "filename": {
+            "type": "string"
+          },
+          "size": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "contentType": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "lastModified": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "canDelete": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "filename",
+          "size",
+          "contentType",
+          "lastModified",
+          "canDelete"
+        ],
+        "additionalProperties": true
+      },
+      "MessageConfig": {
+        "type": "object",
+        "properties": {
+          "textEnforce": {
+            "type": "boolean"
+          },
+          "textMaxLength": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "uploadLimits": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        },
+        "required": [
+          "textEnforce",
+          "textMaxLength",
+          "uploadLimits"
+        ],
+        "additionalProperties": true
+      },
+      "WsMessage": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "MESSAGE"
+          },
+          "data": {
+            "$ref": "#/components/schemas/Message"
+          },
+          "timestamp": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "tenantId": {
+            "type": "integer",
+            "format": "int64"
+          }
+        },
+        "required": [
+          "type",
+          "data",
+          "timestamp",
+          "tenantId"
+        ],
+        "additionalProperties": true
+      },
+      "WsHeartbeat": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "HEARTBEAT"
+          },
+          "content": {
+            "const": "PONG"
+          }
+        },
+        "required": [
+          "type",
+          "content"
+        ],
+        "additionalProperties": true
+      }
+    },
+    "securitySchemes": {
+      "accessCookie": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "IM_ACCESS_TOKEN"
+      },
+      "refreshCookie": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "IM_REFRESH_TOKEN"
+      },
+      "wsCookie": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "IM_WS_TICKET"
+      },
+      "bearer": {
+        "type": "http",
+        "scheme": "bearer"
+      },
+      "internalSignature": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-Internal-Signature"
+      },
+      "internalTimestamp": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-Internal-Timestamp"
+      },
+      "internalNonce": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-Internal-Nonce"
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "v": 1,
+  "kind": "reminder",
+  "dedupeKey": "task:task_demo:created",
+  "taskId": "task_demo",
+  "taskVersion": 1,
+  "remindedCount": 1,
+  "level": "critical",
+  "title": "事项待处理",
+  "summary": "请打开应用核验",
+  "validUntil": 1794794100000,
+  "jump": "task/task_demo",
+  "ts": 1794792300000,
+  "serverEpoch": "epoch_demo_a",
+  "eventId": "event_task",
+  "reminderId": "rem_demo_1",
+  "scheduledAt": 1794792300000,
+  "displayUntil": 1794792360000
+}

@@ -1,0 +1,305 @@
+{
+  "contractVersion": "1.0.0",
+  "commands": [
+    {
+      "name": "act",
+      "mode": "write",
+      "allowedDuringRecovery": false,
+      "request": "#/$defs/cmd_act",
+      "result": "#/$defs/result_act",
+      "ackTimeoutMs": 15000,
+      "completionEvent": null,
+      "onlyDuringRecovery": false
+    },
+    {
+      "name": "ignore",
+      "mode": "write",
+      "allowedDuringRecovery": false,
+      "request": "#/$defs/cmd_ignore",
+      "result": "#/$defs/result_ignore",
+      "ackTimeoutMs": 15000,
+      "completionEvent": null,
+      "onlyDuringRecovery": false
+    },
+    {
+      "name": "snooze",
+      "mode": "write",
+      "allowedDuringRecovery": false,
+      "request": "#/$defs/cmd_snooze",
+      "result": "#/$defs/result_snooze",
+      "ackTimeoutMs": 15000,
+      "completionEvent": null,
+      "onlyDuringRecovery": false
+    },
+    {
+      "name": "record_execution",
+      "mode": "write",
+      "allowedDuringRecovery": false,
+      "request": "#/$defs/cmd_record_execution",
+      "result": "#/$defs/result_record_execution",
+      "ackTimeoutMs": 15000,
+      "completionEvent": null,
+      "onlyDuringRecovery": false
+    },
+    {
+      "name": "adjust_position",
+      "mode": "write",
+      "allowedDuringRecovery": false,
+      "request": "#/$defs/cmd_adjust_position",
+      "result": "#/$defs/result_adjust_position",
+      "ackTimeoutMs": 15000,
+      "completionEvent": null,
+      "onlyDuringRecovery": false
+    },
+    {
+      "name": "set_profile",
+      "mode": "write",
+      "allowedDuringRecovery": false,
+      "request": "#/$defs/cmd_set_profile",
+      "result": "#/$defs/result_set_profile",
+      "ackTimeoutMs": 15000,
+      "completionEvent": null,
+      "onlyDuringRecovery": false
+    },
+    {
+      "name": "set_settings",
+      "mode": "write",
+      "allowedDuringRecovery": false,
+      "request": "#/$defs/cmd_set_settings",
+      "result": "#/$defs/result_set_settings",
+      "ackTimeoutMs": 15000,
+      "completionEvent": null,
+      "onlyDuringRecovery": false
+    },
+    {
+      "name": "pause",
+      "mode": "write",
+      "allowedDuringRecovery": false,
+      "request": "#/$defs/cmd_pause",
+      "result": "#/$defs/result_pause",
+      "ackTimeoutMs": 15000,
+      "completionEvent": null,
+      "onlyDuringRecovery": false
+    },
+    {
+      "name": "resume",
+      "mode": "write",
+      "allowedDuringRecovery": false,
+      "request": "#/$defs/cmd_resume",
+      "result": "#/$defs/result_resume",
+      "ackTimeoutMs": 15000,
+      "completionEvent": null,
+      "onlyDuringRecovery": false
+    },
+    {
+      "name": "scan_now",
+      "mode": "write",
+      "allowedDuringRecovery": false,
+      "request": "#/$defs/cmd_scan_now",
+      "result": "#/$defs/result_scan_now",
+      "ackTimeoutMs": 20000,
+      "completionEvent": null,
+      "onlyDuringRecovery": false
+    },
+    {
+      "name": "watch",
+      "mode": "write",
+      "allowedDuringRecovery": false,
+      "request": "#/$defs/cmd_watch",
+      "result": "#/$defs/result_watch",
+      "ackTimeoutMs": 15000,
+      "completionEvent": null,
+      "onlyDuringRecovery": false
+    },
+    {
+      "name": "unwatch",
+      "mode": "write",
+      "allowedDuringRecovery": false,
+      "request": "#/$defs/cmd_unwatch",
+      "result": "#/$defs/result_unwatch",
+      "ackTimeoutMs": 15000,
+      "completionEvent": null,
+      "onlyDuringRecovery": false
+    },
+    {
+      "name": "sync",
+      "mode": "read",
+      "allowedDuringRecovery": true,
+      "request": "#/$defs/cmd_sync",
+      "result": "#/$defs/result_sync",
+      "ackTimeoutMs": 15000,
+      "completionEvent": "state_snapshot",
+      "onlyDuringRecovery": false
+    },
+    {
+      "name": "get_task",
+      "mode": "read",
+      "allowedDuringRecovery": true,
+      "request": "#/$defs/cmd_get_task",
+      "result": "#/$defs/result_get_task",
+      "ackTimeoutMs": 15000,
+      "completionEvent": null,
+      "onlyDuringRecovery": false
+    },
+    {
+      "name": "get_status",
+      "mode": "read",
+      "allowedDuringRecovery": true,
+      "request": "#/$defs/cmd_get_status",
+      "result": "#/$defs/result_get_status",
+      "ackTimeoutMs": 15000,
+      "completionEvent": null,
+      "onlyDuringRecovery": false
+    },
+    {
+      "name": "chat",
+      "mode": "write",
+      "allowedDuringRecovery": false,
+      "request": "#/$defs/cmd_chat",
+      "result": "#/$defs/result_chat",
+      "ackTimeoutMs": 15000,
+      "completionEvent": "reply",
+      "onlyDuringRecovery": false
+    },
+    {
+      "name": "register_push",
+      "mode": "write",
+      "allowedDuringRecovery": false,
+      "request": "#/$defs/cmd_register_push",
+      "result": "#/$defs/result_register_push",
+      "ackTimeoutMs": 15000,
+      "completionEvent": null,
+      "onlyDuringRecovery": false
+    },
+    {
+      "name": "accept_vision_notice",
+      "mode": "write",
+      "allowedDuringRecovery": false,
+      "request": "#/$defs/cmd_accept_vision_notice",
+      "result": "#/$defs/result_accept_vision_notice",
+      "ackTimeoutMs": 15000,
+      "completionEvent": null,
+      "onlyDuringRecovery": false
+    },
+    {
+      "name": "register_image",
+      "mode": "write",
+      "allowedDuringRecovery": false,
+      "request": "#/$defs/cmd_register_image",
+      "result": "#/$defs/result_register_image",
+      "ackTimeoutMs": 15000,
+      "completionEvent": "import_result",
+      "onlyDuringRecovery": false
+    },
+    {
+      "name": "apply_import",
+      "mode": "write",
+      "allowedDuringRecovery": false,
+      "request": "#/$defs/cmd_apply_import",
+      "result": "#/$defs/result_apply_import",
+      "ackTimeoutMs": 15000,
+      "completionEvent": null,
+      "onlyDuringRecovery": false
+    },
+    {
+      "name": "get_candidates",
+      "mode": "read",
+      "allowedDuringRecovery": false,
+      "request": "#/$defs/cmd_get_candidates",
+      "result": "#/$defs/result_get_candidates",
+      "ackTimeoutMs": 15000,
+      "completionEvent": null,
+      "onlyDuringRecovery": false
+    },
+    {
+      "name": "search_symbols",
+      "mode": "read",
+      "allowedDuringRecovery": false,
+      "request": "#/$defs/cmd_search_symbols",
+      "result": "#/$defs/result_search_symbols",
+      "ackTimeoutMs": 15000,
+      "completionEvent": null,
+      "onlyDuringRecovery": false
+    },
+    {
+      "name": "get_chart",
+      "mode": "read",
+      "allowedDuringRecovery": false,
+      "request": "#/$defs/cmd_get_chart",
+      "result": "#/$defs/result_get_chart",
+      "ackTimeoutMs": 15000,
+      "completionEvent": null,
+      "onlyDuringRecovery": false
+    },
+    {
+      "name": "get_logs",
+      "mode": "read",
+      "allowedDuringRecovery": true,
+      "request": "#/$defs/cmd_get_logs",
+      "result": "#/$defs/result_get_logs",
+      "ackTimeoutMs": 15000,
+      "completionEvent": null,
+      "onlyDuringRecovery": false
+    },
+    {
+      "name": "get_recovery",
+      "mode": "read",
+      "allowedDuringRecovery": true,
+      "request": "#/$defs/cmd_get_recovery",
+      "result": "#/$defs/result_get_recovery",
+      "ackTimeoutMs": 15000,
+      "completionEvent": null,
+      "onlyDuringRecovery": false
+    },
+    {
+      "name": "recovery_evidence",
+      "mode": "write",
+      "allowedDuringRecovery": true,
+      "request": "#/$defs/cmd_recovery_evidence",
+      "result": "#/$defs/result_recovery_evidence",
+      "ackTimeoutMs": 15000,
+      "completionEvent": null,
+      "onlyDuringRecovery": true
+    },
+    {
+      "name": "recovery_seal_evidence",
+      "mode": "write",
+      "allowedDuringRecovery": true,
+      "request": "#/$defs/cmd_recovery_seal_evidence",
+      "result": "#/$defs/result_recovery_seal_evidence",
+      "ackTimeoutMs": 15000,
+      "completionEvent": null,
+      "onlyDuringRecovery": true
+    },
+    {
+      "name": "recovery_reconcile",
+      "mode": "write",
+      "allowedDuringRecovery": true,
+      "request": "#/$defs/cmd_recovery_reconcile",
+      "result": "#/$defs/result_recovery_reconcile",
+      "ackTimeoutMs": 15000,
+      "completionEvent": null,
+      "onlyDuringRecovery": true
+    },
+    {
+      "name": "recovery_confirm",
+      "mode": "write",
+      "allowedDuringRecovery": true,
+      "request": "#/$defs/cmd_recovery_confirm",
+      "result": "#/$defs/result_recovery_confirm",
+      "ackTimeoutMs": 15000,
+      "completionEvent": null,
+      "onlyDuringRecovery": true
+    },
+    {
+      "name": "get_task_actions",
+      "mode": "read",
+      "allowedDuringRecovery": true,
+      "onlyDuringRecovery": false,
+      "request": "#/$defs/cmd_get_task_actions",
+      "result": "#/$defs/result_get_task_actions",
+      "ackTimeoutMs": 15000,
+      "completionEvent": null
+    }
+  ]
+}

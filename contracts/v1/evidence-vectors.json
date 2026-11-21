@@ -1,0 +1,189 @@
+{
+  "note": "解码后schema由sourceType选择；command/ack是完整原信封，缓存快照是显式包装",
+  "records": [
+    {
+      "name": "command",
+      "sourceType": "command",
+      "payload": {
+        "v": 1,
+        "kind": "command",
+        "id": "event_record_execution",
+        "dedupeKey": "command:client_record_execution",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "data": {
+          "cmd": "record_execution",
+          "clientMsgId": "client_record_execution",
+          "serverEpoch": "epoch_demo_a",
+          "symbol": "300502.SZ",
+          "side": "buy",
+          "price": "10.00",
+          "qty": 100,
+          "executedAt": 1794792300000
+        }
+      },
+      "payloadHash": "27c18cb04b7a27bd78b5f162da55e38c88068547ecf1700a9b371fdee032d64d",
+      "parts": [
+        "eyJkYXRhIjp7ImNsaWVudE1zZ0lkIjoiY2xpZW50X3JlY29yZF9leGVjdXRpb24iLCJjbWQiOiJyZWNvcmRfZXhlY3V0aW9uIiwiZXhlY3V0ZWRBdCI6MTc5NDc5MjMwMDAwMCwicHJpY2UiOiIxMC4wMCIsInF0eSI6MTAwLCJzZXJ2ZXJFcG9jaCI6ImVwb2NoX2RlbW9fYSIsInNpZGUiOiJidXkiLCJzeW1ib2wiOiIzMDA1MDIuU1oifSwiZGVkdXBlS2V5IjoiY29tbWFuZDpjbGllbnRfcmVjb3JkX2V4ZWN1dGlvbiIsImlkIjoiZXZlbnRfcmVjb3JkX2V4ZWN1dGlvbiIsImtpbmQiOiJjb21tYW5kIiwic2VydmVyRXBvY2giOiJlcG9jaF9kZW1vX2EiLCJ0cyI6MTc5NDc5MjMwMDAwMCwidiI6MX0="
+      ]
+    },
+    {
+      "name": "ack",
+      "sourceType": "ack",
+      "payload": {
+        "v": 1,
+        "kind": "ack",
+        "id": "ack_record_execution",
+        "dedupeKey": "ack:client_record_execution",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "snapshotSeq": 42,
+        "data": {
+          "refId": "event_record_execution",
+          "clientMsgId": "client_record_execution",
+          "cmd": "record_execution",
+          "ok": true,
+          "result": {
+            "execution": {
+              "executionId": "execution_demo",
+              "taskId": "task_demo",
+              "symbol": "300502.SZ",
+              "side": "buy",
+              "price": "10.00",
+              "qty": 100,
+              "executedAt": 1794792300000,
+              "channel": null,
+              "priceBasis": "unknown",
+              "orderId": null,
+              "orderQty": null,
+              "positionEffect": "applied",
+              "reconciliationRequired": false,
+              "ruleStatus": "unverified",
+              "ruleSnapshotId": null,
+              "sellableDate": "2026-11-17",
+              "realizedPnl": null,
+              "warnings": [],
+              "supersedesExecutionId": null,
+              "createdAt": 1794792300000,
+              "note": "示例",
+              "tradeDate": "2026-11-16",
+              "settlement": "T+1",
+              "settlementSource": "user",
+              "verificationScope": "recorded_execution_only",
+              "ruleSnapshot": null
+            },
+            "position": {
+              "symbol": "300502.SZ",
+              "name": "示例标的",
+              "qty": 100,
+              "availableQty": 100,
+              "cost": "10.00",
+              "pendingLots": [],
+              "asOf": 1794792300000,
+              "positionRevision": 1,
+              "reconciliationRequired": false,
+              "lastPrice": "12.00",
+              "priceAsOf": 1794792300000,
+              "priceStatus": "fresh",
+              "marketValue": "1200.00",
+              "unrealizedPnl": "200.00",
+              "unrealizedPnlRatio": "0.2"
+            },
+            "snapshotSeq": 42
+          },
+          "error": null,
+          "requestHash": "fca28ee1af1e1724fa2c3acbce7348e88137551acf46fb22cdaca132bb1d066b"
+        }
+      },
+      "payloadHash": "4f714b7b4a8a1d3f0c597fcdc574ca12bf28ed17ed645cb3c1beefe15e98e75e",
+      "parts": [
+        "eyJkYXRhIjp7ImNsaWVudE1zZ0lkIjoiY2xpZW50X3JlY29yZF9leGVjdXRpb24iLCJjbWQiOiJyZWNvcmRfZXhlY3V0aW9uIiwiZXJyb3IiOm51bGwsIm9rIjp0cnVlLCJyZWZJZCI6ImV2ZW50X3JlY29yZF9leGVjdXRpb24iLCJyZXF1ZXN0SGFzaCI6ImZjYTI4ZWUxYWYxZTE3MjRmYTJjM2FjYmNlNzM0OGU4ODEzNzU1MWFjZjQ2ZmIyMmNkYWNhMTMyYmIxZDA2NmIiLCJyZXN1bHQiOnsiZXhlY3V0aW9uIjp7ImNoYW5uZWwiOm51bGwsImNyZWF0ZWRBdCI6MTc5NDc5MjMwMDAwMCwiZXhlY3V0ZWRBdCI6MTc5NDc5MjMwMDAwMCwiZXhlY3V0aW9uSWQiOiJleGVjdXRpb25fZGVtbyIsIm5vdGUiOiLnpLrkvosiLCJvcmRlcklkIjpudWxsLCJvcmRlclF0eSI6bnVsbCwicG9zaXRpb25FZmZlY3QiOiJhcHBsaWVkIiwicHJpY2UiOiIxMC4wMCIsInByaWNlQmFzaXMiOiJ1bmtub3duIiwicXR5IjoxMDAsInJlYWxpemVkUG5sIjpudWxsLCJyZWNvbmNpbGlhdGlvblJlcXVpcmVkIjpmYWxzZSwicnVsZVNuYXBzaG90IjpudWxsLCJydWxlU25hcHNob3RJZCI6bnVsbCwicnVsZVN0YXR1cyI6InVudmVyaWZpZWQiLCJzZWxsYWJsZURhdGUiOiIyMDI2LTExLTE3Iiwic2V0dGxlbWVudCI6IlQrMSIsInNldHRsZW1lbnRTb3VyY2UiOiJ1c2VyIiwic2lkZSI6ImJ1eSIsInN1cGVyc2VkZXNFeGVjdXRpb25JZCI6bnVsbCwic3ltYm9sIjoiMzAwNTAyLlNaIiwidGFza0lkIjoidGFza19kZW1vIiwidHJhZGVEYXRlIjoiMjAyNi0xMS0xNiIsInZlcmlmaWNhdGlvblNjb3BlIjoicmVjb3JkZWRfZXhlY3V0aW9uX29ubHkiLCJ3YXJuaW5ncyI6W119LCJwb3NpdGlvbiI6eyJhc09mIjoxNzk0NzkyMzAwMDAwLCJhdmFpbGFibGVRdHkiOjEwMCwiY29zdCI6IjEwLjAwIiwibGFzdFByaWNlIjoiMTIuMDAiLCJtYXJrZXRWYWx1ZSI6IjEyMDAuMDAiLCJuYW1lIjoi56S65L6L5qCH55qEIiwicGVuZGluZ0xvdHMiOltdLCJwb3NpdGlvblJldmlzaW9uIjoxLCJwcmljZUFzT2YiOjE3OTQ3OTIzMDAwMDAsInByaWNlU3RhdHVzIjoiZnJlc2giLCJxdHkiOjEwMCwicmVjb25jaWxpYXRpb25SZXF1aXJlZCI6ZmFsc2UsInN5bWJvbCI6IjMwMDUwMi5TWiIsInVucmVhbGl6ZWRQbmwiOiIyMDAuMDAiLCJ1bnJlYWxpemVkUG5sUmF0aW8iOiIwLjIifSwic25hcHNob3RTZXEiOjQyfX0sImRlZHVwZUtleSI6ImFjazpjbGllbnRfcmVjb3JkX2V4ZWN1dGlvbiIsImlkIjoiYWNrX3JlY29yZF9leGVjdXRpb24iLCJraW5kIjoiYWNrIiwic2VydmVyRXBvY2giOiJlcG9jaF9kZW1vX2EiLCJzbmFwc2hvdFNlcSI6NDIsInRzIjoxNzk0NzkyMzAwMDAwLCJ2IjoxfQ=="
+      ]
+    },
+    {
+      "name": "task_snapshot",
+      "sourceType": "task_snapshot",
+      "payload": {
+        "serverEpoch": "epoch_demo_a",
+        "snapshotSeq": 42,
+        "capturedAt": 1794792300000,
+        "record": {
+          "taskId": "task_demo",
+          "scanId": "scan_demo",
+          "sourceEventKey": "sourceEventKey_demo",
+          "riskEventKey": null,
+          "eventRevision": null,
+          "symbol": "300502.SZ",
+          "name": "示例标的",
+          "direction": "buy",
+          "level": "critical",
+          "status": "pending",
+          "version": 1,
+          "actionVersion": 1,
+          "score": "86.5",
+          "confidence": "high",
+          "degraded": false,
+          "dataAsOf": 1794792300000,
+          "strategies": [],
+          "reasons": {
+            "quant": "示例量化信号",
+            "ai": null,
+            "verificationStatus": "unverified",
+            "sources": [],
+            "riskEvidence": [],
+            "risks": []
+          },
+          "stopPrice": null,
+          "targetPrice": null,
+          "entryZone": null,
+          "createdAt": 1794792300000,
+          "validUntil": 1794794100000,
+          "snoozeUntil": null,
+          "nextReminderAt": 1794792600000,
+          "remindedCount": 1,
+          "lastRemindedAt": 1794792300000,
+          "levelReason": "示例",
+          "currentReminder": {
+            "reminderId": "rem_demo_1",
+            "scheduledAt": 1794792300000,
+            "displayUntil": 1794792360000
+          }
+        }
+      },
+      "payloadHash": "7c72f95c473a61a7dbf377e0bb226a74c62614be14621acb556fd1f636d1e1d8",
+      "parts": [
+        "eyJjYXB0dXJlZEF0IjoxNzk0NzkyMzAwMDAwLCJyZWNvcmQiOnsiYWN0aW9uVmVyc2lvbiI6MSwiY29uZmlkZW5jZSI6ImhpZ2giLCJjcmVhdGVkQXQiOjE3OTQ3OTIzMDAwMDAsImN1cnJlbnRSZW1pbmRlciI6eyJkaXNwbGF5VW50aWwiOjE3OTQ3OTIzNjAwMDAsInJlbWluZGVySWQiOiJyZW1fZGVtb18xIiwic2NoZWR1bGVkQXQiOjE3OTQ3OTIzMDAwMDB9LCJkYXRhQXNPZiI6MTc5NDc5MjMwMDAwMCwiZGVncmFkZWQiOmZhbHNlLCJkaXJlY3Rpb24iOiJidXkiLCJlbnRyeVpvbmUiOm51bGwsImV2ZW50UmV2aXNpb24iOm51bGwsImxhc3RSZW1pbmRlZEF0IjoxNzk0NzkyMzAwMDAwLCJsZXZlbCI6ImNyaXRpY2FsIiwibGV2ZWxSZWFzb24iOiLnpLrkvosiLCJuYW1lIjoi56S65L6L5qCH55qEIiwibmV4dFJlbWluZGVyQXQiOjE3OTQ3OTI2MDAwMDAsInJlYXNvbnMiOnsiYWkiOm51bGwsInF1YW50Ijoi56S65L6L6YeP5YyW5L+h5Y+3Iiwicmlza0V2aWRlbmNlIjpbXSwicmlza3MiOltdLCJzb3VyY2VzIjpbXSwidmVyaWZpY2F0aW9uU3RhdHVzIjoidW52ZXJpZmllZCJ9LCJyZW1pbmRlZENvdW50IjoxLCJyaXNrRXZlbnRLZXkiOm51bGwsInNjYW5JZCI6InNjYW5fZGVtbyIsInNjb3JlIjoiODYuNSIsInNub296ZVVudGlsIjpudWxsLCJzb3VyY2VFdmVudEtleSI6InNvdXJjZUV2ZW50S2V5X2RlbW8iLCJzdGF0dXMiOiJwZW5kaW5nIiwic3RvcFByaWNlIjpudWxsLCJzdHJhdGVnaWVzIjpbXSwic3ltYm9sIjoiMzAwNTAyLlNaIiwidGFyZ2V0UHJpY2UiOm51bGwsInRhc2tJZCI6InRhc2tfZGVtbyIsInZhbGlkVW50aWwiOjE3OTQ3OTQxMDAwMDAsInZlcnNpb24iOjF9LCJzZXJ2ZXJFcG9jaCI6ImVwb2NoX2RlbW9fYSIsInNuYXBzaG90U2VxIjo0Mn0="
+      ]
+    },
+    {
+      "name": "position_snapshot",
+      "sourceType": "position_snapshot",
+      "payload": {
+        "serverEpoch": "epoch_demo_a",
+        "snapshotSeq": 42,
+        "capturedAt": 1794792300000,
+        "record": {
+          "symbol": "300502.SZ",
+          "name": "示例标的",
+          "qty": 100,
+          "availableQty": 100,
+          "cost": "10.00",
+          "pendingLots": [],
+          "asOf": 1794792300000,
+          "positionRevision": 1,
+          "reconciliationRequired": false,
+          "lastPrice": "12.00",
+          "priceAsOf": 1794792300000,
+          "priceStatus": "fresh",
+          "marketValue": "1200.00",
+          "unrealizedPnl": "200.00",
+          "unrealizedPnlRatio": "0.2"
+        }
+      },
+      "payloadHash": "c9535952eba6ff8b86fde18b8d61bc1508d542a5869224e21a7ba8f2ea0674a0",
+      "parts": [
+        "eyJjYXB0dXJlZEF0IjoxNzk0NzkyMzAwMDAwLCJyZWNvcmQiOnsiYXNPZiI6MTc5NDc5MjMwMDAwMCwiYXZhaWxhYmxlUXR5IjoxMDAsImNvc3QiOiIxMC4wMCIsImxhc3RQcmljZSI6IjEyLjAwIiwibWFya2V0VmFsdWUiOiIxMjAwLjAwIiwibmFtZSI6IuekuuS+i+agh+eahCIsInBlbmRpbmdMb3RzIjpbXSwicG9zaXRpb25SZXZpc2lvbiI6MSwicHJpY2VBc09mIjoxNzk0NzkyMzAwMDAwLCJwcmljZVN0YXR1cyI6ImZyZXNoIiwicXR5IjoxMDAsInJlY29uY2lsaWF0aW9uUmVxdWlyZWQiOmZhbHNlLCJzeW1ib2wiOiIzMDA1MDIuU1oiLCJ1bnJlYWxpemVkUG5sIjoiMjAwLjAwIiwidW5yZWFsaXplZFBubFJhdGlvIjoiMC4yIn0sInNlcnZlckVwb2NoIjoiZXBvY2hfZGVtb19hIiwic25hcHNob3RTZXEiOjQyfQ=="
+      ]
+    }
+  ]
+}

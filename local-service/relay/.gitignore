@@ -1,0 +1,8 @@
+/target/
+/data/
+/logs/
+.env
+*.pem
+*.key
+*.log
+/config/roles.toml

@@ -1,0 +1,84 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "TickDesk minimal relay (planned)",
+    "version": "2.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://127.0.0.1:8443"
+    }
+  ],
+  "paths": {
+    "/health/live": {
+      "get": {
+        "operationId": "live",
+        "responses": {
+          "200": {
+            "description": "healthy"
+          },
+          "503": {
+            "description": "not ready"
+          }
+        }
+      }
+    },
+    "/health/ready": {
+      "get": {
+        "operationId": "ready",
+        "responses": {
+          "200": {
+            "description": "healthy"
+          },
+          "503": {
+            "description": "not ready"
+          }
+        }
+      }
+    },
+    "/relay/v2/connect": {
+      "get": {
+        "operationId": "connect",
+        "security": [
+          {
+            "RoleToken": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Sec-WebSocket-Protocol",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "enum": [
+                "tickdesk.v2"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "101": {
+            "description": "Switching protocols; relay.schema.json defines WS messages"
+          },
+          "401": {
+            "description": "Invalid role token"
+          },
+          "426": {
+            "description": "Unsupported subprotocol"
+          },
+          "429": {
+            "description": "Retry later"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "RoleToken": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    }
+  }
+}

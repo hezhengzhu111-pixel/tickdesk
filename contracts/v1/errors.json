@@ -1,0 +1,275 @@
+{
+  "contractVersion": "1.0.0",
+  "errors": [
+    {
+      "code": "INVALID_PARAMS",
+      "meaning": "参数/schema/命令不合法；details.fields 指出字段，不产生业务写入",
+      "automaticBusinessRetry": false
+    },
+    {
+      "code": "UNKNOWN_COMMAND",
+      "meaning": "参数/schema/命令不合法；details.fields 指出字段，不产生业务写入",
+      "automaticBusinessRetry": false
+    },
+    {
+      "code": "COMMAND_ID_REUSED",
+      "meaning": "clientMsgId 已用于不同 payload；保留原命令，不执行本次请求",
+      "automaticBusinessRetry": false
+    },
+    {
+      "code": "TASK_NOT_FOUND",
+      "meaning": "无对应事项，不返回空白成功task",
+      "automaticBusinessRetry": false
+    },
+    {
+      "code": "IMPORT_NOT_FOUND",
+      "meaning": "指定对象不存在；不得自动创建猜测对象",
+      "automaticBusinessRetry": false
+    },
+    {
+      "code": "TASK_VERSION_CONFLICT",
+      "meaning": "baseActionVersion 与壳 actionVersion 不一致（自动提醒不改变 actionVersion）；返回当前事项，App 不得自动覆盖",
+      "automaticBusinessRetry": false
+    },
+    {
+      "code": "TASK_TERMINAL",
+      "meaning": "已 acted/ignored，或已 expired/到期的非法操作；返回当前事项",
+      "automaticBusinessRetry": false
+    },
+    {
+      "code": "TASK_EXPIRED",
+      "meaning": "已 acted/ignored，或已 expired/到期的非法操作；返回当前事项",
+      "automaticBusinessRetry": false
+    },
+    {
+      "code": "TASK_STATE_CONFLICT",
+      "meaning": "其他非法状态迁移，如对不适用的事项执行该命令",
+      "automaticBusinessRetry": false
+    },
+    {
+      "code": "IMPORT_VERSION_CONFLICT",
+      "meaning": "importVersion 或 diffHash 不匹配，必须重新预览",
+      "automaticBusinessRetry": false
+    },
+    {
+      "code": "IMPORT_DIFF_MISMATCH",
+      "meaning": "importVersion 或 diffHash 不匹配，必须重新预览",
+      "automaticBusinessRetry": false
+    },
+    {
+      "code": "IMPORT_DIFF_STALE",
+      "meaning": "basePositionRevision 已落后，持仓未写入，必须重新生成差异",
+      "automaticBusinessRetry": false
+    },
+    {
+      "code": "IMPORT_REMOVALS_UNCONFIRMED",
+      "meaning": "missing 中存在 action=delete 但未明确 confirmRemovals=true，整批不提交",
+      "automaticBusinessRetry": false
+    },
+    {
+      "code": "IMPORT_ASOF_REQUIRED",
+      "meaning": "缺截图业务时点或早于已应用台账；保持 recognized，不覆盖现仓",
+      "automaticBusinessRetry": false
+    },
+    {
+      "code": "IMPORT_ASOF_STALE",
+      "meaning": "缺截图业务时点或早于已应用台账；保持 recognized，不覆盖现仓",
+      "automaticBusinessRetry": false
+    },
+    {
+      "code": "IMPORT_EMPTY_SNAPSHOT",
+      "meaning": "空识别且已有持仓；不得通过导入清空，保留原持仓并允许重拍/手工录入",
+      "automaticBusinessRetry": false
+    },
+    {
+      "code": "IMPORT_STATE_CONFLICT",
+      "meaning": "pending/终态导入不允许该阶段，或终态后试图改内容",
+      "automaticBusinessRetry": false
+    },
+    {
+      "code": "VISION_CONSENT_REQUIRED",
+      "meaning": "尚未同意当前 noticeVersion，不调用 DeepSeek 视觉 API",
+      "automaticBusinessRetry": false
+    },
+    {
+      "code": "IMAGE_CLEANUP_FAILED",
+      "meaning": "IM/tickdesk 临时副本未完全删除；状态和审计可见、可重试，不虚报成功",
+      "automaticBusinessRetry": false
+    },
+    {
+      "code": "INVALID_SYMBOL",
+      "meaning": "symbols 含无法规范化的代码；details.invalidSymbols 全量列出",
+      "automaticBusinessRetry": false
+    },
+    {
+      "code": "UNSUPPORTED_MARKET",
+      "meaning": "北交所默认过滤；科创板、大宗、融资融券、ETF 申赎等 v1 未接入市场/品种/渠道明确不支持；ok=false，不写 execution，不得显示合规通过",
+      "automaticBusinessRetry": false
+    },
+    {
+      "code": "RULE_DATA_MISSING",
+      "meaning": "当日快照/必需字段或 channel 等核验上下文缺失；已确认支持范围时作为 warnings 保存实际成交并降级，无法确认支持范围时 ok=false 且不写 execution",
+      "automaticBusinessRetry": false
+    },
+    {
+      "code": "RULE_DATA_CONFLICT",
+      "meaning": "规则来源冲突，或用户确认与明确官方快照冲突；支持范围内实际成交保留并标 conflict，不回退猜测；若冲突导致无法确认支持范围则不按支持范围保存",
+      "automaticBusinessRetry": false
+    },
+    {
+      "code": "ORDER_RULE_UNVERIFIED",
+      "meaning": "orderId/orderQty 任一缺失，原委托规则未核验；实际成交可保存并作为 warnings 返回，不得声称原委托或完整规则已核验",
+      "automaticBusinessRetry": false
+    },
+    {
+      "code": "INVALID_ORDER_QTY",
+      "meaning": "orderQty 未通过数量单位、单笔申报上限或零股不得拆分等原委托规则；作为 warnings 返回并标对应规则 failed，不把该结论套用到实际 qty",
+      "automaticBusinessRetry": false
+    },
+    {
+      "code": "INVALID_SELLABLE_QTY",
+      "meaning": "按已记录持仓和成交计算的卖出数量/日期不可卖；真实卖出成交仍保存并作为 warnings 返回，只表示已记录范围异常，不代表券商全账户结论",
+      "automaticBusinessRetry": false
+    },
+    {
+      "code": "POSITION_VERSION_CONFLICT",
+      "meaning": "持仓/设置基线已变化；返回当前版本，命令不写入",
+      "automaticBusinessRetry": false
+    },
+    {
+      "code": "SETTINGS_VERSION_CONFLICT",
+      "meaning": "持仓/设置基线已变化；返回当前版本，命令不写入",
+      "automaticBusinessRetry": false
+    },
+    {
+      "code": "POSSIBLE_DUPLICATE",
+      "meaning": "疑似同一实际成交，先返回需人工确认，不自动再记账或合并",
+      "automaticBusinessRetry": false
+    },
+    {
+      "code": "SNOOZE_NOT_APPLICABLE",
+      "meaning": "无待完成提醒或超过 60 分钟总有效期上限；不变更",
+      "automaticBusinessRetry": false
+    },
+    {
+      "code": "SNOOZE_LIMIT",
+      "meaning": "无待完成提醒或超过 60 分钟总有效期上限；不变更",
+      "automaticBusinessRetry": false
+    },
+    {
+      "code": "SERVER_EPOCH_MISMATCH",
+      "meaning": "跨恢复纪元或仍在恢复门禁；不执行旧命令，返回当前 epoch 和只读对账入口",
+      "automaticBusinessRetry": false
+    },
+    {
+      "code": "RECOVERY_REQUIRED",
+      "meaning": "跨恢复纪元或仍在恢复门禁；不执行旧命令，返回当前 epoch 和只读对账入口",
+      "automaticBusinessRetry": false
+    },
+    {
+      "code": "RECOVERY_EVIDENCE_INCOMPLETE",
+      "meaning": "证据未齐片、校验未通过、未封存或清单不匹配；或恢复版本已变化；保持门禁并返回当前版本及待处理摘要",
+      "automaticBusinessRetry": false
+    },
+    {
+      "code": "RECOVERY_VERSION_CONFLICT",
+      "meaning": "证据未齐片、校验未通过、未封存或清单不匹配；或恢复版本已变化；保持门禁并返回当前版本及待处理摘要",
+      "automaticBusinessRetry": false
+    },
+    {
+      "code": "MESSAGE_TOO_LARGE",
+      "meaning": "超过有界消息大小、分片校验失败或分页快照过期；不应用部分内容",
+      "automaticBusinessRetry": false
+    },
+    {
+      "code": "CHUNK_INVALID",
+      "meaning": "超过有界消息大小、分片校验失败或分页快照过期；不应用部分内容",
+      "automaticBusinessRetry": false
+    },
+    {
+      "code": "SNAPSHOT_EXPIRED",
+      "meaning": "超过有界消息大小、分片校验失败或分页快照过期；不应用部分内容",
+      "automaticBusinessRetry": false
+    },
+    {
+      "code": "SCAN_OUTSIDE_WINDOW",
+      "meaning": "非扫描时段或已暂停；不扫描、不补发历史信号",
+      "automaticBusinessRetry": false
+    },
+    {
+      "code": "SCAN_PAUSED",
+      "meaning": "非扫描时段或已暂停；不扫描、不补发历史信号",
+      "automaticBusinessRetry": false
+    },
+    {
+      "code": "SCAN_IN_PROGRESS",
+      "meaning": "已有扫描运行；返回活动 scanId，不启动并发扫描",
+      "automaticBusinessRetry": false
+    },
+    {
+      "code": "SCAN_DATA_STALE",
+      "meaning": "行情过期或新鲜度未知；status=failed、publishedTaskIds=[]，不得伪装成功",
+      "automaticBusinessRetry": false
+    },
+    {
+      "code": "SCAN_PARTIAL",
+      "meaning": "部分策略失败；ok=false、status=partial，列出失败策略及实际发布结果",
+      "automaticBusinessRetry": false
+    },
+    {
+      "code": "SCAN_DEADLINE_EXCEEDED",
+      "meaning": "计算本身超过触发后 8 秒，轮次失败、不补发迟到结果；单列超时样本",
+      "automaticBusinessRetry": false
+    },
+    {
+      "code": "SCAN_FAILED",
+      "meaning": "扫描无可用结果，或运行被壳重启/备份恢复中断；未发布的结果不得补发",
+      "automaticBusinessRetry": false
+    },
+    {
+      "code": "SCAN_INTERRUPTED",
+      "meaning": "扫描无可用结果，或运行被壳重启/备份恢复中断；未发布的结果不得补发",
+      "automaticBusinessRetry": false
+    },
+    {
+      "code": "INTERNAL_ERROR",
+      "meaning": "未分类内部失败；details 提供可追踪 scanId/importId（如有），不得返回假成功",
+      "automaticBusinessRetry": false
+    },
+    {
+      "code": "SCAN_NOT_FOUND",
+      "meaning": "指定scanId不存在",
+      "automaticBusinessRetry": false
+    },
+    {
+      "code": "RECOVERY_NOT_ACTIVE",
+      "meaning": "未处于恢复模式",
+      "automaticBusinessRetry": false
+    },
+    {
+      "code": "PROTOCOL_UNSUPPORTED",
+      "meaning": "不支持的主版本/命令能力",
+      "automaticBusinessRetry": false
+    },
+    {
+      "code": "DATA_UNAVAILABLE",
+      "meaning": "读取数据源不可用；无伪造结果",
+      "automaticBusinessRetry": false
+    },
+    {
+      "code": "RECOVERY_EXECUTION_ID_CONFLICT",
+      "meaning": "恢复补录newExecutionId已被另一记录占用",
+      "automaticBusinessRetry": false
+    },
+    {
+      "code": "IMPORT_ROWS_UNRESOLVED",
+      "meaning": "原识别行既未修正纳入也未显式排除",
+      "automaticBusinessRetry": false
+    },
+    {
+      "code": "IMPORT_PREVIEW_NOT_READY",
+      "meaning": "识别字段/业务时点未修正完成，不可确认",
+      "automaticBusinessRetry": false
+    }
+  ]
+}

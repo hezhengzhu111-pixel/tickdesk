@@ -1,0 +1,10 @@
+target
+data
+logs
+.git
+.env
+**/*.pem
+**/*.key
+*.log
+config/*
+!config/tls.example.toml

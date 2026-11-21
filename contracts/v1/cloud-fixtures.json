@@ -1,0 +1,101 @@
+{
+  "note": "模拟原始云端DTO；实际HTTP响应还需包ApiResponse，WS直接使用WsMessage",
+  "cases": [
+    {
+      "name": "send_text",
+      "schema": "SendPrivate",
+      "payload": {
+        "receiverId": "102",
+        "clientMessageId": "event_get_task",
+        "messageType": "TEXT",
+        "content": "{\"v\":1,\"kind\":\"command\",\"id\":\"event_get_task\",\"dedupeKey\":\"command:client_get_task\",\"ts\":1794792300000,\"serverEpoch\":\"epoch_demo_a\",\"data\":{\"cmd\":\"get_task\",\"clientMsgId\":\"client_get_task\",\"serverEpoch\":\"epoch_demo_a\",\"taskId\":\"taskId_demo\"}}"
+      }
+    },
+    {
+      "name": "persisted_message",
+      "schema": "Message",
+      "payload": {
+        "id": "9007199254741001",
+        "messageId": "9007199254741001",
+        "clientMessageId": "event_get_task",
+        "senderId": "101",
+        "receiverId": "102",
+        "conversationSeq": null,
+        "isGroupChat": false,
+        "isGroup": false,
+        "messageType": "TEXT",
+        "content": "{\"v\":1,\"kind\":\"command\",\"id\":\"event_get_task\",\"dedupeKey\":\"command:client_get_task\",\"ts\":1794792300000,\"serverEpoch\":\"epoch_demo_a\",\"data\":{\"cmd\":\"get_task\",\"clientMsgId\":\"client_get_task\",\"serverEpoch\":\"epoch_demo_a\",\"taskId\":\"taskId_demo\"}}",
+        "status": "SENT",
+        "createdTime": "2026-11-16T01:25:00Z",
+        "createdAt": "2026-11-16T01:25:00Z"
+      }
+    },
+    {
+      "name": "ws_message",
+      "schema": "WsMessage",
+      "payload": {
+        "type": "MESSAGE",
+        "data": {
+          "id": "9007199254741001",
+          "messageId": "9007199254741001",
+          "clientMessageId": "event_get_task",
+          "senderId": "101",
+          "receiverId": "102",
+          "conversationSeq": null,
+          "isGroupChat": false,
+          "isGroup": false,
+          "messageType": "TEXT",
+          "content": "{\"v\":1,\"kind\":\"command\",\"id\":\"event_get_task\",\"dedupeKey\":\"command:client_get_task\",\"ts\":1794792300000,\"serverEpoch\":\"epoch_demo_a\",\"data\":{\"cmd\":\"get_task\",\"clientMsgId\":\"client_get_task\",\"serverEpoch\":\"epoch_demo_a\",\"taskId\":\"taskId_demo\"}}",
+          "status": "SENT",
+          "createdTime": "2026-11-16T01:25:00Z",
+          "createdAt": "2026-11-16T01:25:00Z",
+          "threadId": "p_101_102"
+        },
+        "timestamp": 1794792300000,
+        "tenantId": 1
+      }
+    },
+    {
+      "name": "ws_heartbeat",
+      "schema": "WsHeartbeat",
+      "payload": {
+        "type": "HEARTBEAT",
+        "content": "PONG"
+      }
+    },
+    {
+      "name": "session_expired",
+      "schema": "Error",
+      "payload": {
+        "code": 401,
+        "message": "SESSION_EXPIRED",
+        "success": false,
+        "timestamp": 1794792300000
+      }
+    },
+    {
+      "name": "file_locator",
+      "schema": "Locator",
+      "payload": {
+        "category": "images",
+        "date": "2026-11-16",
+        "filename": "fixture.png"
+      }
+    },
+    {
+      "name": "file_upload",
+      "schema": "Upload",
+      "payload": {
+        "originalFilename": "fixture.png",
+        "filename": "fixture.png",
+        "url": "/api/file/download?category=images&date=2026-11-16&filename=fixture.png",
+        "size": 1200,
+        "contentType": "image/png",
+        "category": "images",
+        "uploadDate": "2026-11-16",
+        "uploadTime": 1794792300000,
+        "uploaderId": 101
+      }
+    }
+  ]
+}

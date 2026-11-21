@@ -1,0 +1,17 @@
+{
+  "contractVersion": "2.0.0",
+  "protocolMajor": 2,
+  "files": {
+    "business.schema.json": "aeaaff2365928941c274b255e4633938165b067cbb716e37dfeea81ba738d3b5",
+    "cloud.openapi.json": "3373da340568ca9c45028313b8686a8c9437c4b089b3e1b8253eeebc41d97d98",
+    "commands.json": "6e54a3239024e91c5d012c763fc45d66c6fc2e052f4379a4523fabcfc2ebb9d3",
+    "errors.json": "b3985d66ce496a79d88050697b75ac796d921930e299ffdf64c900137bfc4b41",
+    "evidence-vectors.json": "1321ee935c5b8725d23fdc2bf9aa866c481ff94f36dcc2f92de01bf09fcd6c85",
+    "fixtures.json": "3b2e247d2c7e8d5e88c2eee3b31a130f7c19e4a6b246a598801706369d8ba31c",
+    "hash-vectors.json": "9cf2864e9f673cf76bae6c920d74c108680164030d9823ae5e3612a2f8f99ec1",
+    "pairing.schema.json": "94a98194868c39660dedb4c0c74182cb87af3ffefc888d97a9006ad73f6c4c9a",
+    "push.example.json": "a761f570aa6f3c5fcc0fc01c9dad64a8a08647cd55744a5f7a901761ad772c3c",
+    "relay-fixtures.json": "be6e7475b39cbd2826b046c6433f612b8724e1b4167bf27b03862bdd9dd15dd1",
+    "relay.schema.json": "1cf7a8d974a945e941428953bc4b11f999ed4dac8fbf6a2256b0805eeaa8c3b1"
+  }
+}

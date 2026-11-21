@@ -1,0 +1,458 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tickdesk.invalid/contracts/v2/relay.schema.json",
+  "title": "TickDesk relay v2",
+  "oneOf": [
+    {
+      "$ref": "#/$defs/hello"
+    },
+    {
+      "$ref": "#/$defs/welcome"
+    },
+    {
+      "$ref": "#/$defs/presence"
+    },
+    {
+      "$ref": "#/$defs/deliver"
+    },
+    {
+      "$ref": "#/$defs/receipt"
+    },
+    {
+      "$ref": "#/$defs/error"
+    }
+  ],
+  "$defs": {
+    "FileChunk": {
+      "type": "object",
+      "properties": {
+        "transferId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[A-Za-z0-9_-]+$"
+        },
+        "fileId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[A-Za-z0-9_-]+$"
+        },
+        "index": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 639
+        },
+        "totalChunks": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 640
+        },
+        "chunkHash": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "bytes": {
+          "type": "string",
+          "minLength": 4,
+          "maxLength": 43692,
+          "pattern": "^[A-Za-z0-9+/]+={0,2}$"
+        }
+      },
+      "required": [
+        "transferId",
+        "fileId",
+        "index",
+        "totalChunks",
+        "chunkHash",
+        "bytes"
+      ],
+      "additionalProperties": false
+    },
+    "Peer": {
+      "type": "object",
+      "properties": {
+        "online": {
+          "type": "boolean"
+        },
+        "incarnation": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64,
+              "pattern": "^[A-Za-z0-9_-]+$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "serverEpoch": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64,
+              "pattern": "^[A-Za-z0-9_-]+$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "online",
+        "incarnation",
+        "serverEpoch"
+      ],
+      "additionalProperties": false
+    },
+    "hello": {
+      "type": "object",
+      "properties": {
+        "v": {
+          "enum": [
+            2
+          ]
+        },
+        "type": {
+          "enum": [
+            "hello"
+          ]
+        },
+        "incarnation": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[A-Za-z0-9_-]+$"
+        },
+        "serverEpoch": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64,
+              "pattern": "^[A-Za-z0-9_-]+$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "v",
+        "type",
+        "incarnation",
+        "serverEpoch"
+      ],
+      "additionalProperties": false
+    },
+    "welcome": {
+      "type": "object",
+      "properties": {
+        "v": {
+          "enum": [
+            2
+          ]
+        },
+        "type": {
+          "enum": [
+            "welcome"
+          ]
+        },
+        "pairId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[A-Za-z0-9_-]+$"
+        },
+        "relayBootId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[A-Za-z0-9_-]+$"
+        },
+        "connectionId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[A-Za-z0-9_-]+$"
+        },
+        "role": {
+          "enum": [
+            "app",
+            "local"
+          ]
+        },
+        "heartbeatIntervalMs": {
+          "enum": [
+            15000
+          ]
+        },
+        "heartbeatTimeoutMs": {
+          "enum": [
+            45000
+          ]
+        }
+      },
+      "required": [
+        "v",
+        "type",
+        "pairId",
+        "relayBootId",
+        "connectionId",
+        "role",
+        "heartbeatIntervalMs",
+        "heartbeatTimeoutMs"
+      ],
+      "additionalProperties": false
+    },
+    "presence": {
+      "type": "object",
+      "properties": {
+        "v": {
+          "enum": [
+            2
+          ]
+        },
+        "type": {
+          "enum": [
+            "presence"
+          ]
+        },
+        "peer": {
+          "$ref": "#/$defs/Peer"
+        }
+      },
+      "required": [
+        "v",
+        "type",
+        "peer"
+      ],
+      "additionalProperties": false
+    },
+    "deliver": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "v": {
+              "enum": [
+                2
+              ]
+            },
+            "type": {
+              "enum": [
+                "deliver"
+              ]
+            },
+            "deliveryId": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64,
+              "pattern": "^[A-Za-z0-9_-]+$"
+            },
+            "fromIncarnation": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64,
+              "pattern": "^[A-Za-z0-9_-]+$"
+            },
+            "toIncarnation": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64,
+              "pattern": "^[A-Za-z0-9_-]+$"
+            },
+            "payloadHash": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "category": {
+              "enum": [
+                "business"
+              ]
+            },
+            "payload": {
+              "$ref": "https://tickdesk.invalid/contracts/v2/business.schema.json"
+            }
+          },
+          "required": [
+            "v",
+            "type",
+            "deliveryId",
+            "fromIncarnation",
+            "toIncarnation",
+            "payloadHash",
+            "category",
+            "payload"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "v": {
+              "enum": [
+                2
+              ]
+            },
+            "type": {
+              "enum": [
+                "deliver"
+              ]
+            },
+            "deliveryId": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64,
+              "pattern": "^[A-Za-z0-9_-]+$"
+            },
+            "fromIncarnation": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64,
+              "pattern": "^[A-Za-z0-9_-]+$"
+            },
+            "toIncarnation": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64,
+              "pattern": "^[A-Za-z0-9_-]+$"
+            },
+            "payloadHash": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "category": {
+              "enum": [
+                "file_chunk"
+              ]
+            },
+            "payload": {
+              "$ref": "#/$defs/FileChunk"
+            }
+          },
+          "required": [
+            "v",
+            "type",
+            "deliveryId",
+            "fromIncarnation",
+            "toIncarnation",
+            "payloadHash",
+            "category",
+            "payload"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "receipt": {
+      "type": "object",
+      "properties": {
+        "v": {
+          "enum": [
+            2
+          ]
+        },
+        "type": {
+          "enum": [
+            "receipt"
+          ]
+        },
+        "deliveryId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[A-Za-z0-9_-]+$"
+        },
+        "payloadHash": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "fromIncarnation": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[A-Za-z0-9_-]+$"
+        },
+        "toIncarnation": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[A-Za-z0-9_-]+$"
+        }
+      },
+      "required": [
+        "v",
+        "type",
+        "deliveryId",
+        "payloadHash",
+        "fromIncarnation",
+        "toIncarnation"
+      ],
+      "additionalProperties": false
+    },
+    "error": {
+      "type": "object",
+      "properties": {
+        "v": {
+          "enum": [
+            2
+          ]
+        },
+        "type": {
+          "enum": [
+            "error"
+          ]
+        },
+        "refDeliveryId": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64,
+              "pattern": "^[A-Za-z0-9_-]+$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "code": {
+          "enum": [
+            "BUSY",
+            "PEER_OFFLINE",
+            "INCARNATION_MISMATCH",
+            "INVALID_FRAME",
+            "HASH_MISMATCH",
+            "DELIVERY_ID_REUSED",
+            "DISK_FULL",
+            "UPLOAD_NOT_FOUND",
+            "CHUNK_CONFLICT"
+          ]
+        },
+        "retryable": {
+          "type": "boolean"
+        },
+        "retryAfterMs": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        }
+      },
+      "required": [
+        "v",
+        "type",
+        "refDeliveryId",
+        "code",
+        "retryable",
+        "retryAfterMs"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "business": {
+    "input": {
+      "b": "中😀/\n",
+      "a": {
+        "z": null,
+        "n": 12,
+        "amount": "10.00"
+      },
+      "arr": [
+        true,
+        false
+      ]
+    },
+    "canonicalUtf8": "{\"a\":{\"amount\":\"10.00\",\"n\":12,\"z\":null},\"arr\":[true,false],\"b\":\"中😀/\\n\"}",
+    "sha256": "15a18d44d353c12794ac3fd1e2534266b5926d23996109a48a9063102e650b77"
+  },
+  "hmac": {
+    "testSecret": "test-only-not-a-secret",
+    "bodyUtf8": "{\"permissions\":[],\"rememberMe\":false,\"tenantId\":\"1\",\"userId\":\"101\",\"username\":\"assistant\"}",
+    "timestamp": "1794792300000",
+    "nonce": "contract_demo_nonce",
+    "canonical": "method=POST&path=/api/auth/internal/token&bodyHash=92kv9ytODzUKLpk3OA35rPKramBaAJuxP8TNYnKYSpc&ts=1794792300000&nonce=contract_demo_nonce",
+    "signature": "GgPk-xxAACuBW9VB7qJvMomT8knIAbEIpLLxtvucdv0"
+  }
+}

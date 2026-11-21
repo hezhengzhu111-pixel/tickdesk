@@ -1,0 +1,7 @@
+# Copy outside the source tree and set actual certificate paths; no secrets in Git.
+listen = "0.0.0.0:8443"
+roles_file = "/run/secrets/tickdesk/roles.toml"
+metrics_listen = "127.0.0.1:18444"
+[tls]
+cert = "/run/secrets/tickdesk/relay-cert.pem"
+key = "/run/secrets/tickdesk/relay-key.pem"

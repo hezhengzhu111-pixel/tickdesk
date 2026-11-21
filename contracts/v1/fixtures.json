@@ -1,0 +1,4486 @@
+{
+  "contractVersion": "1.0.0",
+  "note": "纯模拟数据，不是真实行情/成交/云端验收",
+  "cases": [
+    {
+      "name": "request_act",
+      "valid": true,
+      "payload": {
+        "v": 1,
+        "kind": "command",
+        "id": "event_act",
+        "dedupeKey": "command:client_act",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "data": {
+          "cmd": "act",
+          "clientMsgId": "client_act",
+          "serverEpoch": "epoch_demo_a",
+          "taskId": "task_demo",
+          "baseActionVersion": 1,
+          "side": "buy",
+          "price": "10.00",
+          "qty": 100,
+          "executedAt": 1794792300000
+        }
+      }
+    },
+    {
+      "name": "ack_act",
+      "valid": true,
+      "payload": {
+        "v": 1,
+        "kind": "ack",
+        "id": "ack_act",
+        "dedupeKey": "ack:client_act",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "snapshotSeq": 42,
+        "data": {
+          "refId": "event_act",
+          "clientMsgId": "client_act",
+          "cmd": "act",
+          "ok": true,
+          "result": {
+            "task": {
+              "taskId": "task_demo",
+              "scanId": "scan_demo",
+              "sourceEventKey": "sourceEventKey_demo",
+              "riskEventKey": null,
+              "eventRevision": null,
+              "symbol": "300502.SZ",
+              "name": "示例标的",
+              "direction": "buy",
+              "level": "critical",
+              "status": "acted",
+              "version": 2,
+              "actionVersion": 2,
+              "score": "86.5",
+              "confidence": "high",
+              "degraded": false,
+              "dataAsOf": 1794792300000,
+              "strategies": [],
+              "reasons": {
+                "quant": "示例量化信号",
+                "ai": null,
+                "verificationStatus": "unverified",
+                "sources": [],
+                "riskEvidence": [],
+                "risks": []
+              },
+              "stopPrice": null,
+              "targetPrice": null,
+              "entryZone": null,
+              "createdAt": 1794792300000,
+              "validUntil": 1794794100000,
+              "snoozeUntil": null,
+              "nextReminderAt": null,
+              "remindedCount": 1,
+              "lastRemindedAt": 1794792300000,
+              "levelReason": "示例",
+              "currentReminder": null
+            },
+            "execution": {
+              "executionId": "execution_demo",
+              "taskId": "task_demo",
+              "symbol": "300502.SZ",
+              "side": "buy",
+              "price": "10.00",
+              "qty": 100,
+              "executedAt": 1794792300000,
+              "channel": null,
+              "priceBasis": "unknown",
+              "orderId": null,
+              "orderQty": null,
+              "positionEffect": "applied",
+              "reconciliationRequired": false,
+              "ruleStatus": "unverified",
+              "ruleSnapshotId": null,
+              "sellableDate": "2026-11-17",
+              "realizedPnl": null,
+              "warnings": [],
+              "supersedesExecutionId": null,
+              "createdAt": 1794792300000,
+              "note": "示例",
+              "tradeDate": "2026-11-16",
+              "settlement": "T+1",
+              "settlementSource": "user",
+              "verificationScope": "recorded_execution_only",
+              "ruleSnapshot": null
+            },
+            "position": {
+              "symbol": "300502.SZ",
+              "name": "示例标的",
+              "qty": 100,
+              "availableQty": 100,
+              "cost": "10.00",
+              "pendingLots": [],
+              "asOf": 1794792300000,
+              "positionRevision": 1,
+              "reconciliationRequired": false,
+              "lastPrice": "12.00",
+              "priceAsOf": 1794792300000,
+              "priceStatus": "fresh",
+              "marketValue": "1200.00",
+              "unrealizedPnl": "200.00",
+              "unrealizedPnlRatio": "0.2"
+            },
+            "snapshotSeq": 42
+          },
+          "error": null,
+          "requestHash": "ff146ac8f965a80bf5af4f6638a493c5ff79d2a4d5b4bb4e11deb8c98ccf2397"
+        }
+      }
+    },
+    {
+      "name": "request_ignore",
+      "valid": true,
+      "payload": {
+        "v": 1,
+        "kind": "command",
+        "id": "event_ignore",
+        "dedupeKey": "command:client_ignore",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "data": {
+          "cmd": "ignore",
+          "clientMsgId": "client_ignore",
+          "serverEpoch": "epoch_demo_a",
+          "taskId": "taskId_demo",
+          "baseActionVersion": 1
+        }
+      }
+    },
+    {
+      "name": "ack_ignore",
+      "valid": true,
+      "payload": {
+        "v": 1,
+        "kind": "ack",
+        "id": "ack_ignore",
+        "dedupeKey": "ack:client_ignore",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "snapshotSeq": 42,
+        "data": {
+          "refId": "event_ignore",
+          "clientMsgId": "client_ignore",
+          "cmd": "ignore",
+          "ok": true,
+          "result": {
+            "task": {
+              "taskId": "task_demo",
+              "scanId": "scan_demo",
+              "sourceEventKey": "sourceEventKey_demo",
+              "riskEventKey": null,
+              "eventRevision": null,
+              "symbol": "300502.SZ",
+              "name": "示例标的",
+              "direction": "buy",
+              "level": "critical",
+              "status": "ignored",
+              "version": 2,
+              "actionVersion": 2,
+              "score": "86.5",
+              "confidence": "high",
+              "degraded": false,
+              "dataAsOf": 1794792300000,
+              "strategies": [],
+              "reasons": {
+                "quant": "示例量化信号",
+                "ai": null,
+                "verificationStatus": "unverified",
+                "sources": [],
+                "riskEvidence": [],
+                "risks": []
+              },
+              "stopPrice": null,
+              "targetPrice": null,
+              "entryZone": null,
+              "createdAt": 1794792300000,
+              "validUntil": 1794794100000,
+              "snoozeUntil": null,
+              "nextReminderAt": null,
+              "remindedCount": 1,
+              "lastRemindedAt": 1794792300000,
+              "levelReason": "示例",
+              "currentReminder": null
+            },
+            "snapshotSeq": 42
+          },
+          "error": null,
+          "requestHash": "fb5fdd1bae35d5114c2997485faa5722a961ba1a272e904bc0739bf51f3ae5b1"
+        }
+      }
+    },
+    {
+      "name": "request_snooze",
+      "valid": true,
+      "payload": {
+        "v": 1,
+        "kind": "command",
+        "id": "event_snooze",
+        "dedupeKey": "command:client_snooze",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "data": {
+          "cmd": "snooze",
+          "clientMsgId": "client_snooze",
+          "serverEpoch": "epoch_demo_a",
+          "taskId": "taskId_demo",
+          "baseActionVersion": 1
+        }
+      }
+    },
+    {
+      "name": "ack_snooze",
+      "valid": true,
+      "payload": {
+        "v": 1,
+        "kind": "ack",
+        "id": "ack_snooze",
+        "dedupeKey": "ack:client_snooze",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "snapshotSeq": 42,
+        "data": {
+          "refId": "event_snooze",
+          "clientMsgId": "client_snooze",
+          "cmd": "snooze",
+          "ok": true,
+          "result": {
+            "task": {
+              "taskId": "task_demo",
+              "scanId": "scan_demo",
+              "sourceEventKey": "sourceEventKey_demo",
+              "riskEventKey": null,
+              "eventRevision": null,
+              "symbol": "300502.SZ",
+              "name": "示例标的",
+              "direction": "buy",
+              "level": "critical",
+              "status": "pending",
+              "version": 2,
+              "actionVersion": 2,
+              "score": "86.5",
+              "confidence": "high",
+              "degraded": false,
+              "dataAsOf": 1794792300000,
+              "strategies": [],
+              "reasons": {
+                "quant": "示例量化信号",
+                "ai": null,
+                "verificationStatus": "unverified",
+                "sources": [],
+                "riskEvidence": [],
+                "risks": []
+              },
+              "stopPrice": null,
+              "targetPrice": null,
+              "entryZone": null,
+              "createdAt": 1794792300000,
+              "validUntil": 1794794100000,
+              "snoozeUntil": 1794792600000,
+              "nextReminderAt": 1794792600000,
+              "remindedCount": 1,
+              "lastRemindedAt": 1794792300000,
+              "levelReason": "示例",
+              "currentReminder": null
+            },
+            "snapshotSeq": 42
+          },
+          "error": null,
+          "requestHash": "189fe3454477fe558fb8ba5f04223495abc1b2f159d3f6d5fc35e31a7f039404"
+        }
+      }
+    },
+    {
+      "name": "request_record_execution",
+      "valid": true,
+      "payload": {
+        "v": 1,
+        "kind": "command",
+        "id": "event_record_execution",
+        "dedupeKey": "command:client_record_execution",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "data": {
+          "cmd": "record_execution",
+          "clientMsgId": "client_record_execution",
+          "serverEpoch": "epoch_demo_a",
+          "symbol": "300502.SZ",
+          "side": "buy",
+          "price": "10.00",
+          "qty": 100,
+          "executedAt": 1794792300000
+        }
+      }
+    },
+    {
+      "name": "ack_record_execution",
+      "valid": true,
+      "payload": {
+        "v": 1,
+        "kind": "ack",
+        "id": "ack_record_execution",
+        "dedupeKey": "ack:client_record_execution",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "snapshotSeq": 42,
+        "data": {
+          "refId": "event_record_execution",
+          "clientMsgId": "client_record_execution",
+          "cmd": "record_execution",
+          "ok": true,
+          "result": {
+            "execution": {
+              "executionId": "execution_demo",
+              "taskId": "task_demo",
+              "symbol": "300502.SZ",
+              "side": "buy",
+              "price": "10.00",
+              "qty": 100,
+              "executedAt": 1794792300000,
+              "channel": null,
+              "priceBasis": "unknown",
+              "orderId": null,
+              "orderQty": null,
+              "positionEffect": "applied",
+              "reconciliationRequired": false,
+              "ruleStatus": "unverified",
+              "ruleSnapshotId": null,
+              "sellableDate": "2026-11-17",
+              "realizedPnl": null,
+              "warnings": [],
+              "supersedesExecutionId": null,
+              "createdAt": 1794792300000,
+              "note": "示例",
+              "tradeDate": "2026-11-16",
+              "settlement": "T+1",
+              "settlementSource": "user",
+              "verificationScope": "recorded_execution_only",
+              "ruleSnapshot": null
+            },
+            "position": {
+              "symbol": "300502.SZ",
+              "name": "示例标的",
+              "qty": 100,
+              "availableQty": 100,
+              "cost": "10.00",
+              "pendingLots": [],
+              "asOf": 1794792300000,
+              "positionRevision": 1,
+              "reconciliationRequired": false,
+              "lastPrice": "12.00",
+              "priceAsOf": 1794792300000,
+              "priceStatus": "fresh",
+              "marketValue": "1200.00",
+              "unrealizedPnl": "200.00",
+              "unrealizedPnlRatio": "0.2"
+            },
+            "snapshotSeq": 42
+          },
+          "error": null,
+          "requestHash": "fca28ee1af1e1724fa2c3acbce7348e88137551acf46fb22cdaca132bb1d066b"
+        }
+      }
+    },
+    {
+      "name": "request_adjust_position",
+      "valid": true,
+      "payload": {
+        "v": 1,
+        "kind": "command",
+        "id": "event_adjust_position",
+        "dedupeKey": "command:client_adjust_position",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "data": {
+          "cmd": "adjust_position",
+          "clientMsgId": "client_adjust_position",
+          "serverEpoch": "epoch_demo_a",
+          "symbol": "300502.SZ",
+          "basePositionRevision": 1,
+          "qty": 100,
+          "availableQty": 100,
+          "cost": "10.00",
+          "asOf": 1794792300000,
+          "reason": "示例",
+          "resolvedExecutionIds": [],
+          "pendingLots": []
+        }
+      }
+    },
+    {
+      "name": "ack_adjust_position",
+      "valid": true,
+      "payload": {
+        "v": 1,
+        "kind": "ack",
+        "id": "ack_adjust_position",
+        "dedupeKey": "ack:client_adjust_position",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "snapshotSeq": 42,
+        "data": {
+          "refId": "event_adjust_position",
+          "clientMsgId": "client_adjust_position",
+          "cmd": "adjust_position",
+          "ok": true,
+          "result": {
+            "adjustment": {
+              "adjustmentId": "adjustmentId_demo",
+              "symbol": "300502.SZ",
+              "asOf": 1794792300000,
+              "before": null,
+              "after": {
+                "symbol": "300502.SZ",
+                "name": "示例标的",
+                "qty": 100,
+                "availableQty": 100,
+                "cost": "10.00",
+                "pendingLots": [],
+                "asOf": 1794792300000,
+                "positionRevision": 1,
+                "reconciliationRequired": false,
+                "lastPrice": "12.00",
+                "priceAsOf": 1794792300000,
+                "priceStatus": "fresh",
+                "marketValue": "1200.00",
+                "unrealizedPnl": "200.00",
+                "unrealizedPnlRatio": "0.2"
+              },
+              "reason": "示例",
+              "resolvedExecutionIds": [],
+              "createdAt": 1794792300000
+            },
+            "positionRevision": 1,
+            "snapshotSeq": 42
+          },
+          "error": null,
+          "requestHash": "720fe6f512c2b583dbdc520d90bb23fa38f0a85a9b259b95592716ddf0c748d2"
+        }
+      }
+    },
+    {
+      "name": "request_set_profile",
+      "valid": true,
+      "payload": {
+        "v": 1,
+        "kind": "command",
+        "id": "event_set_profile",
+        "dedupeKey": "command:client_set_profile",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "data": {
+          "cmd": "set_profile",
+          "clientMsgId": "client_set_profile",
+          "serverEpoch": "epoch_demo_a",
+          "profile": "conservative"
+        }
+      }
+    },
+    {
+      "name": "ack_set_profile",
+      "valid": true,
+      "payload": {
+        "v": 1,
+        "kind": "ack",
+        "id": "ack_set_profile",
+        "dedupeKey": "ack:client_set_profile",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "snapshotSeq": 42,
+        "data": {
+          "refId": "event_set_profile",
+          "clientMsgId": "client_set_profile",
+          "cmd": "set_profile",
+          "ok": true,
+          "result": {
+            "profile": "conservative",
+            "snapshotSeq": 42
+          },
+          "error": null,
+          "requestHash": "c6657e0de1ed691e0663772aff4e92656f333511d61290baa16a71db8185f948"
+        }
+      }
+    },
+    {
+      "name": "request_set_settings",
+      "valid": true,
+      "payload": {
+        "v": 1,
+        "kind": "command",
+        "id": "event_set_settings",
+        "dedupeKey": "command:client_set_settings",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "data": {
+          "cmd": "set_settings",
+          "clientMsgId": "client_set_settings",
+          "serverEpoch": "epoch_demo_a",
+          "baseSettingsRevision": 1,
+          "reminderModes": {
+            "critical": "full_screen",
+            "warn": "sound",
+            "info": "visual"
+          },
+          "nightStart": "23:00",
+          "nightEnd": "23:00",
+          "criticalAtNight": false,
+          "pushEnabled": false
+        }
+      }
+    },
+    {
+      "name": "ack_set_settings",
+      "valid": true,
+      "payload": {
+        "v": 1,
+        "kind": "ack",
+        "id": "ack_set_settings",
+        "dedupeKey": "ack:client_set_settings",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "snapshotSeq": 42,
+        "data": {
+          "refId": "event_set_settings",
+          "clientMsgId": "client_set_settings",
+          "cmd": "set_settings",
+          "ok": true,
+          "result": {
+            "settings": {
+              "settingsRevision": 1,
+              "reminderModes": {
+                "critical": "full_screen",
+                "warn": "sound",
+                "info": "visual"
+              },
+              "nightStart": "23:00",
+              "nightEnd": "23:00",
+              "criticalAtNight": false,
+              "pushEnabled": false
+            },
+            "snapshotSeq": 42
+          },
+          "error": null,
+          "requestHash": "3f2a5a37923d095303592a593fc3c14e02b6a7a918f4b6462133edd1bb898246"
+        }
+      }
+    },
+    {
+      "name": "request_pause",
+      "valid": true,
+      "payload": {
+        "v": 1,
+        "kind": "command",
+        "id": "event_pause",
+        "dedupeKey": "command:client_pause",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "data": {
+          "cmd": "pause",
+          "clientMsgId": "client_pause",
+          "serverEpoch": "epoch_demo_a"
+        }
+      }
+    },
+    {
+      "name": "ack_pause",
+      "valid": true,
+      "payload": {
+        "v": 1,
+        "kind": "ack",
+        "id": "ack_pause",
+        "dedupeKey": "ack:client_pause",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "snapshotSeq": 42,
+        "data": {
+          "refId": "event_pause",
+          "clientMsgId": "client_pause",
+          "cmd": "pause",
+          "ok": true,
+          "result": {
+            "paused": true,
+            "controlVersion": 1,
+            "suppressedScanIds": [],
+            "snapshotSeq": 42
+          },
+          "error": null,
+          "requestHash": "9b6432c2d574583828bccbd866d24ca5b8a1f6eb1819912d52ad562d5602b14c"
+        }
+      }
+    },
+    {
+      "name": "request_resume",
+      "valid": true,
+      "payload": {
+        "v": 1,
+        "kind": "command",
+        "id": "event_resume",
+        "dedupeKey": "command:client_resume",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "data": {
+          "cmd": "resume",
+          "clientMsgId": "client_resume",
+          "serverEpoch": "epoch_demo_a"
+        }
+      }
+    },
+    {
+      "name": "ack_resume",
+      "valid": true,
+      "payload": {
+        "v": 1,
+        "kind": "ack",
+        "id": "ack_resume",
+        "dedupeKey": "ack:client_resume",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "snapshotSeq": 42,
+        "data": {
+          "refId": "event_resume",
+          "clientMsgId": "client_resume",
+          "cmd": "resume",
+          "ok": true,
+          "result": {
+            "paused": false,
+            "controlVersion": 1,
+            "scan": {
+              "status": "accepted",
+              "scanId": null,
+              "code": null
+            },
+            "snapshotSeq": 42
+          },
+          "error": null,
+          "requestHash": "a70ad257093eae0bec3f0c43354302ff72d447b74be104bf3838ff60ee0561f2"
+        }
+      }
+    },
+    {
+      "name": "request_scan_now",
+      "valid": true,
+      "payload": {
+        "v": 1,
+        "kind": "command",
+        "id": "event_scan_now",
+        "dedupeKey": "command:client_scan_now",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "data": {
+          "cmd": "scan_now",
+          "clientMsgId": "client_scan_now",
+          "serverEpoch": "epoch_demo_a"
+        }
+      }
+    },
+    {
+      "name": "ack_scan_now",
+      "valid": true,
+      "payload": {
+        "v": 1,
+        "kind": "ack",
+        "id": "ack_scan_now",
+        "dedupeKey": "ack:client_scan_now",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "snapshotSeq": 42,
+        "data": {
+          "refId": "event_scan_now",
+          "clientMsgId": "client_scan_now",
+          "cmd": "scan_now",
+          "ok": true,
+          "result": {
+            "scanId": "scan_demo",
+            "trigger": "manual",
+            "status": "succeeded",
+            "profile": "conservative",
+            "tradeDate": "2026-11-16",
+            "slot": null,
+            "requestedAt": 1794792300000,
+            "startedAt": 1794792300000,
+            "finishedAt": 1794792301000,
+            "dataAsOf": 1794792300000,
+            "dataStatus": "fresh",
+            "strategy": {
+              "total": 25,
+              "succeeded": 25,
+              "failed": []
+            },
+            "degraded": false,
+            "publishedTaskIds": [],
+            "error": null,
+            "rejectionSummary": []
+          },
+          "error": null,
+          "requestHash": "526b4ad26af62659405bf760a8e8965877d37cc1209f55cd916ab5610687ced9"
+        }
+      }
+    },
+    {
+      "name": "request_watch",
+      "valid": true,
+      "payload": {
+        "v": 1,
+        "kind": "command",
+        "id": "event_watch",
+        "dedupeKey": "command:client_watch",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "data": {
+          "cmd": "watch",
+          "clientMsgId": "client_watch",
+          "serverEpoch": "epoch_demo_a",
+          "symbols": [
+            "300502.SZ"
+          ]
+        }
+      }
+    },
+    {
+      "name": "ack_watch",
+      "valid": true,
+      "payload": {
+        "v": 1,
+        "kind": "ack",
+        "id": "ack_watch",
+        "dedupeKey": "ack:client_watch",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "snapshotSeq": 42,
+        "data": {
+          "refId": "event_watch",
+          "clientMsgId": "client_watch",
+          "cmd": "watch",
+          "ok": true,
+          "result": {
+            "addedSymbols": [],
+            "removedSymbols": [],
+            "unchangedSymbols": [],
+            "watchlist": [],
+            "snapshotSeq": 42
+          },
+          "error": null,
+          "requestHash": "d51ea40fdfc81b9045fb812a7a8ef23ecdf24707777f4ec054eafaac4e2055e5"
+        }
+      }
+    },
+    {
+      "name": "request_unwatch",
+      "valid": true,
+      "payload": {
+        "v": 1,
+        "kind": "command",
+        "id": "event_unwatch",
+        "dedupeKey": "command:client_unwatch",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "data": {
+          "cmd": "unwatch",
+          "clientMsgId": "client_unwatch",
+          "serverEpoch": "epoch_demo_a",
+          "symbols": [
+            "300502.SZ"
+          ]
+        }
+      }
+    },
+    {
+      "name": "ack_unwatch",
+      "valid": true,
+      "payload": {
+        "v": 1,
+        "kind": "ack",
+        "id": "ack_unwatch",
+        "dedupeKey": "ack:client_unwatch",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "snapshotSeq": 42,
+        "data": {
+          "refId": "event_unwatch",
+          "clientMsgId": "client_unwatch",
+          "cmd": "unwatch",
+          "ok": true,
+          "result": {
+            "addedSymbols": [],
+            "removedSymbols": [],
+            "unchangedSymbols": [],
+            "watchlist": [],
+            "snapshotSeq": 42
+          },
+          "error": null,
+          "requestHash": "fd5b696812ef407b6bc80dba467df2cc7e0a21f1cf934c3ba6b032fee7684a65"
+        }
+      }
+    },
+    {
+      "name": "request_sync",
+      "valid": true,
+      "payload": {
+        "v": 1,
+        "kind": "command",
+        "id": "event_sync",
+        "dedupeKey": "command:client_sync",
+        "ts": 1794792300000,
+        "serverEpoch": null,
+        "data": {
+          "cmd": "sync",
+          "clientMsgId": "client_sync",
+          "serverEpoch": null
+        }
+      }
+    },
+    {
+      "name": "ack_sync",
+      "valid": true,
+      "payload": {
+        "v": 1,
+        "kind": "ack",
+        "id": "ack_sync",
+        "dedupeKey": "ack:client_sync",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "snapshotSeq": 42,
+        "data": {
+          "refId": "event_sync",
+          "clientMsgId": "client_sync",
+          "cmd": "sync",
+          "ok": true,
+          "result": {
+            "requestId": "client_sync",
+            "serverEpoch": "epoch_demo_a",
+            "snapshotId": "snapshot_demo",
+            "snapshotSeq": 42,
+            "pageIndex": 0,
+            "pageEventId": "snapshot_page_0",
+            "nextPageCursor": "cursor_page_1",
+            "hasMore": true
+          },
+          "error": null,
+          "requestHash": "378e69ffd34b37201fbd12c679d8f86634cdbe0d5abd494bcf3e5e008d918457"
+        }
+      }
+    },
+    {
+      "name": "request_get_task",
+      "valid": true,
+      "payload": {
+        "v": 1,
+        "kind": "command",
+        "id": "event_get_task",
+        "dedupeKey": "command:client_get_task",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "data": {
+          "cmd": "get_task",
+          "clientMsgId": "client_get_task",
+          "serverEpoch": "epoch_demo_a",
+          "taskId": "taskId_demo"
+        }
+      }
+    },
+    {
+      "name": "ack_get_task",
+      "valid": true,
+      "payload": {
+        "v": 1,
+        "kind": "ack",
+        "id": "ack_get_task",
+        "dedupeKey": "ack:client_get_task",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "snapshotSeq": 42,
+        "data": {
+          "refId": "event_get_task",
+          "clientMsgId": "client_get_task",
+          "cmd": "get_task",
+          "ok": true,
+          "result": {
+            "serverEpoch": "epoch_demo_a",
+            "recoveryMode": false,
+            "task": {
+              "taskId": "task_demo",
+              "scanId": "scan_demo",
+              "sourceEventKey": "sourceEventKey_demo",
+              "riskEventKey": null,
+              "eventRevision": null,
+              "symbol": "300502.SZ",
+              "name": "示例标的",
+              "direction": "buy",
+              "level": "critical",
+              "status": "pending",
+              "version": 1,
+              "actionVersion": 1,
+              "score": "86.5",
+              "confidence": "high",
+              "degraded": false,
+              "dataAsOf": 1794792300000,
+              "strategies": [],
+              "reasons": {
+                "quant": "示例量化信号",
+                "ai": null,
+                "verificationStatus": "unverified",
+                "sources": [],
+                "riskEvidence": [],
+                "risks": []
+              },
+              "stopPrice": null,
+              "targetPrice": null,
+              "entryZone": null,
+              "createdAt": 1794792300000,
+              "validUntil": 1794794100000,
+              "snoozeUntil": null,
+              "nextReminderAt": 1794792600000,
+              "remindedCount": 1,
+              "lastRemindedAt": 1794792300000,
+              "levelReason": "示例",
+              "currentReminder": {
+                "reminderId": "rem_demo_1",
+                "scheduledAt": 1794792300000,
+                "displayUntil": 1794792360000
+              }
+            },
+            "snapshotSeq": 42
+          },
+          "error": null,
+          "requestHash": "17318ad5a89d73df5f2bd6f4e3f2932a7a29acfea2d7c1f30914501fe7400c54"
+        }
+      }
+    },
+    {
+      "name": "request_get_status",
+      "valid": true,
+      "payload": {
+        "v": 1,
+        "kind": "command",
+        "id": "event_get_status",
+        "dedupeKey": "command:client_get_status",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "data": {
+          "cmd": "get_status",
+          "clientMsgId": "client_get_status",
+          "serverEpoch": "epoch_demo_a"
+        }
+      }
+    },
+    {
+      "name": "ack_get_status",
+      "valid": true,
+      "payload": {
+        "v": 1,
+        "kind": "ack",
+        "id": "ack_get_status",
+        "dedupeKey": "ack:client_get_status",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "snapshotSeq": 42,
+        "data": {
+          "refId": "event_get_status",
+          "clientMsgId": "client_get_status",
+          "cmd": "get_status",
+          "ok": true,
+          "result": {
+            "serverEpoch": "epoch_demo_a",
+            "snapshotSeq": 42,
+            "recoveryMode": false,
+            "analysis": {
+              "paused": false,
+              "controlVersion": 1,
+              "profile": "conservative",
+              "lastScanId": null,
+              "kernelStatus": "online"
+            },
+            "protocol": {
+              "major": 1,
+              "minor": 0,
+              "supportedCommands": [
+                "act",
+                "ignore",
+                "snooze",
+                "record_execution",
+                "adjust_position",
+                "set_profile",
+                "set_settings",
+                "pause",
+                "resume",
+                "scan_now",
+                "watch",
+                "unwatch",
+                "sync",
+                "get_task",
+                "get_status",
+                "chat",
+                "register_push",
+                "accept_vision_notice",
+                "register_image",
+                "apply_import",
+                "get_candidates",
+                "search_symbols",
+                "get_chart",
+                "get_logs",
+                "get_recovery",
+                "recovery_evidence",
+                "recovery_seal_evidence",
+                "recovery_reconcile",
+                "recovery_confirm",
+                "get_task_actions"
+              ]
+            },
+            "dependencies": [],
+            "queues": {
+              "imPending": 1,
+              "pushPending": 1,
+              "cleanupPending": 1
+            },
+            "device": {
+              "deviceId": null,
+              "pushEnabled": false,
+              "registrationValid": false
+            },
+            "versions": {
+              "shell": "示例",
+              "kernel": null
+            }
+          },
+          "error": null,
+          "requestHash": "560a1637e2e02a32c22abbd24c5b7715d8fb5c469297939f326deb52c5b9bb6a"
+        }
+      }
+    },
+    {
+      "name": "request_chat",
+      "valid": true,
+      "payload": {
+        "v": 1,
+        "kind": "command",
+        "id": "event_chat",
+        "dedupeKey": "command:client_chat",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "data": {
+          "cmd": "chat",
+          "clientMsgId": "client_chat",
+          "serverEpoch": "epoch_demo_a",
+          "text": "示例"
+        }
+      }
+    },
+    {
+      "name": "ack_chat",
+      "valid": true,
+      "payload": {
+        "v": 1,
+        "kind": "ack",
+        "id": "ack_chat",
+        "dedupeKey": "ack:client_chat",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "snapshotSeq": 42,
+        "data": {
+          "refId": "event_chat",
+          "clientMsgId": "client_chat",
+          "cmd": "chat",
+          "ok": true,
+          "result": {
+            "accepted": true,
+            "requestId": "client_chat"
+          },
+          "error": null,
+          "requestHash": "8f1ed8a35079d696b8ee91e8d03170a3368ee979d8b0cec67d9d94c88c68b46d"
+        }
+      }
+    },
+    {
+      "name": "request_register_push",
+      "valid": true,
+      "payload": {
+        "v": 1,
+        "kind": "command",
+        "id": "event_register_push",
+        "dedupeKey": "command:client_register_push",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "data": {
+          "cmd": "register_push",
+          "clientMsgId": "client_register_push",
+          "serverEpoch": "epoch_demo_a",
+          "deviceId": "deviceId_demo",
+          "platform": "android",
+          "regId": "regId_demo"
+        }
+      }
+    },
+    {
+      "name": "ack_register_push",
+      "valid": true,
+      "payload": {
+        "v": 1,
+        "kind": "ack",
+        "id": "ack_register_push",
+        "dedupeKey": "ack:client_register_push",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "snapshotSeq": 42,
+        "data": {
+          "refId": "event_register_push",
+          "clientMsgId": "client_register_push",
+          "cmd": "register_push",
+          "ok": true,
+          "result": {
+            "deviceId": "deviceId_demo",
+            "pushEnabled": false,
+            "snapshotSeq": 42
+          },
+          "error": null,
+          "requestHash": "6f6e25fe4071d587c4383e9484f5fe4dffd7f9842524113299d31c95fde69a2b"
+        }
+      }
+    },
+    {
+      "name": "request_accept_vision_notice",
+      "valid": true,
+      "payload": {
+        "v": 1,
+        "kind": "command",
+        "id": "event_accept_vision_notice",
+        "dedupeKey": "command:client_accept_vision_notice",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "data": {
+          "cmd": "accept_vision_notice",
+          "clientMsgId": "client_accept_vision_notice",
+          "serverEpoch": "epoch_demo_a",
+          "noticeVersion": "示例"
+        }
+      }
+    },
+    {
+      "name": "ack_accept_vision_notice",
+      "valid": true,
+      "payload": {
+        "v": 1,
+        "kind": "ack",
+        "id": "ack_accept_vision_notice",
+        "dedupeKey": "ack:client_accept_vision_notice",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "snapshotSeq": 42,
+        "data": {
+          "refId": "event_accept_vision_notice",
+          "clientMsgId": "client_accept_vision_notice",
+          "cmd": "accept_vision_notice",
+          "ok": true,
+          "result": {
+            "noticeVersion": "示例",
+            "consentedAt": 1794792300000,
+            "snapshotSeq": 42
+          },
+          "error": null,
+          "requestHash": "1cd8860ace029d11f189989396065ccd252bb317c62b63a949a995883a278470"
+        }
+      }
+    },
+    {
+      "name": "request_register_image",
+      "valid": true,
+      "payload": {
+        "v": 1,
+        "kind": "command",
+        "id": "event_register_image",
+        "dedupeKey": "command:client_register_image",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "data": {
+          "cmd": "register_image",
+          "clientMsgId": "client_register_image",
+          "serverEpoch": "epoch_demo_a",
+          "importId": "import_demo",
+          "category": "images",
+          "date": "2026-11-16",
+          "filename": "sample.png",
+          "uploadedAt": 1794792300000
+        }
+      }
+    },
+    {
+      "name": "ack_register_image",
+      "valid": true,
+      "payload": {
+        "v": 1,
+        "kind": "ack",
+        "id": "ack_register_image",
+        "dedupeKey": "ack:client_register_image",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "snapshotSeq": 42,
+        "data": {
+          "refId": "event_register_image",
+          "clientMsgId": "client_register_image",
+          "cmd": "register_image",
+          "ok": true,
+          "result": {
+            "importId": "importId_demo",
+            "importStatus": "pending",
+            "cleanupRegistered": true,
+            "snapshotSeq": 42
+          },
+          "error": null,
+          "requestHash": "dc585b922a443d4fe78b862222d0f11826bddb6177592cfde8f8e879a8585a1e"
+        }
+      }
+    },
+    {
+      "name": "request_apply_import",
+      "valid": true,
+      "payload": {
+        "v": 1,
+        "kind": "command",
+        "id": "event_apply_import",
+        "dedupeKey": "command:client_apply_import",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "data": {
+          "cmd": "apply_import",
+          "clientMsgId": "client_apply_import",
+          "serverEpoch": "epoch_demo_a",
+          "importId": "import_demo",
+          "phase": "preview",
+          "snapshotAsOf": 1794792300000,
+          "rows": [
+            {
+              "rowId": "row_1",
+              "symbol": "300502.SZ",
+              "name": "示例标的",
+              "qty": 100,
+              "availableQty": 100,
+              "cost": "10.00",
+              "pendingLots": [],
+              "resolvedExecutionIds": []
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "ack_apply_import",
+      "valid": true,
+      "payload": {
+        "v": 1,
+        "kind": "ack",
+        "id": "ack_apply_import",
+        "dedupeKey": "ack:client_apply_import",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "snapshotSeq": 42,
+        "data": {
+          "refId": "event_apply_import",
+          "clientMsgId": "client_apply_import",
+          "cmd": "apply_import",
+          "ok": true,
+          "result": {
+            "importId": "import_demo",
+            "importVersion": 1,
+            "status": "recognized",
+            "mode": "full_snapshot",
+            "snapshotAsOf": 1794792300000,
+            "basePositionRevision": 1,
+            "rows": [
+              {
+                "rowId": "row_1",
+                "symbol": "300502.SZ",
+                "name": "示例标的",
+                "qty": 100,
+                "availableQty": 100,
+                "cost": "10.00",
+                "pendingLots": [],
+                "resolvedExecutionIds": []
+              }
+            ],
+            "diff": {
+              "added": [
+                "300502.SZ"
+              ],
+              "changed": [],
+              "missing": [],
+              "unchanged": []
+            },
+            "diffHash": "6826c84171bcc68ae3a5b6691a2485a2c166e83265304075ae5d0a1676dd4bcd",
+            "warnings": [],
+            "errorCode": null,
+            "cleanupStatus": "deleted",
+            "createdAt": 1794792300000,
+            "updatedAt": 1794792300000,
+            "recognizedRows": [],
+            "excludedRows": [],
+            "readyForConfirm": true
+          },
+          "error": null,
+          "requestHash": "0305685fb7c488fb2f28bb4cb8a2062b8ea27cc5429dd1e7eeba72b4a7bd6d14"
+        }
+      }
+    },
+    {
+      "name": "request_get_candidates",
+      "valid": true,
+      "payload": {
+        "v": 1,
+        "kind": "command",
+        "id": "event_get_candidates",
+        "dedupeKey": "command:client_get_candidates",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "data": {
+          "cmd": "get_candidates",
+          "clientMsgId": "client_get_candidates",
+          "serverEpoch": "epoch_demo_a"
+        }
+      }
+    },
+    {
+      "name": "ack_get_candidates",
+      "valid": true,
+      "payload": {
+        "v": 1,
+        "kind": "ack",
+        "id": "ack_get_candidates",
+        "dedupeKey": "ack:client_get_candidates",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "snapshotSeq": 42,
+        "data": {
+          "refId": "event_get_candidates",
+          "clientMsgId": "client_get_candidates",
+          "cmd": "get_candidates",
+          "ok": true,
+          "result": {
+            "scan": {
+              "scanId": "scan_demo",
+              "trigger": "manual",
+              "status": "succeeded",
+              "profile": "conservative",
+              "tradeDate": "2026-11-16",
+              "slot": null,
+              "requestedAt": 1794792300000,
+              "startedAt": 1794792300000,
+              "finishedAt": 1794792301000,
+              "dataAsOf": 1794792300000,
+              "dataStatus": "fresh",
+              "strategy": {
+                "total": 25,
+                "succeeded": 25,
+                "failed": []
+              },
+              "degraded": false,
+              "publishedTaskIds": [],
+              "error": null,
+              "rejectionSummary": []
+            },
+            "historical": false,
+            "items": [],
+            "nextPageCursor": null,
+            "hasMore": false
+          },
+          "error": null,
+          "requestHash": "0e1a8785d7be542368b5b033a4062edd60dd3454245d03c1304000eb34355c98"
+        }
+      }
+    },
+    {
+      "name": "request_search_symbols",
+      "valid": true,
+      "payload": {
+        "v": 1,
+        "kind": "command",
+        "id": "event_search_symbols",
+        "dedupeKey": "command:client_search_symbols",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "data": {
+          "cmd": "search_symbols",
+          "clientMsgId": "client_search_symbols",
+          "serverEpoch": "epoch_demo_a",
+          "query": "示例"
+        }
+      }
+    },
+    {
+      "name": "ack_search_symbols",
+      "valid": true,
+      "payload": {
+        "v": 1,
+        "kind": "ack",
+        "id": "ack_search_symbols",
+        "dedupeKey": "ack:client_search_symbols",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "snapshotSeq": 42,
+        "data": {
+          "refId": "event_search_symbols",
+          "clientMsgId": "client_search_symbols",
+          "cmd": "search_symbols",
+          "ok": true,
+          "result": {
+            "items": [],
+            "nextPageCursor": null,
+            "hasMore": false
+          },
+          "error": null,
+          "requestHash": "968c21975695f8fe99b04ca1e49220a23eb4f787ddfb93a7a93c99676ffba555"
+        }
+      }
+    },
+    {
+      "name": "request_get_chart",
+      "valid": true,
+      "payload": {
+        "v": 1,
+        "kind": "command",
+        "id": "event_get_chart",
+        "dedupeKey": "command:client_get_chart",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "data": {
+          "cmd": "get_chart",
+          "clientMsgId": "client_get_chart",
+          "serverEpoch": "epoch_demo_a",
+          "symbol": "300502.SZ",
+          "adjustment": "none"
+        }
+      }
+    },
+    {
+      "name": "ack_get_chart",
+      "valid": true,
+      "payload": {
+        "v": 1,
+        "kind": "ack",
+        "id": "ack_get_chart",
+        "dedupeKey": "ack:client_get_chart",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "snapshotSeq": 42,
+        "data": {
+          "refId": "event_get_chart",
+          "clientMsgId": "client_get_chart",
+          "cmd": "get_chart",
+          "ok": true,
+          "result": {
+            "symbol": "300502.SZ",
+            "adjustment": "none",
+            "asOf": null,
+            "dataStatus": "fresh",
+            "candles": [],
+            "nextBeforeDate": null,
+            "hasMore": false,
+            "source": null
+          },
+          "error": null,
+          "requestHash": "15521eb9e1df72c0276ccec6865eaf1c7b50c73d2b11f9a83a518bf404498390"
+        }
+      }
+    },
+    {
+      "name": "request_get_logs",
+      "valid": true,
+      "payload": {
+        "v": 1,
+        "kind": "command",
+        "id": "event_get_logs",
+        "dedupeKey": "command:client_get_logs",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "data": {
+          "cmd": "get_logs",
+          "clientMsgId": "client_get_logs",
+          "serverEpoch": "epoch_demo_a"
+        }
+      }
+    },
+    {
+      "name": "ack_get_logs",
+      "valid": true,
+      "payload": {
+        "v": 1,
+        "kind": "ack",
+        "id": "ack_get_logs",
+        "dedupeKey": "ack:client_get_logs",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "snapshotSeq": 42,
+        "data": {
+          "refId": "event_get_logs",
+          "clientMsgId": "client_get_logs",
+          "cmd": "get_logs",
+          "ok": true,
+          "result": {
+            "items": [],
+            "nextPageCursor": null,
+            "hasMore": false
+          },
+          "error": null,
+          "requestHash": "549f2f6ee35ef156b0b95ba24070115067650ac6b54041c48efdad3b28df19e3"
+        }
+      }
+    },
+    {
+      "name": "request_get_recovery",
+      "valid": true,
+      "payload": {
+        "v": 1,
+        "kind": "command",
+        "id": "event_get_recovery",
+        "dedupeKey": "command:client_get_recovery",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "data": {
+          "cmd": "get_recovery",
+          "clientMsgId": "client_get_recovery",
+          "serverEpoch": "epoch_demo_a"
+        }
+      }
+    },
+    {
+      "name": "ack_get_recovery",
+      "valid": true,
+      "payload": {
+        "v": 1,
+        "kind": "ack",
+        "id": "ack_get_recovery",
+        "dedupeKey": "ack:client_get_recovery",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "snapshotSeq": 42,
+        "data": {
+          "refId": "event_get_recovery",
+          "clientMsgId": "client_get_recovery",
+          "cmd": "get_recovery",
+          "ok": true,
+          "result": {
+            "reconciliationId": "recovery_demo",
+            "reviewedSnapshotSeq": 42,
+            "recoveryMode": true,
+            "evidenceStatus": "receiving",
+            "verifiedCount": 0,
+            "receivingCount": 0,
+            "invalidCount": 0,
+            "records": [],
+            "items": [],
+            "nextPageCursor": null,
+            "hasMore": false
+          },
+          "error": null,
+          "requestHash": "e3c2a4d82c24ab8e768f0b0eb9da2dfb7364ed6f8dd1eb34ab11a49212b0d407"
+        }
+      }
+    },
+    {
+      "name": "request_recovery_evidence",
+      "valid": true,
+      "payload": {
+        "v": 1,
+        "kind": "command",
+        "id": "event_recovery_evidence",
+        "dedupeKey": "command:client_recovery_evidence",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "data": {
+          "cmd": "recovery_evidence",
+          "clientMsgId": "client_recovery_evidence",
+          "serverEpoch": "epoch_demo_a",
+          "recordId": "recordId_demo",
+          "sourceType": "command",
+          "payloadHash": "27c18cb04b7a27bd78b5f162da55e38c88068547ecf1700a9b371fdee032d64d",
+          "partIndex": 0,
+          "partCount": 1,
+          "bytesBase64": "eyJkYXRhIjp7ImNsaWVudE1zZ0lkIjoiY2xpZW50X3JlY29yZF9leGVjdXRpb24iLCJjbWQiOiJyZWNvcmRfZXhlY3V0aW9uIiwiZXhlY3V0ZWRBdCI6MTc5NDc5MjMwMDAwMCwicHJpY2UiOiIxMC4wMCIsInF0eSI6MTAwLCJzZXJ2ZXJFcG9jaCI6ImVwb2NoX2RlbW9fYSIsInNpZGUiOiJidXkiLCJzeW1ib2wiOiIzMDA1MDIuU1oifSwiZGVkdXBlS2V5IjoiY29tbWFuZDpjbGllbnRfcmVjb3JkX2V4ZWN1dGlvbiIsImlkIjoiZXZlbnRfcmVjb3JkX2V4ZWN1dGlvbiIsImtpbmQiOiJjb21tYW5kIiwic2VydmVyRXBvY2giOiJlcG9jaF9kZW1vX2EiLCJ0cyI6MTc5NDc5MjMwMDAwMCwidiI6MX0=",
+          "evidenceEpoch": "epoch_demo_a",
+          "capturedAt": 1794792300000,
+          "observedSnapshotSeq": 42
+        }
+      }
+    },
+    {
+      "name": "ack_recovery_evidence",
+      "valid": true,
+      "payload": {
+        "v": 1,
+        "kind": "ack",
+        "id": "ack_recovery_evidence",
+        "dedupeKey": "ack:client_recovery_evidence",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "snapshotSeq": 42,
+        "data": {
+          "refId": "event_recovery_evidence",
+          "clientMsgId": "client_recovery_evidence",
+          "cmd": "recovery_evidence",
+          "ok": true,
+          "result": {
+            "reconciliationId": "reconciliationId_demo",
+            "record": {
+              "recordId": "recordId_demo",
+              "sourceType": "command",
+              "payloadHash": "27c18cb04b7a27bd78b5f162da55e38c88068547ecf1700a9b371fdee032d64d",
+              "partCount": 1,
+              "receivedParts": 1,
+              "status": "verified"
+            },
+            "reviewedSnapshotSeq": 42
+          },
+          "error": null,
+          "requestHash": "c36fec5495f485828e652b20200166a08e0fa39374d224d74a881167186ea6fc"
+        }
+      }
+    },
+    {
+      "name": "request_recovery_seal_evidence",
+      "valid": true,
+      "payload": {
+        "v": 1,
+        "kind": "command",
+        "id": "event_recovery_seal_evidence",
+        "dedupeKey": "command:client_recovery_seal_evidence",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "data": {
+          "cmd": "recovery_seal_evidence",
+          "clientMsgId": "client_recovery_seal_evidence",
+          "serverEpoch": "epoch_demo_a",
+          "reconciliationId": "reconciliationId_demo",
+          "reviewedSnapshotSeq": 42,
+          "recordCount": 1,
+          "manifestHash": "0000000000000000000000000000000000000000000000000000000000000000"
+        }
+      }
+    },
+    {
+      "name": "ack_recovery_seal_evidence",
+      "valid": true,
+      "payload": {
+        "v": 1,
+        "kind": "ack",
+        "id": "ack_recovery_seal_evidence",
+        "dedupeKey": "ack:client_recovery_seal_evidence",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "snapshotSeq": 42,
+        "data": {
+          "refId": "event_recovery_seal_evidence",
+          "clientMsgId": "client_recovery_seal_evidence",
+          "cmd": "recovery_seal_evidence",
+          "ok": true,
+          "result": {
+            "reconciliationId": "reconciliationId_demo",
+            "evidenceStatus": "sealed",
+            "reviewedSnapshotSeq": 42
+          },
+          "error": null,
+          "requestHash": "a2f09421015cbdfdb717f63764ac9e3c9408c58e563903db8cf93a58a4998932"
+        }
+      }
+    },
+    {
+      "name": "request_recovery_reconcile",
+      "valid": true,
+      "payload": {
+        "v": 1,
+        "kind": "command",
+        "id": "event_recovery_reconcile",
+        "dedupeKey": "command:client_recovery_reconcile",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "data": {
+          "cmd": "recovery_reconcile",
+          "clientMsgId": "client_recovery_reconcile",
+          "serverEpoch": "epoch_demo_a",
+          "reconciliationId": "reconciliationId_demo",
+          "reviewedSnapshotSeq": 42,
+          "decisions": [],
+          "positions": []
+        }
+      }
+    },
+    {
+      "name": "ack_recovery_reconcile",
+      "valid": true,
+      "payload": {
+        "v": 1,
+        "kind": "ack",
+        "id": "ack_recovery_reconcile",
+        "dedupeKey": "ack:client_recovery_reconcile",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "snapshotSeq": 42,
+        "data": {
+          "refId": "event_recovery_reconcile",
+          "clientMsgId": "client_recovery_reconcile",
+          "cmd": "recovery_reconcile",
+          "ok": true,
+          "result": {
+            "reconciliationId": "reconciliationId_demo",
+            "reviewedSnapshotSeq": 42,
+            "closedItemIds": [],
+            "remainingCount": 1,
+            "recordedExecutions": []
+          },
+          "error": null,
+          "requestHash": "8ec359405a4c061a06664716f7416facbffc4b6ef2fdf950e899d9fa37a2827a"
+        }
+      }
+    },
+    {
+      "name": "request_recovery_confirm",
+      "valid": true,
+      "payload": {
+        "v": 1,
+        "kind": "command",
+        "id": "event_recovery_confirm",
+        "dedupeKey": "command:client_recovery_confirm",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "data": {
+          "cmd": "recovery_confirm",
+          "clientMsgId": "client_recovery_confirm",
+          "serverEpoch": "epoch_demo_a",
+          "reconciliationId": "reconciliationId_demo",
+          "reviewedSnapshotSeq": 42
+        }
+      }
+    },
+    {
+      "name": "ack_recovery_confirm",
+      "valid": true,
+      "payload": {
+        "v": 1,
+        "kind": "ack",
+        "id": "ack_recovery_confirm",
+        "dedupeKey": "ack:client_recovery_confirm",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "snapshotSeq": 42,
+        "data": {
+          "refId": "event_recovery_confirm",
+          "clientMsgId": "client_recovery_confirm",
+          "cmd": "recovery_confirm",
+          "ok": true,
+          "result": {
+            "reconciliationId": "reconciliationId_demo",
+            "serverEpoch": "epoch_demo_a",
+            "recoveryMode": false,
+            "snapshotSeq": 42
+          },
+          "error": null,
+          "requestHash": "d6cae74a5e873484a8d3b63dbdc547bee356cc9cf186b7c1359a52ff3ad3fe33"
+        }
+      }
+    },
+    {
+      "name": "request_import_confirm",
+      "valid": true,
+      "payload": {
+        "v": 1,
+        "kind": "command",
+        "id": "event_import_confirm",
+        "dedupeKey": "command:client_import_confirm",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "data": {
+          "cmd": "apply_import",
+          "clientMsgId": "client_import_confirm",
+          "serverEpoch": "epoch_demo_a",
+          "importId": "import_demo",
+          "phase": "confirm",
+          "importVersion": 1,
+          "diffHash": "6826c84171bcc68ae3a5b6691a2485a2c166e83265304075ae5d0a1676dd4bcd",
+          "confirmRemovals": false
+        }
+      }
+    },
+    {
+      "name": "request_import_reject",
+      "valid": true,
+      "payload": {
+        "v": 1,
+        "kind": "command",
+        "id": "event_import_reject",
+        "dedupeKey": "command:client_import_reject",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "data": {
+          "cmd": "apply_import",
+          "clientMsgId": "client_import_reject",
+          "serverEpoch": "epoch_demo_a",
+          "importId": "import_demo",
+          "phase": "reject",
+          "importVersion": 1
+        }
+      }
+    },
+    {
+      "name": "task",
+      "valid": true,
+      "payload": {
+        "v": 1,
+        "kind": "task",
+        "id": "event_task",
+        "dedupeKey": "task:task_demo:created",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "snapshotSeq": 42,
+        "data": {
+          "taskId": "task_demo",
+          "scanId": "scan_demo",
+          "sourceEventKey": "sourceEventKey_demo",
+          "riskEventKey": null,
+          "eventRevision": null,
+          "symbol": "300502.SZ",
+          "name": "示例标的",
+          "direction": "buy",
+          "level": "critical",
+          "status": "pending",
+          "version": 1,
+          "actionVersion": 1,
+          "score": "86.5",
+          "confidence": "high",
+          "degraded": false,
+          "dataAsOf": 1794792300000,
+          "strategies": [],
+          "reasons": {
+            "quant": "示例量化信号",
+            "ai": null,
+            "verificationStatus": "unverified",
+            "sources": [],
+            "riskEvidence": [],
+            "risks": []
+          },
+          "stopPrice": null,
+          "targetPrice": null,
+          "entryZone": null,
+          "createdAt": 1794792300000,
+          "validUntil": 1794794100000,
+          "snoozeUntil": null,
+          "nextReminderAt": 1794792600000,
+          "remindedCount": 1,
+          "lastRemindedAt": 1794792300000,
+          "levelReason": "示例",
+          "currentReminder": {
+            "reminderId": "rem_demo_1",
+            "scheduledAt": 1794792300000,
+            "displayUntil": 1794792360000
+          }
+        }
+      }
+    },
+    {
+      "name": "task_update",
+      "valid": true,
+      "payload": {
+        "v": 1,
+        "kind": "task_update",
+        "id": "event_task_update",
+        "dedupeKey": "task_update:task_demo:2",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "snapshotSeq": 42,
+        "data": {
+          "taskId": "task_demo",
+          "scanId": "scan_demo",
+          "sourceEventKey": "sourceEventKey_demo",
+          "riskEventKey": null,
+          "eventRevision": null,
+          "symbol": "300502.SZ",
+          "name": "示例标的",
+          "direction": "buy",
+          "level": "critical",
+          "status": "pending",
+          "version": 2,
+          "actionVersion": 1,
+          "score": "86.5",
+          "confidence": "high",
+          "degraded": false,
+          "dataAsOf": 1794792300000,
+          "strategies": [],
+          "reasons": {
+            "quant": "示例量化信号",
+            "ai": null,
+            "verificationStatus": "unverified",
+            "sources": [],
+            "riskEvidence": [],
+            "risks": []
+          },
+          "stopPrice": null,
+          "targetPrice": null,
+          "entryZone": null,
+          "createdAt": 1794792300000,
+          "validUntil": 1794794100000,
+          "snoozeUntil": null,
+          "nextReminderAt": 1794792600000,
+          "remindedCount": 1,
+          "lastRemindedAt": 1794792300000,
+          "levelReason": "示例",
+          "currentReminder": {
+            "reminderId": "rem_demo_1",
+            "scheduledAt": 1794792300000,
+            "displayUntil": 1794792360000
+          }
+        }
+      }
+    },
+    {
+      "name": "reminder",
+      "valid": true,
+      "payload": {
+        "v": 1,
+        "kind": "reminder",
+        "id": "event_reminder",
+        "dedupeKey": "reminder:task_demo:2",
+        "ts": 1794792600000,
+        "serverEpoch": "epoch_demo_a",
+        "snapshotSeq": 42,
+        "data": {
+          "taskId": "task_demo",
+          "scanId": "scan_demo",
+          "sourceEventKey": "sourceEventKey_demo",
+          "riskEventKey": null,
+          "eventRevision": null,
+          "symbol": "300502.SZ",
+          "name": "示例标的",
+          "direction": "buy",
+          "level": "critical",
+          "status": "reminded",
+          "version": 2,
+          "actionVersion": 1,
+          "score": "86.5",
+          "confidence": "high",
+          "degraded": false,
+          "dataAsOf": 1794792300000,
+          "strategies": [],
+          "reasons": {
+            "quant": "示例量化信号",
+            "ai": null,
+            "verificationStatus": "unverified",
+            "sources": [],
+            "riskEvidence": [],
+            "risks": []
+          },
+          "stopPrice": null,
+          "targetPrice": null,
+          "entryZone": null,
+          "createdAt": 1794792300000,
+          "validUntil": 1794794100000,
+          "snoozeUntil": null,
+          "nextReminderAt": null,
+          "remindedCount": 2,
+          "lastRemindedAt": 1794792600000,
+          "levelReason": "示例",
+          "currentReminder": {
+            "reminderId": "rem_demo_2",
+            "scheduledAt": 1794792600000,
+            "displayUntil": 1794792660000
+          }
+        }
+      }
+    },
+    {
+      "name": "scan_result",
+      "valid": true,
+      "payload": {
+        "v": 1,
+        "kind": "scan_result",
+        "id": "event_scan_result",
+        "dedupeKey": "scan:scan_demo:result",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "snapshotSeq": 42,
+        "data": {
+          "scanId": "scan_demo",
+          "trigger": "manual",
+          "status": "succeeded",
+          "profile": "conservative",
+          "tradeDate": "2026-11-16",
+          "slot": null,
+          "requestedAt": 1794792300000,
+          "startedAt": 1794792300000,
+          "finishedAt": 1794792301000,
+          "dataAsOf": 1794792300000,
+          "dataStatus": "fresh",
+          "strategy": {
+            "total": 25,
+            "succeeded": 25,
+            "failed": []
+          },
+          "degraded": false,
+          "publishedTaskIds": [],
+          "error": null,
+          "rejectionSummary": []
+        }
+      }
+    },
+    {
+      "name": "import_result",
+      "valid": true,
+      "payload": {
+        "v": 1,
+        "kind": "import_result",
+        "id": "event_import_result",
+        "dedupeKey": "import:import_demo:1",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "snapshotSeq": 42,
+        "data": {
+          "importId": "import_demo",
+          "importVersion": 1,
+          "status": "recognized",
+          "mode": "full_snapshot",
+          "snapshotAsOf": 1794792300000,
+          "basePositionRevision": 1,
+          "rows": [
+            {
+              "rowId": "row_1",
+              "symbol": "300502.SZ",
+              "name": "示例标的",
+              "qty": 100,
+              "availableQty": 100,
+              "cost": "10.00",
+              "pendingLots": [],
+              "resolvedExecutionIds": []
+            }
+          ],
+          "diff": {
+            "added": [
+              "300502.SZ"
+            ],
+            "changed": [],
+            "missing": [],
+            "unchanged": []
+          },
+          "diffHash": "6826c84171bcc68ae3a5b6691a2485a2c166e83265304075ae5d0a1676dd4bcd",
+          "warnings": [],
+          "errorCode": null,
+          "cleanupStatus": "deleted",
+          "createdAt": 1794792300000,
+          "updatedAt": 1794792300000,
+          "recognizedRows": [],
+          "excludedRows": [],
+          "readyForConfirm": true
+        }
+      }
+    },
+    {
+      "name": "reply",
+      "valid": true,
+      "payload": {
+        "v": 1,
+        "kind": "reply",
+        "id": "event_reply",
+        "dedupeKey": "event_reply",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "snapshotSeq": 42,
+        "data": {
+          "requestId": "client_chat",
+          "text": "示例回复；无可核验数据时明确提示。",
+          "status": "completed",
+          "sources": [],
+          "unverified": true,
+          "attachments": [],
+          "errorCode": null
+        }
+      }
+    },
+    {
+      "name": "digest",
+      "valid": true,
+      "payload": {
+        "v": 1,
+        "kind": "digest",
+        "id": "event_digest",
+        "dedupeKey": "event_digest",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "snapshotSeq": 42,
+        "data": {
+          "digestId": "digestId_demo",
+          "tradeDate": "2026-11-16",
+          "generatedAt": 1794792300000,
+          "revision": 1,
+          "supersedesDigestId": null,
+          "signalCount": 1,
+          "actedCount": 1,
+          "ignoredCount": 1,
+          "realizedPnl": null,
+          "text": "示例"
+        }
+      }
+    },
+    {
+      "name": "snapshot_page_0",
+      "valid": true,
+      "payload": {
+        "v": 1,
+        "kind": "state_snapshot",
+        "id": "snapshot_page_0",
+        "dedupeKey": "snapshot:epoch_demo_a:snapshot_demo:0",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "snapshotSeq": 42,
+        "data": {
+          "requestId": "client_sync",
+          "serverEpoch": "epoch_demo_a",
+          "snapshotId": "snapshot_demo",
+          "snapshotSeq": 42,
+          "recoveryMode": false,
+          "generatedAt": 1794792300000,
+          "expiresAt": 1794792900000,
+          "pageIndex": 0,
+          "nextPageCursor": "cursor_page_1",
+          "hasMore": true,
+          "manifest": {
+            "tasks": {
+              "count": 1,
+              "sha256": "05670ee28c3b4a8be70a15c509fb683b1ff9f7c72bce24254bef7b4a2e8fd318"
+            },
+            "positions": {
+              "count": 1,
+              "sha256": "6da0fa55aaf7b654cd937e4d733ed8c7f10282b29ca47224a3c5c78395af64ce"
+            },
+            "executions": {
+              "count": 1,
+              "sha256": "315c979a9531995e052f7b34ec79e8e608f71e2779f465039b62e074c57f3d8f"
+            },
+            "watchlist": {
+              "count": 0,
+              "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+            },
+            "imports": {
+              "count": 1,
+              "sha256": "216cb35106e5c02bea3129445d093910b3559fc848f6dce161e064bd98d49d91"
+            },
+            "valuationPoints": {
+              "count": 0,
+              "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+            },
+            "adjustments": {
+              "count": 0,
+              "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+            },
+            "meta": {
+              "count": 1,
+              "sha256": "f7ab079933c799a08c514a9343dc6324968197ab1ecb2768fad8c7ec4be3014c"
+            }
+          },
+          "meta": {
+            "analysis": {
+              "paused": false,
+              "controlVersion": 1,
+              "profile": "conservative",
+              "lastScanId": null,
+              "kernelStatus": "online"
+            },
+            "settings": {
+              "settingsRevision": 1,
+              "reminderModes": {
+                "critical": "full_screen",
+                "warn": "sound",
+                "info": "visual"
+              },
+              "nightStart": "23:00",
+              "nightEnd": "07:00",
+              "criticalAtNight": false,
+              "pushEnabled": false
+            },
+            "visionNotice": {
+              "noticeVersion": "示例",
+              "text": "示例",
+              "consentedAt": null
+            },
+            "valuation": {
+              "scope": "recorded_positions",
+              "asOf": null,
+              "positionMarketValue": null,
+              "pricedSubtotal": "10.00",
+              "unrealizedPnl": null,
+              "coveredCount": 1,
+              "totalCount": 1,
+              "unpricedSymbols": [],
+              "reconciliationSymbols": [],
+              "includesCash": false,
+              "includesFees": false,
+              "feePolicy": "not_estimated"
+            },
+            "positionRevision": 1
+          },
+          "tasks": [
+            {
+              "taskId": "task_demo",
+              "scanId": "scan_demo",
+              "sourceEventKey": "sourceEventKey_demo",
+              "riskEventKey": null,
+              "eventRevision": null,
+              "symbol": "300502.SZ",
+              "name": "示例标的",
+              "direction": "buy",
+              "level": "critical",
+              "status": "pending",
+              "version": 1,
+              "actionVersion": 1,
+              "score": "86.5",
+              "confidence": "high",
+              "degraded": false,
+              "dataAsOf": 1794792300000,
+              "strategies": [],
+              "reasons": {
+                "quant": "示例量化信号",
+                "ai": null,
+                "verificationStatus": "unverified",
+                "sources": [],
+                "riskEvidence": [],
+                "risks": []
+              },
+              "stopPrice": null,
+              "targetPrice": null,
+              "entryZone": null,
+              "createdAt": 1794792300000,
+              "validUntil": 1794794100000,
+              "snoozeUntil": null,
+              "nextReminderAt": 1794792600000,
+              "remindedCount": 1,
+              "lastRemindedAt": 1794792300000,
+              "levelReason": "示例",
+              "currentReminder": {
+                "reminderId": "rem_demo_1",
+                "scheduledAt": 1794792300000,
+                "displayUntil": 1794792360000
+              }
+            }
+          ],
+          "positions": [],
+          "executions": [],
+          "watchlist": [],
+          "imports": [],
+          "valuationPoints": [],
+          "adjustments": []
+        }
+      }
+    },
+    {
+      "name": "snapshot_page_1",
+      "valid": true,
+      "payload": {
+        "v": 1,
+        "kind": "state_snapshot",
+        "id": "snapshot_page_1",
+        "dedupeKey": "snapshot:epoch_demo_a:snapshot_demo:1",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "snapshotSeq": 42,
+        "data": {
+          "requestId": "client_sync_page_1",
+          "serverEpoch": "epoch_demo_a",
+          "snapshotId": "snapshot_demo",
+          "snapshotSeq": 42,
+          "recoveryMode": false,
+          "generatedAt": 1794792300000,
+          "expiresAt": 1794792900000,
+          "pageIndex": 1,
+          "nextPageCursor": null,
+          "hasMore": false,
+          "manifest": null,
+          "meta": null,
+          "tasks": [],
+          "positions": [
+            {
+              "symbol": "300502.SZ",
+              "name": "示例标的",
+              "qty": 100,
+              "availableQty": 100,
+              "cost": "10.00",
+              "pendingLots": [],
+              "asOf": 1794792300000,
+              "positionRevision": 1,
+              "reconciliationRequired": false,
+              "lastPrice": "12.00",
+              "priceAsOf": 1794792300000,
+              "priceStatus": "fresh",
+              "marketValue": "1200.00",
+              "unrealizedPnl": "200.00",
+              "unrealizedPnlRatio": "0.2"
+            }
+          ],
+          "executions": [
+            {
+              "executionId": "execution_demo",
+              "taskId": "task_demo",
+              "symbol": "300502.SZ",
+              "side": "buy",
+              "price": "10.00",
+              "qty": 100,
+              "executedAt": 1794792300000,
+              "channel": null,
+              "priceBasis": "unknown",
+              "orderId": null,
+              "orderQty": null,
+              "positionEffect": "applied",
+              "reconciliationRequired": false,
+              "ruleStatus": "unverified",
+              "ruleSnapshotId": null,
+              "sellableDate": "2026-11-17",
+              "realizedPnl": null,
+              "warnings": [],
+              "supersedesExecutionId": null,
+              "createdAt": 1794792300000,
+              "note": "示例",
+              "tradeDate": "2026-11-16",
+              "settlement": "T+1",
+              "settlementSource": "user",
+              "verificationScope": "recorded_execution_only",
+              "ruleSnapshot": null
+            }
+          ],
+          "watchlist": [],
+          "imports": [
+            {
+              "importId": "import_demo",
+              "importVersion": 1,
+              "status": "recognized",
+              "mode": "full_snapshot",
+              "snapshotAsOf": 1794792300000,
+              "basePositionRevision": 1,
+              "rows": [
+                {
+                  "rowId": "row_1",
+                  "symbol": "300502.SZ",
+                  "name": "示例标的",
+                  "qty": 100,
+                  "availableQty": 100,
+                  "cost": "10.00",
+                  "pendingLots": [],
+                  "resolvedExecutionIds": []
+                }
+              ],
+              "diff": {
+                "added": [
+                  "300502.SZ"
+                ],
+                "changed": [],
+                "missing": [],
+                "unchanged": []
+              },
+              "diffHash": "6826c84171bcc68ae3a5b6691a2485a2c166e83265304075ae5d0a1676dd4bcd",
+              "warnings": [],
+              "errorCode": null,
+              "cleanupStatus": "deleted",
+              "createdAt": 1794792300000,
+              "updatedAt": 1794792300000,
+              "recognizedRows": [],
+              "excludedRows": [],
+              "readyForConfirm": true
+            }
+          ],
+          "valuationPoints": [],
+          "adjustments": []
+        }
+      }
+    },
+    {
+      "name": "error_TASK_EXPIRED",
+      "valid": true,
+      "payload": {
+        "v": 1,
+        "kind": "ack",
+        "id": "error_TASK_EXPIRED",
+        "dedupeKey": "ack:client_act",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "snapshotSeq": 42,
+        "data": {
+          "refId": "event_act",
+          "clientMsgId": "client_act",
+          "cmd": "act",
+          "ok": false,
+          "result": null,
+          "error": {
+            "code": "TASK_EXPIRED",
+            "message": "契约错误演示",
+            "retryable": false,
+            "details": {
+              "currentTask": {
+                "taskId": "task_demo",
+                "scanId": "scan_demo",
+                "sourceEventKey": "sourceEventKey_demo",
+                "riskEventKey": null,
+                "eventRevision": null,
+                "symbol": "300502.SZ",
+                "name": "示例标的",
+                "direction": "buy",
+                "level": "critical",
+                "status": "expired",
+                "version": 3,
+                "actionVersion": 2,
+                "score": "86.5",
+                "confidence": "high",
+                "degraded": false,
+                "dataAsOf": 1794792300000,
+                "strategies": [],
+                "reasons": {
+                  "quant": "示例量化信号",
+                  "ai": null,
+                  "verificationStatus": "unverified",
+                  "sources": [],
+                  "riskEvidence": [],
+                  "risks": []
+                },
+                "stopPrice": null,
+                "targetPrice": null,
+                "entryZone": null,
+                "createdAt": 1794792300000,
+                "validUntil": 1794794100000,
+                "snoozeUntil": null,
+                "nextReminderAt": null,
+                "remindedCount": 1,
+                "lastRemindedAt": 1794792300000,
+                "levelReason": "示例",
+                "currentReminder": null
+              },
+              "snapshotSeq": 42
+            }
+          },
+          "requestHash": "ff146ac8f965a80bf5af4f6638a493c5ff79d2a4d5b4bb4e11deb8c98ccf2397"
+        }
+      }
+    },
+    {
+      "name": "error_TASK_VERSION_CONFLICT",
+      "valid": true,
+      "payload": {
+        "v": 1,
+        "kind": "ack",
+        "id": "error_TASK_VERSION_CONFLICT",
+        "dedupeKey": "ack:client_act",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "snapshotSeq": 42,
+        "data": {
+          "refId": "event_act",
+          "clientMsgId": "client_act",
+          "cmd": "act",
+          "ok": false,
+          "result": null,
+          "error": {
+            "code": "TASK_VERSION_CONFLICT",
+            "message": "契约错误演示",
+            "retryable": false,
+            "details": {
+              "currentTask": {
+                "taskId": "task_demo",
+                "scanId": "scan_demo",
+                "sourceEventKey": "sourceEventKey_demo",
+                "riskEventKey": null,
+                "eventRevision": null,
+                "symbol": "300502.SZ",
+                "name": "示例标的",
+                "direction": "buy",
+                "level": "critical",
+                "status": "pending",
+                "version": 2,
+                "actionVersion": 2,
+                "score": "86.5",
+                "confidence": "high",
+                "degraded": false,
+                "dataAsOf": 1794792300000,
+                "strategies": [],
+                "reasons": {
+                  "quant": "示例量化信号",
+                  "ai": null,
+                  "verificationStatus": "unverified",
+                  "sources": [],
+                  "riskEvidence": [],
+                  "risks": []
+                },
+                "stopPrice": null,
+                "targetPrice": null,
+                "entryZone": null,
+                "createdAt": 1794792300000,
+                "validUntil": 1794794100000,
+                "snoozeUntil": null,
+                "nextReminderAt": 1794792600000,
+                "remindedCount": 1,
+                "lastRemindedAt": 1794792300000,
+                "levelReason": "示例",
+                "currentReminder": {
+                  "reminderId": "rem_demo_1",
+                  "scheduledAt": 1794792300000,
+                  "displayUntil": 1794792360000
+                }
+              },
+              "snapshotSeq": 42
+            }
+          },
+          "requestHash": "ff146ac8f965a80bf5af4f6638a493c5ff79d2a4d5b4bb4e11deb8c98ccf2397"
+        }
+      }
+    },
+    {
+      "name": "error_SERVER_EPOCH_MISMATCH",
+      "valid": true,
+      "payload": {
+        "v": 1,
+        "kind": "ack",
+        "id": "error_SERVER_EPOCH_MISMATCH",
+        "dedupeKey": "ack_reject:epoch_demo_a:client_act:ff146ac8f965a80bf5af4f6638a493c5ff79d2a4d5b4bb4e11deb8c98ccf2397",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "snapshotSeq": 42,
+        "data": {
+          "refId": "event_act",
+          "clientMsgId": "client_act",
+          "cmd": "act",
+          "ok": false,
+          "result": null,
+          "error": {
+            "code": "SERVER_EPOCH_MISMATCH",
+            "message": "契约错误演示",
+            "retryable": false,
+            "details": {
+              "currentEpoch": "epoch_demo_b",
+              "snapshotSeq": 10
+            }
+          },
+          "requestHash": "ff146ac8f965a80bf5af4f6638a493c5ff79d2a4d5b4bb4e11deb8c98ccf2397"
+        }
+      }
+    },
+    {
+      "name": "error_RECOVERY_EVIDENCE_INCOMPLETE",
+      "valid": true,
+      "payload": {
+        "v": 1,
+        "kind": "ack",
+        "id": "error_RECOVERY_EVIDENCE_INCOMPLETE",
+        "dedupeKey": "ack:client_act",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "snapshotSeq": 42,
+        "data": {
+          "refId": "event_act",
+          "clientMsgId": "client_act",
+          "cmd": "act",
+          "ok": false,
+          "result": null,
+          "error": {
+            "code": "RECOVERY_EVIDENCE_INCOMPLETE",
+            "message": "契约错误演示",
+            "retryable": false,
+            "details": {}
+          },
+          "requestHash": "ff146ac8f965a80bf5af4f6638a493c5ff79d2a4d5b4bb4e11deb8c98ccf2397"
+        }
+      }
+    },
+    {
+      "name": "error_INVALID_PARAMS",
+      "valid": true,
+      "payload": {
+        "v": 1,
+        "kind": "ack",
+        "id": "error_INVALID_PARAMS",
+        "dedupeKey": "ack:client_act",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "snapshotSeq": 42,
+        "data": {
+          "refId": "event_act",
+          "clientMsgId": "client_act",
+          "cmd": "act",
+          "ok": false,
+          "result": null,
+          "error": {
+            "code": "INVALID_PARAMS",
+            "message": "契约错误演示",
+            "retryable": false,
+            "details": {}
+          },
+          "requestHash": "ff146ac8f965a80bf5af4f6638a493c5ff79d2a4d5b4bb4e11deb8c98ccf2397"
+        }
+      }
+    },
+    {
+      "name": "error_COMMAND_ID_REUSED",
+      "valid": true,
+      "payload": {
+        "v": 1,
+        "kind": "ack",
+        "id": "error_COMMAND_ID_REUSED",
+        "dedupeKey": "ack_reject:epoch_demo_a:client_act:ff146ac8f965a80bf5af4f6638a493c5ff79d2a4d5b4bb4e11deb8c98ccf2397",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "snapshotSeq": 42,
+        "data": {
+          "refId": "event_act",
+          "clientMsgId": "client_act",
+          "cmd": "act",
+          "ok": false,
+          "result": null,
+          "error": {
+            "code": "COMMAND_ID_REUSED",
+            "message": "契约错误演示",
+            "retryable": false,
+            "details": {}
+          },
+          "requestHash": "ff146ac8f965a80bf5af4f6638a493c5ff79d2a4d5b4bb4e11deb8c98ccf2397"
+        }
+      }
+    },
+    {
+      "name": "error_SCAN_PARTIAL",
+      "valid": true,
+      "payload": {
+        "v": 1,
+        "kind": "ack",
+        "id": "error_SCAN_PARTIAL",
+        "dedupeKey": "ack:client_scan_now",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "snapshotSeq": 42,
+        "data": {
+          "refId": "event_scan_now",
+          "clientMsgId": "client_scan_now",
+          "cmd": "scan_now",
+          "ok": false,
+          "result": {
+            "scanId": "scan_demo",
+            "trigger": "manual",
+            "status": "partial",
+            "profile": "conservative",
+            "tradeDate": "2026-11-16",
+            "slot": null,
+            "requestedAt": 1794792300000,
+            "startedAt": 1794792300000,
+            "finishedAt": 1794792301000,
+            "dataAsOf": 1794792300000,
+            "dataStatus": "fresh",
+            "strategy": {
+              "total": 25,
+              "succeeded": 24,
+              "failed": [
+                "sample_strategy"
+              ]
+            },
+            "degraded": true,
+            "publishedTaskIds": [],
+            "error": {
+              "code": "SCAN_PARTIAL",
+              "message": "部分策略失败"
+            },
+            "rejectionSummary": []
+          },
+          "error": {
+            "code": "SCAN_PARTIAL",
+            "message": "契约错误演示",
+            "retryable": false,
+            "details": {}
+          },
+          "requestHash": "526b4ad26af62659405bf760a8e8965877d37cc1209f55cd916ab5610687ced9"
+        }
+      }
+    },
+    {
+      "name": "reject_missing_action_version",
+      "valid": false,
+      "payload": {
+        "v": 1,
+        "kind": "command",
+        "id": "event_act",
+        "dedupeKey": "command:client_act",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "data": {
+          "cmd": "act",
+          "clientMsgId": "client_act",
+          "serverEpoch": "epoch_demo_a",
+          "taskId": "task_demo",
+          "side": "buy",
+          "price": "10.00",
+          "qty": 100,
+          "executedAt": 1794792300000
+        }
+      }
+    },
+    {
+      "name": "reject_numeric_price",
+      "valid": false,
+      "payload": {
+        "v": 1,
+        "kind": "command",
+        "id": "event_act",
+        "dedupeKey": "command:client_act",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "data": {
+          "cmd": "act",
+          "clientMsgId": "client_act",
+          "serverEpoch": "epoch_demo_a",
+          "taskId": "task_demo",
+          "baseActionVersion": 1,
+          "side": "buy",
+          "price": 10.0,
+          "qty": 100,
+          "executedAt": 1794792300000
+        }
+      }
+    },
+    {
+      "name": "reject_negative_qty",
+      "valid": false,
+      "payload": {
+        "v": 1,
+        "kind": "command",
+        "id": "event_record_execution",
+        "dedupeKey": "command:client_record_execution",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "data": {
+          "cmd": "record_execution",
+          "clientMsgId": "client_record_execution",
+          "serverEpoch": "epoch_demo_a",
+          "symbol": "300502.SZ",
+          "side": "buy",
+          "price": "10.00",
+          "qty": -1,
+          "executedAt": 1794792300000
+        }
+      }
+    },
+    {
+      "name": "reject_zero_price",
+      "valid": false,
+      "payload": {
+        "v": 1,
+        "kind": "command",
+        "id": "event_record_execution",
+        "dedupeKey": "command:client_record_execution",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "data": {
+          "cmd": "record_execution",
+          "clientMsgId": "client_record_execution",
+          "serverEpoch": "epoch_demo_a",
+          "symbol": "300502.SZ",
+          "side": "buy",
+          "price": "0.000",
+          "qty": 100,
+          "executedAt": 1794792300000
+        }
+      }
+    },
+    {
+      "name": "reject_partial_act_fill",
+      "valid": false,
+      "payload": {
+        "v": 1,
+        "kind": "command",
+        "id": "event_act",
+        "dedupeKey": "command:client_act",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "data": {
+          "cmd": "act",
+          "clientMsgId": "client_act",
+          "serverEpoch": "epoch_demo_a",
+          "taskId": "task_demo",
+          "baseActionVersion": 1,
+          "side": "buy",
+          "price": "10.00",
+          "executedAt": 1794792300000
+        }
+      }
+    },
+    {
+      "name": "reject_unknown_command",
+      "valid": false,
+      "payload": {
+        "v": 1,
+        "kind": "command",
+        "id": "event_act",
+        "dedupeKey": "command:client_act",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "data": {
+          "cmd": "place_broker_order",
+          "clientMsgId": "client_act",
+          "serverEpoch": "epoch_demo_a",
+          "taskId": "task_demo",
+          "baseActionVersion": 1,
+          "side": "buy",
+          "price": "10.00",
+          "qty": 100,
+          "executedAt": 1794792300000
+        }
+      }
+    },
+    {
+      "name": "reject_unknown_write_epoch",
+      "valid": false,
+      "payload": {
+        "v": 1,
+        "kind": "command",
+        "id": "event_act",
+        "dedupeKey": "command:client_act",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "data": {
+          "cmd": "act",
+          "clientMsgId": "client_act",
+          "serverEpoch": null,
+          "taskId": "task_demo",
+          "baseActionVersion": 1,
+          "side": "buy",
+          "price": "10.00",
+          "qty": 100,
+          "executedAt": 1794792300000
+        }
+      }
+    },
+    {
+      "name": "reject_long_event_id",
+      "valid": false,
+      "payload": {
+        "v": 1,
+        "kind": "command",
+        "id": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "dedupeKey": "command:client_act",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "data": {
+          "cmd": "act",
+          "clientMsgId": "client_act",
+          "serverEpoch": "epoch_demo_a",
+          "taskId": "task_demo",
+          "baseActionVersion": 1,
+          "side": "buy",
+          "price": "10.00",
+          "qty": 100,
+          "executedAt": 1794792300000
+        }
+      }
+    },
+    {
+      "name": "reject_confirm_rows",
+      "valid": false,
+      "payload": {
+        "v": 1,
+        "kind": "command",
+        "id": "event_import_confirm",
+        "dedupeKey": "command:client_import_confirm",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "data": {
+          "cmd": "apply_import",
+          "clientMsgId": "client_import_confirm",
+          "serverEpoch": "epoch_demo_a",
+          "importId": "import_demo",
+          "phase": "confirm",
+          "importVersion": 1,
+          "diffHash": "6826c84171bcc68ae3a5b6691a2485a2c166e83265304075ae5d0a1676dd4bcd",
+          "confirmRemovals": false,
+          "rows": []
+        }
+      }
+    },
+    {
+      "name": "reject_oversize_snooze",
+      "valid": false,
+      "payload": {
+        "v": 1,
+        "kind": "command",
+        "id": "event_snooze",
+        "dedupeKey": "command:client_snooze",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "data": {
+          "cmd": "snooze",
+          "clientMsgId": "client_snooze",
+          "serverEpoch": "epoch_demo_a",
+          "taskId": "taskId_demo",
+          "baseActionVersion": 1,
+          "minutes": 6
+        }
+      }
+    },
+    {
+      "name": "reject_bad_ack_result",
+      "valid": false,
+      "payload": {
+        "v": 1,
+        "kind": "ack",
+        "id": "ack_get_task",
+        "dedupeKey": "ack:client_get_task",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "snapshotSeq": 42,
+        "data": {
+          "refId": "event_get_task",
+          "clientMsgId": "client_get_task",
+          "cmd": "get_task",
+          "ok": true,
+          "result": {},
+          "error": null,
+          "requestHash": "17318ad5a89d73df5f2bd6f4e3f2932a7a29acfea2d7c1f30914501fe7400c54"
+        }
+      }
+    },
+    {
+      "name": "reject_success_with_error",
+      "valid": false,
+      "payload": {
+        "v": 1,
+        "kind": "ack",
+        "id": "ack_get_task",
+        "dedupeKey": "ack:client_get_task",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "snapshotSeq": 42,
+        "data": {
+          "refId": "event_get_task",
+          "clientMsgId": "client_get_task",
+          "cmd": "get_task",
+          "ok": true,
+          "result": {
+            "serverEpoch": "epoch_demo_a",
+            "recoveryMode": false,
+            "task": {
+              "taskId": "task_demo",
+              "scanId": "scan_demo",
+              "sourceEventKey": "sourceEventKey_demo",
+              "riskEventKey": null,
+              "eventRevision": null,
+              "symbol": "300502.SZ",
+              "name": "示例标的",
+              "direction": "buy",
+              "level": "critical",
+              "status": "pending",
+              "version": 1,
+              "actionVersion": 1,
+              "score": "86.5",
+              "confidence": "high",
+              "degraded": false,
+              "dataAsOf": 1794792300000,
+              "strategies": [],
+              "reasons": {
+                "quant": "示例量化信号",
+                "ai": null,
+                "verificationStatus": "unverified",
+                "sources": [],
+                "riskEvidence": [],
+                "risks": []
+              },
+              "stopPrice": null,
+              "targetPrice": null,
+              "entryZone": null,
+              "createdAt": 1794792300000,
+              "validUntil": 1794794100000,
+              "snoozeUntil": null,
+              "nextReminderAt": 1794792600000,
+              "remindedCount": 1,
+              "lastRemindedAt": 1794792300000,
+              "levelReason": "示例",
+              "currentReminder": {
+                "reminderId": "rem_demo_1",
+                "scheduledAt": 1794792300000,
+                "displayUntil": 1794792360000
+              }
+            },
+            "snapshotSeq": 42
+          },
+          "error": {
+            "code": "BAD",
+            "message": "bad",
+            "retryable": false,
+            "details": {}
+          },
+          "requestHash": "17318ad5a89d73df5f2bd6f4e3f2932a7a29acfea2d7c1f30914501fe7400c54"
+        }
+      }
+    },
+    {
+      "name": "reject_bad_push_reg",
+      "valid": false,
+      "payload": {
+        "v": 1,
+        "kind": "command",
+        "id": "event_register_push",
+        "dedupeKey": "command:client_register_push",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "data": {
+          "cmd": "register_push",
+          "clientMsgId": "client_register_push",
+          "serverEpoch": "epoch_demo_a",
+          "deviceId": "deviceId_demo",
+          "platform": "ios",
+          "regId": "regId_demo"
+        }
+      }
+    },
+    {
+      "name": "reject_oversize_page",
+      "valid": false,
+      "payload": {
+        "v": 1,
+        "kind": "state_snapshot",
+        "id": "snapshot_page_0",
+        "dedupeKey": "snapshot:epoch_demo_a:snapshot_demo:0",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "snapshotSeq": 42,
+        "data": {
+          "requestId": "client_sync",
+          "serverEpoch": "epoch_demo_a",
+          "snapshotId": "snapshot_demo",
+          "snapshotSeq": 42,
+          "recoveryMode": false,
+          "generatedAt": 1794792300000,
+          "expiresAt": 1794792900000,
+          "pageIndex": 0,
+          "nextPageCursor": "cursor_page_1",
+          "hasMore": true,
+          "manifest": {
+            "tasks": {
+              "count": 1,
+              "sha256": "05670ee28c3b4a8be70a15c509fb683b1ff9f7c72bce24254bef7b4a2e8fd318"
+            },
+            "positions": {
+              "count": 1,
+              "sha256": "6da0fa55aaf7b654cd937e4d733ed8c7f10282b29ca47224a3c5c78395af64ce"
+            },
+            "executions": {
+              "count": 1,
+              "sha256": "315c979a9531995e052f7b34ec79e8e608f71e2779f465039b62e074c57f3d8f"
+            },
+            "watchlist": {
+              "count": 0,
+              "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+            },
+            "imports": {
+              "count": 1,
+              "sha256": "216cb35106e5c02bea3129445d093910b3559fc848f6dce161e064bd98d49d91"
+            },
+            "valuationPoints": {
+              "count": 0,
+              "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+            },
+            "adjustments": {
+              "count": 0,
+              "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+            },
+            "meta": {
+              "count": 1,
+              "sha256": "f7ab079933c799a08c514a9343dc6324968197ab1ecb2768fad8c7ec4be3014c"
+            }
+          },
+          "meta": {
+            "analysis": {
+              "paused": false,
+              "controlVersion": 1,
+              "profile": "conservative",
+              "lastScanId": null,
+              "kernelStatus": "online"
+            },
+            "settings": {
+              "settingsRevision": 1,
+              "reminderModes": {
+                "critical": "full_screen",
+                "warn": "sound",
+                "info": "visual"
+              },
+              "nightStart": "23:00",
+              "nightEnd": "07:00",
+              "criticalAtNight": false,
+              "pushEnabled": false
+            },
+            "visionNotice": {
+              "noticeVersion": "示例",
+              "text": "示例",
+              "consentedAt": null
+            },
+            "valuation": {
+              "scope": "recorded_positions",
+              "asOf": null,
+              "positionMarketValue": null,
+              "pricedSubtotal": "10.00",
+              "unrealizedPnl": null,
+              "coveredCount": 1,
+              "totalCount": 1,
+              "unpricedSymbols": [],
+              "reconciliationSymbols": [],
+              "includesCash": false,
+              "includesFees": false,
+              "feePolicy": "not_estimated"
+            },
+            "positionRevision": 1
+          },
+          "tasks": [
+            {
+              "taskId": "task_demo",
+              "scanId": "scan_demo",
+              "sourceEventKey": "sourceEventKey_demo",
+              "riskEventKey": null,
+              "eventRevision": null,
+              "symbol": "300502.SZ",
+              "name": "示例标的",
+              "direction": "buy",
+              "level": "critical",
+              "status": "pending",
+              "version": 1,
+              "actionVersion": 1,
+              "score": "86.5",
+              "confidence": "high",
+              "degraded": false,
+              "dataAsOf": 1794792300000,
+              "strategies": [],
+              "reasons": {
+                "quant": "示例量化信号",
+                "ai": null,
+                "verificationStatus": "unverified",
+                "sources": [],
+                "riskEvidence": [],
+                "risks": []
+              },
+              "stopPrice": null,
+              "targetPrice": null,
+              "entryZone": null,
+              "createdAt": 1794792300000,
+              "validUntil": 1794794100000,
+              "snoozeUntil": null,
+              "nextReminderAt": 1794792600000,
+              "remindedCount": 1,
+              "lastRemindedAt": 1794792300000,
+              "levelReason": "示例",
+              "currentReminder": {
+                "reminderId": "rem_demo_1",
+                "scheduledAt": 1794792300000,
+                "displayUntil": 1794792360000
+              }
+            },
+            {
+              "taskId": "task_demo",
+              "scanId": "scan_demo",
+              "sourceEventKey": "sourceEventKey_demo",
+              "riskEventKey": null,
+              "eventRevision": null,
+              "symbol": "300502.SZ",
+              "name": "示例标的",
+              "direction": "buy",
+              "level": "critical",
+              "status": "pending",
+              "version": 1,
+              "actionVersion": 1,
+              "score": "86.5",
+              "confidence": "high",
+              "degraded": false,
+              "dataAsOf": 1794792300000,
+              "strategies": [],
+              "reasons": {
+                "quant": "示例量化信号",
+                "ai": null,
+                "verificationStatus": "unverified",
+                "sources": [],
+                "riskEvidence": [],
+                "risks": []
+              },
+              "stopPrice": null,
+              "targetPrice": null,
+              "entryZone": null,
+              "createdAt": 1794792300000,
+              "validUntil": 1794794100000,
+              "snoozeUntil": null,
+              "nextReminderAt": 1794792600000,
+              "remindedCount": 1,
+              "lastRemindedAt": 1794792300000,
+              "levelReason": "示例",
+              "currentReminder": {
+                "reminderId": "rem_demo_1",
+                "scheduledAt": 1794792300000,
+                "displayUntil": 1794792360000
+              }
+            },
+            {
+              "taskId": "task_demo",
+              "scanId": "scan_demo",
+              "sourceEventKey": "sourceEventKey_demo",
+              "riskEventKey": null,
+              "eventRevision": null,
+              "symbol": "300502.SZ",
+              "name": "示例标的",
+              "direction": "buy",
+              "level": "critical",
+              "status": "pending",
+              "version": 1,
+              "actionVersion": 1,
+              "score": "86.5",
+              "confidence": "high",
+              "degraded": false,
+              "dataAsOf": 1794792300000,
+              "strategies": [],
+              "reasons": {
+                "quant": "示例量化信号",
+                "ai": null,
+                "verificationStatus": "unverified",
+                "sources": [],
+                "riskEvidence": [],
+                "risks": []
+              },
+              "stopPrice": null,
+              "targetPrice": null,
+              "entryZone": null,
+              "createdAt": 1794792300000,
+              "validUntil": 1794794100000,
+              "snoozeUntil": null,
+              "nextReminderAt": 1794792600000,
+              "remindedCount": 1,
+              "lastRemindedAt": 1794792300000,
+              "levelReason": "示例",
+              "currentReminder": {
+                "reminderId": "rem_demo_1",
+                "scheduledAt": 1794792300000,
+                "displayUntil": 1794792360000
+              }
+            },
+            {
+              "taskId": "task_demo",
+              "scanId": "scan_demo",
+              "sourceEventKey": "sourceEventKey_demo",
+              "riskEventKey": null,
+              "eventRevision": null,
+              "symbol": "300502.SZ",
+              "name": "示例标的",
+              "direction": "buy",
+              "level": "critical",
+              "status": "pending",
+              "version": 1,
+              "actionVersion": 1,
+              "score": "86.5",
+              "confidence": "high",
+              "degraded": false,
+              "dataAsOf": 1794792300000,
+              "strategies": [],
+              "reasons": {
+                "quant": "示例量化信号",
+                "ai": null,
+                "verificationStatus": "unverified",
+                "sources": [],
+                "riskEvidence": [],
+                "risks": []
+              },
+              "stopPrice": null,
+              "targetPrice": null,
+              "entryZone": null,
+              "createdAt": 1794792300000,
+              "validUntil": 1794794100000,
+              "snoozeUntil": null,
+              "nextReminderAt": 1794792600000,
+              "remindedCount": 1,
+              "lastRemindedAt": 1794792300000,
+              "levelReason": "示例",
+              "currentReminder": {
+                "reminderId": "rem_demo_1",
+                "scheduledAt": 1794792300000,
+                "displayUntil": 1794792360000
+              }
+            },
+            {
+              "taskId": "task_demo",
+              "scanId": "scan_demo",
+              "sourceEventKey": "sourceEventKey_demo",
+              "riskEventKey": null,
+              "eventRevision": null,
+              "symbol": "300502.SZ",
+              "name": "示例标的",
+              "direction": "buy",
+              "level": "critical",
+              "status": "pending",
+              "version": 1,
+              "actionVersion": 1,
+              "score": "86.5",
+              "confidence": "high",
+              "degraded": false,
+              "dataAsOf": 1794792300000,
+              "strategies": [],
+              "reasons": {
+                "quant": "示例量化信号",
+                "ai": null,
+                "verificationStatus": "unverified",
+                "sources": [],
+                "riskEvidence": [],
+                "risks": []
+              },
+              "stopPrice": null,
+              "targetPrice": null,
+              "entryZone": null,
+              "createdAt": 1794792300000,
+              "validUntil": 1794794100000,
+              "snoozeUntil": null,
+              "nextReminderAt": 1794792600000,
+              "remindedCount": 1,
+              "lastRemindedAt": 1794792300000,
+              "levelReason": "示例",
+              "currentReminder": {
+                "reminderId": "rem_demo_1",
+                "scheduledAt": 1794792300000,
+                "displayUntil": 1794792360000
+              }
+            },
+            {
+              "taskId": "task_demo",
+              "scanId": "scan_demo",
+              "sourceEventKey": "sourceEventKey_demo",
+              "riskEventKey": null,
+              "eventRevision": null,
+              "symbol": "300502.SZ",
+              "name": "示例标的",
+              "direction": "buy",
+              "level": "critical",
+              "status": "pending",
+              "version": 1,
+              "actionVersion": 1,
+              "score": "86.5",
+              "confidence": "high",
+              "degraded": false,
+              "dataAsOf": 1794792300000,
+              "strategies": [],
+              "reasons": {
+                "quant": "示例量化信号",
+                "ai": null,
+                "verificationStatus": "unverified",
+                "sources": [],
+                "riskEvidence": [],
+                "risks": []
+              },
+              "stopPrice": null,
+              "targetPrice": null,
+              "entryZone": null,
+              "createdAt": 1794792300000,
+              "validUntil": 1794794100000,
+              "snoozeUntil": null,
+              "nextReminderAt": 1794792600000,
+              "remindedCount": 1,
+              "lastRemindedAt": 1794792300000,
+              "levelReason": "示例",
+              "currentReminder": {
+                "reminderId": "rem_demo_1",
+                "scheduledAt": 1794792300000,
+                "displayUntil": 1794792360000
+              }
+            },
+            {
+              "taskId": "task_demo",
+              "scanId": "scan_demo",
+              "sourceEventKey": "sourceEventKey_demo",
+              "riskEventKey": null,
+              "eventRevision": null,
+              "symbol": "300502.SZ",
+              "name": "示例标的",
+              "direction": "buy",
+              "level": "critical",
+              "status": "pending",
+              "version": 1,
+              "actionVersion": 1,
+              "score": "86.5",
+              "confidence": "high",
+              "degraded": false,
+              "dataAsOf": 1794792300000,
+              "strategies": [],
+              "reasons": {
+                "quant": "示例量化信号",
+                "ai": null,
+                "verificationStatus": "unverified",
+                "sources": [],
+                "riskEvidence": [],
+                "risks": []
+              },
+              "stopPrice": null,
+              "targetPrice": null,
+              "entryZone": null,
+              "createdAt": 1794792300000,
+              "validUntil": 1794794100000,
+              "snoozeUntil": null,
+              "nextReminderAt": 1794792600000,
+              "remindedCount": 1,
+              "lastRemindedAt": 1794792300000,
+              "levelReason": "示例",
+              "currentReminder": {
+                "reminderId": "rem_demo_1",
+                "scheduledAt": 1794792300000,
+                "displayUntil": 1794792360000
+              }
+            },
+            {
+              "taskId": "task_demo",
+              "scanId": "scan_demo",
+              "sourceEventKey": "sourceEventKey_demo",
+              "riskEventKey": null,
+              "eventRevision": null,
+              "symbol": "300502.SZ",
+              "name": "示例标的",
+              "direction": "buy",
+              "level": "critical",
+              "status": "pending",
+              "version": 1,
+              "actionVersion": 1,
+              "score": "86.5",
+              "confidence": "high",
+              "degraded": false,
+              "dataAsOf": 1794792300000,
+              "strategies": [],
+              "reasons": {
+                "quant": "示例量化信号",
+                "ai": null,
+                "verificationStatus": "unverified",
+                "sources": [],
+                "riskEvidence": [],
+                "risks": []
+              },
+              "stopPrice": null,
+              "targetPrice": null,
+              "entryZone": null,
+              "createdAt": 1794792300000,
+              "validUntil": 1794794100000,
+              "snoozeUntil": null,
+              "nextReminderAt": 1794792600000,
+              "remindedCount": 1,
+              "lastRemindedAt": 1794792300000,
+              "levelReason": "示例",
+              "currentReminder": {
+                "reminderId": "rem_demo_1",
+                "scheduledAt": 1794792300000,
+                "displayUntil": 1794792360000
+              }
+            },
+            {
+              "taskId": "task_demo",
+              "scanId": "scan_demo",
+              "sourceEventKey": "sourceEventKey_demo",
+              "riskEventKey": null,
+              "eventRevision": null,
+              "symbol": "300502.SZ",
+              "name": "示例标的",
+              "direction": "buy",
+              "level": "critical",
+              "status": "pending",
+              "version": 1,
+              "actionVersion": 1,
+              "score": "86.5",
+              "confidence": "high",
+              "degraded": false,
+              "dataAsOf": 1794792300000,
+              "strategies": [],
+              "reasons": {
+                "quant": "示例量化信号",
+                "ai": null,
+                "verificationStatus": "unverified",
+                "sources": [],
+                "riskEvidence": [],
+                "risks": []
+              },
+              "stopPrice": null,
+              "targetPrice": null,
+              "entryZone": null,
+              "createdAt": 1794792300000,
+              "validUntil": 1794794100000,
+              "snoozeUntil": null,
+              "nextReminderAt": 1794792600000,
+              "remindedCount": 1,
+              "lastRemindedAt": 1794792300000,
+              "levelReason": "示例",
+              "currentReminder": {
+                "reminderId": "rem_demo_1",
+                "scheduledAt": 1794792300000,
+                "displayUntil": 1794792360000
+              }
+            },
+            {
+              "taskId": "task_demo",
+              "scanId": "scan_demo",
+              "sourceEventKey": "sourceEventKey_demo",
+              "riskEventKey": null,
+              "eventRevision": null,
+              "symbol": "300502.SZ",
+              "name": "示例标的",
+              "direction": "buy",
+              "level": "critical",
+              "status": "pending",
+              "version": 1,
+              "actionVersion": 1,
+              "score": "86.5",
+              "confidence": "high",
+              "degraded": false,
+              "dataAsOf": 1794792300000,
+              "strategies": [],
+              "reasons": {
+                "quant": "示例量化信号",
+                "ai": null,
+                "verificationStatus": "unverified",
+                "sources": [],
+                "riskEvidence": [],
+                "risks": []
+              },
+              "stopPrice": null,
+              "targetPrice": null,
+              "entryZone": null,
+              "createdAt": 1794792300000,
+              "validUntil": 1794794100000,
+              "snoozeUntil": null,
+              "nextReminderAt": 1794792600000,
+              "remindedCount": 1,
+              "lastRemindedAt": 1794792300000,
+              "levelReason": "示例",
+              "currentReminder": {
+                "reminderId": "rem_demo_1",
+                "scheduledAt": 1794792300000,
+                "displayUntil": 1794792360000
+              }
+            },
+            {
+              "taskId": "task_demo",
+              "scanId": "scan_demo",
+              "sourceEventKey": "sourceEventKey_demo",
+              "riskEventKey": null,
+              "eventRevision": null,
+              "symbol": "300502.SZ",
+              "name": "示例标的",
+              "direction": "buy",
+              "level": "critical",
+              "status": "pending",
+              "version": 1,
+              "actionVersion": 1,
+              "score": "86.5",
+              "confidence": "high",
+              "degraded": false,
+              "dataAsOf": 1794792300000,
+              "strategies": [],
+              "reasons": {
+                "quant": "示例量化信号",
+                "ai": null,
+                "verificationStatus": "unverified",
+                "sources": [],
+                "riskEvidence": [],
+                "risks": []
+              },
+              "stopPrice": null,
+              "targetPrice": null,
+              "entryZone": null,
+              "createdAt": 1794792300000,
+              "validUntil": 1794794100000,
+              "snoozeUntil": null,
+              "nextReminderAt": 1794792600000,
+              "remindedCount": 1,
+              "lastRemindedAt": 1794792300000,
+              "levelReason": "示例",
+              "currentReminder": {
+                "reminderId": "rem_demo_1",
+                "scheduledAt": 1794792300000,
+                "displayUntil": 1794792360000
+              }
+            },
+            {
+              "taskId": "task_demo",
+              "scanId": "scan_demo",
+              "sourceEventKey": "sourceEventKey_demo",
+              "riskEventKey": null,
+              "eventRevision": null,
+              "symbol": "300502.SZ",
+              "name": "示例标的",
+              "direction": "buy",
+              "level": "critical",
+              "status": "pending",
+              "version": 1,
+              "actionVersion": 1,
+              "score": "86.5",
+              "confidence": "high",
+              "degraded": false,
+              "dataAsOf": 1794792300000,
+              "strategies": [],
+              "reasons": {
+                "quant": "示例量化信号",
+                "ai": null,
+                "verificationStatus": "unverified",
+                "sources": [],
+                "riskEvidence": [],
+                "risks": []
+              },
+              "stopPrice": null,
+              "targetPrice": null,
+              "entryZone": null,
+              "createdAt": 1794792300000,
+              "validUntil": 1794794100000,
+              "snoozeUntil": null,
+              "nextReminderAt": 1794792600000,
+              "remindedCount": 1,
+              "lastRemindedAt": 1794792300000,
+              "levelReason": "示例",
+              "currentReminder": {
+                "reminderId": "rem_demo_1",
+                "scheduledAt": 1794792300000,
+                "displayUntil": 1794792360000
+              }
+            },
+            {
+              "taskId": "task_demo",
+              "scanId": "scan_demo",
+              "sourceEventKey": "sourceEventKey_demo",
+              "riskEventKey": null,
+              "eventRevision": null,
+              "symbol": "300502.SZ",
+              "name": "示例标的",
+              "direction": "buy",
+              "level": "critical",
+              "status": "pending",
+              "version": 1,
+              "actionVersion": 1,
+              "score": "86.5",
+              "confidence": "high",
+              "degraded": false,
+              "dataAsOf": 1794792300000,
+              "strategies": [],
+              "reasons": {
+                "quant": "示例量化信号",
+                "ai": null,
+                "verificationStatus": "unverified",
+                "sources": [],
+                "riskEvidence": [],
+                "risks": []
+              },
+              "stopPrice": null,
+              "targetPrice": null,
+              "entryZone": null,
+              "createdAt": 1794792300000,
+              "validUntil": 1794794100000,
+              "snoozeUntil": null,
+              "nextReminderAt": 1794792600000,
+              "remindedCount": 1,
+              "lastRemindedAt": 1794792300000,
+              "levelReason": "示例",
+              "currentReminder": {
+                "reminderId": "rem_demo_1",
+                "scheduledAt": 1794792300000,
+                "displayUntil": 1794792360000
+              }
+            },
+            {
+              "taskId": "task_demo",
+              "scanId": "scan_demo",
+              "sourceEventKey": "sourceEventKey_demo",
+              "riskEventKey": null,
+              "eventRevision": null,
+              "symbol": "300502.SZ",
+              "name": "示例标的",
+              "direction": "buy",
+              "level": "critical",
+              "status": "pending",
+              "version": 1,
+              "actionVersion": 1,
+              "score": "86.5",
+              "confidence": "high",
+              "degraded": false,
+              "dataAsOf": 1794792300000,
+              "strategies": [],
+              "reasons": {
+                "quant": "示例量化信号",
+                "ai": null,
+                "verificationStatus": "unverified",
+                "sources": [],
+                "riskEvidence": [],
+                "risks": []
+              },
+              "stopPrice": null,
+              "targetPrice": null,
+              "entryZone": null,
+              "createdAt": 1794792300000,
+              "validUntil": 1794794100000,
+              "snoozeUntil": null,
+              "nextReminderAt": 1794792600000,
+              "remindedCount": 1,
+              "lastRemindedAt": 1794792300000,
+              "levelReason": "示例",
+              "currentReminder": {
+                "reminderId": "rem_demo_1",
+                "scheduledAt": 1794792300000,
+                "displayUntil": 1794792360000
+              }
+            },
+            {
+              "taskId": "task_demo",
+              "scanId": "scan_demo",
+              "sourceEventKey": "sourceEventKey_demo",
+              "riskEventKey": null,
+              "eventRevision": null,
+              "symbol": "300502.SZ",
+              "name": "示例标的",
+              "direction": "buy",
+              "level": "critical",
+              "status": "pending",
+              "version": 1,
+              "actionVersion": 1,
+              "score": "86.5",
+              "confidence": "high",
+              "degraded": false,
+              "dataAsOf": 1794792300000,
+              "strategies": [],
+              "reasons": {
+                "quant": "示例量化信号",
+                "ai": null,
+                "verificationStatus": "unverified",
+                "sources": [],
+                "riskEvidence": [],
+                "risks": []
+              },
+              "stopPrice": null,
+              "targetPrice": null,
+              "entryZone": null,
+              "createdAt": 1794792300000,
+              "validUntil": 1794794100000,
+              "snoozeUntil": null,
+              "nextReminderAt": 1794792600000,
+              "remindedCount": 1,
+              "lastRemindedAt": 1794792300000,
+              "levelReason": "示例",
+              "currentReminder": {
+                "reminderId": "rem_demo_1",
+                "scheduledAt": 1794792300000,
+                "displayUntil": 1794792360000
+              }
+            },
+            {
+              "taskId": "task_demo",
+              "scanId": "scan_demo",
+              "sourceEventKey": "sourceEventKey_demo",
+              "riskEventKey": null,
+              "eventRevision": null,
+              "symbol": "300502.SZ",
+              "name": "示例标的",
+              "direction": "buy",
+              "level": "critical",
+              "status": "pending",
+              "version": 1,
+              "actionVersion": 1,
+              "score": "86.5",
+              "confidence": "high",
+              "degraded": false,
+              "dataAsOf": 1794792300000,
+              "strategies": [],
+              "reasons": {
+                "quant": "示例量化信号",
+                "ai": null,
+                "verificationStatus": "unverified",
+                "sources": [],
+                "riskEvidence": [],
+                "risks": []
+              },
+              "stopPrice": null,
+              "targetPrice": null,
+              "entryZone": null,
+              "createdAt": 1794792300000,
+              "validUntil": 1794794100000,
+              "snoozeUntil": null,
+              "nextReminderAt": 1794792600000,
+              "remindedCount": 1,
+              "lastRemindedAt": 1794792300000,
+              "levelReason": "示例",
+              "currentReminder": {
+                "reminderId": "rem_demo_1",
+                "scheduledAt": 1794792300000,
+                "displayUntil": 1794792360000
+              }
+            },
+            {
+              "taskId": "task_demo",
+              "scanId": "scan_demo",
+              "sourceEventKey": "sourceEventKey_demo",
+              "riskEventKey": null,
+              "eventRevision": null,
+              "symbol": "300502.SZ",
+              "name": "示例标的",
+              "direction": "buy",
+              "level": "critical",
+              "status": "pending",
+              "version": 1,
+              "actionVersion": 1,
+              "score": "86.5",
+              "confidence": "high",
+              "degraded": false,
+              "dataAsOf": 1794792300000,
+              "strategies": [],
+              "reasons": {
+                "quant": "示例量化信号",
+                "ai": null,
+                "verificationStatus": "unverified",
+                "sources": [],
+                "riskEvidence": [],
+                "risks": []
+              },
+              "stopPrice": null,
+              "targetPrice": null,
+              "entryZone": null,
+              "createdAt": 1794792300000,
+              "validUntil": 1794794100000,
+              "snoozeUntil": null,
+              "nextReminderAt": 1794792600000,
+              "remindedCount": 1,
+              "lastRemindedAt": 1794792300000,
+              "levelReason": "示例",
+              "currentReminder": {
+                "reminderId": "rem_demo_1",
+                "scheduledAt": 1794792300000,
+                "displayUntil": 1794792360000
+              }
+            },
+            {
+              "taskId": "task_demo",
+              "scanId": "scan_demo",
+              "sourceEventKey": "sourceEventKey_demo",
+              "riskEventKey": null,
+              "eventRevision": null,
+              "symbol": "300502.SZ",
+              "name": "示例标的",
+              "direction": "buy",
+              "level": "critical",
+              "status": "pending",
+              "version": 1,
+              "actionVersion": 1,
+              "score": "86.5",
+              "confidence": "high",
+              "degraded": false,
+              "dataAsOf": 1794792300000,
+              "strategies": [],
+              "reasons": {
+                "quant": "示例量化信号",
+                "ai": null,
+                "verificationStatus": "unverified",
+                "sources": [],
+                "riskEvidence": [],
+                "risks": []
+              },
+              "stopPrice": null,
+              "targetPrice": null,
+              "entryZone": null,
+              "createdAt": 1794792300000,
+              "validUntil": 1794794100000,
+              "snoozeUntil": null,
+              "nextReminderAt": 1794792600000,
+              "remindedCount": 1,
+              "lastRemindedAt": 1794792300000,
+              "levelReason": "示例",
+              "currentReminder": {
+                "reminderId": "rem_demo_1",
+                "scheduledAt": 1794792300000,
+                "displayUntil": 1794792360000
+              }
+            },
+            {
+              "taskId": "task_demo",
+              "scanId": "scan_demo",
+              "sourceEventKey": "sourceEventKey_demo",
+              "riskEventKey": null,
+              "eventRevision": null,
+              "symbol": "300502.SZ",
+              "name": "示例标的",
+              "direction": "buy",
+              "level": "critical",
+              "status": "pending",
+              "version": 1,
+              "actionVersion": 1,
+              "score": "86.5",
+              "confidence": "high",
+              "degraded": false,
+              "dataAsOf": 1794792300000,
+              "strategies": [],
+              "reasons": {
+                "quant": "示例量化信号",
+                "ai": null,
+                "verificationStatus": "unverified",
+                "sources": [],
+                "riskEvidence": [],
+                "risks": []
+              },
+              "stopPrice": null,
+              "targetPrice": null,
+              "entryZone": null,
+              "createdAt": 1794792300000,
+              "validUntil": 1794794100000,
+              "snoozeUntil": null,
+              "nextReminderAt": 1794792600000,
+              "remindedCount": 1,
+              "lastRemindedAt": 1794792300000,
+              "levelReason": "示例",
+              "currentReminder": {
+                "reminderId": "rem_demo_1",
+                "scheduledAt": 1794792300000,
+                "displayUntil": 1794792360000
+              }
+            },
+            {
+              "taskId": "task_demo",
+              "scanId": "scan_demo",
+              "sourceEventKey": "sourceEventKey_demo",
+              "riskEventKey": null,
+              "eventRevision": null,
+              "symbol": "300502.SZ",
+              "name": "示例标的",
+              "direction": "buy",
+              "level": "critical",
+              "status": "pending",
+              "version": 1,
+              "actionVersion": 1,
+              "score": "86.5",
+              "confidence": "high",
+              "degraded": false,
+              "dataAsOf": 1794792300000,
+              "strategies": [],
+              "reasons": {
+                "quant": "示例量化信号",
+                "ai": null,
+                "verificationStatus": "unverified",
+                "sources": [],
+                "riskEvidence": [],
+                "risks": []
+              },
+              "stopPrice": null,
+              "targetPrice": null,
+              "entryZone": null,
+              "createdAt": 1794792300000,
+              "validUntil": 1794794100000,
+              "snoozeUntil": null,
+              "nextReminderAt": 1794792600000,
+              "remindedCount": 1,
+              "lastRemindedAt": 1794792300000,
+              "levelReason": "示例",
+              "currentReminder": {
+                "reminderId": "rem_demo_1",
+                "scheduledAt": 1794792300000,
+                "displayUntil": 1794792360000
+              }
+            },
+            {
+              "taskId": "task_demo",
+              "scanId": "scan_demo",
+              "sourceEventKey": "sourceEventKey_demo",
+              "riskEventKey": null,
+              "eventRevision": null,
+              "symbol": "300502.SZ",
+              "name": "示例标的",
+              "direction": "buy",
+              "level": "critical",
+              "status": "pending",
+              "version": 1,
+              "actionVersion": 1,
+              "score": "86.5",
+              "confidence": "high",
+              "degraded": false,
+              "dataAsOf": 1794792300000,
+              "strategies": [],
+              "reasons": {
+                "quant": "示例量化信号",
+                "ai": null,
+                "verificationStatus": "unverified",
+                "sources": [],
+                "riskEvidence": [],
+                "risks": []
+              },
+              "stopPrice": null,
+              "targetPrice": null,
+              "entryZone": null,
+              "createdAt": 1794792300000,
+              "validUntil": 1794794100000,
+              "snoozeUntil": null,
+              "nextReminderAt": 1794792600000,
+              "remindedCount": 1,
+              "lastRemindedAt": 1794792300000,
+              "levelReason": "示例",
+              "currentReminder": {
+                "reminderId": "rem_demo_1",
+                "scheduledAt": 1794792300000,
+                "displayUntil": 1794792360000
+              }
+            }
+          ],
+          "positions": [],
+          "executions": [],
+          "watchlist": [],
+          "imports": [],
+          "valuationPoints": [],
+          "adjustments": []
+        }
+      }
+    },
+    {
+      "name": "import_recognition_invalid_row",
+      "valid": true,
+      "payload": {
+        "v": 1,
+        "kind": "import_result",
+        "id": "event_import_invalid",
+        "dedupeKey": "import:import_demo:2",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "snapshotSeq": 42,
+        "data": {
+          "importId": "import_demo",
+          "importVersion": 2,
+          "status": "recognized",
+          "mode": "full_snapshot",
+          "snapshotAsOf": 1794792300000,
+          "basePositionRevision": 1,
+          "rows": [],
+          "diff": {
+            "added": [],
+            "changed": [],
+            "missing": [],
+            "unchanged": []
+          },
+          "diffHash": null,
+          "warnings": [],
+          "errorCode": null,
+          "cleanupStatus": "deleted",
+          "createdAt": 1794792300000,
+          "updatedAt": 1794792300000,
+          "recognizedRows": [
+            {
+              "rowId": "row_1",
+              "raw": {
+                "symbol": null,
+                "name": "无法确定标的",
+                "qty": "-25",
+                "availableQty": null,
+                "cost": "abc",
+                "lastPrice": "12.00",
+                "marketValue": null,
+                "pnl": null
+              },
+              "confidence": {
+                "symbol": "0.4",
+                "name": "0.4",
+                "qty": "0.4",
+                "availableQty": "0.4",
+                "cost": "0.4",
+                "lastPrice": "0.4",
+                "marketValue": "0.4",
+                "pnl": "0.4"
+              },
+              "issues": [
+                {
+                  "field": "qty",
+                  "code": "INVALID_QTY",
+                  "message": "请修正数量",
+                  "severity": "error"
+                },
+                {
+                  "field": "cost",
+                  "code": "INVALID_COST",
+                  "message": "请修正成本",
+                  "severity": "error"
+                }
+              ]
+            }
+          ],
+          "excludedRows": [],
+          "readyForConfirm": false
+        }
+      }
+    },
+    {
+      "name": "import_cost_only_diff",
+      "valid": true,
+      "payload": {
+        "v": 1,
+        "kind": "import_result",
+        "id": "event_import_cost_changed",
+        "dedupeKey": "import:import_demo:3",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "snapshotSeq": 42,
+        "data": {
+          "importId": "import_demo",
+          "importVersion": 3,
+          "status": "recognized",
+          "mode": "full_snapshot",
+          "snapshotAsOf": 1794792300000,
+          "basePositionRevision": 1,
+          "rows": [
+            {
+              "rowId": "row_1",
+              "symbol": "300502.SZ",
+              "name": "示例标的",
+              "qty": 100,
+              "availableQty": 100,
+              "cost": "11.00",
+              "pendingLots": [],
+              "resolvedExecutionIds": []
+            }
+          ],
+          "diff": {
+            "added": [],
+            "changed": [
+              {
+                "symbol": "300502.SZ",
+                "before": {
+                  "name": "示例标的",
+                  "qty": 100,
+                  "availableQty": 100,
+                  "cost": "10.00",
+                  "pendingLots": [],
+                  "asOf": 1794792300000
+                },
+                "after": {
+                  "name": "示例标的",
+                  "qty": 100,
+                  "availableQty": 100,
+                  "cost": "11.00",
+                  "pendingLots": [],
+                  "asOf": 1794792300000
+                }
+              }
+            ],
+            "missing": [],
+            "unchanged": []
+          },
+          "diffHash": "68ceeed932f8ce3c6caaef46b557ce2d474063bba8379293c0d40a9270bf1601",
+          "warnings": [],
+          "errorCode": null,
+          "cleanupStatus": "deleted",
+          "createdAt": 1794792300000,
+          "updatedAt": 1794792300000,
+          "recognizedRows": [],
+          "excludedRows": [],
+          "readyForConfirm": true
+        }
+      }
+    },
+    {
+      "name": "recovery_same_batch_execution",
+      "valid": true,
+      "payload": {
+        "v": 1,
+        "kind": "command",
+        "id": "event_recovery_same_batch",
+        "dedupeKey": "command:client_recovery_same_batch",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "data": {
+          "cmd": "recovery_reconcile",
+          "clientMsgId": "client_recovery_same_batch",
+          "serverEpoch": "epoch_demo_a",
+          "reconciliationId": "reconciliationId_demo",
+          "reviewedSnapshotSeq": 42,
+          "decisions": [
+            {
+              "itemId": "item_demo",
+              "evidenceRecordIds": [
+                "evidence_demo"
+              ],
+              "disposition": "record",
+              "newExecutionId": "execution_recovered",
+              "execution": {
+                "symbol": "300502.SZ",
+                "side": "buy",
+                "price": "10.00",
+                "qty": 100,
+                "executedAt": 1794792300000
+              },
+              "note": "确认已发生并已包含于本次持仓"
+            }
+          ],
+          "positions": [
+            {
+              "symbol": "300502.SZ",
+              "basePositionRevision": 1,
+              "qty": 100,
+              "availableQty": 100,
+              "cost": "10.00",
+              "asOf": 1794792300000,
+              "reason": "示例",
+              "resolvedExecutionIds": [
+                "execution_recovered"
+              ],
+              "pendingLots": []
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "recovery_same_batch_ack",
+      "valid": true,
+      "payload": {
+        "v": 1,
+        "kind": "ack",
+        "id": "ack_recovery_same_batch",
+        "dedupeKey": "ack:client_recovery_same_batch",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "snapshotSeq": 42,
+        "data": {
+          "refId": "event_recovery_same_batch",
+          "clientMsgId": "client_recovery_same_batch",
+          "cmd": "recovery_reconcile",
+          "ok": true,
+          "result": {
+            "reconciliationId": "reconciliationId_demo",
+            "reviewedSnapshotSeq": 42,
+            "closedItemIds": [
+              "item_demo"
+            ],
+            "remainingCount": 0,
+            "recordedExecutions": [
+              {
+                "itemId": "item_demo",
+                "executionId": "execution_recovered"
+              }
+            ]
+          },
+          "error": null,
+          "requestHash": "fab03cb77d07683ba43b8581cd27f30979a2c40bd441f8e7cd1b11b0634d51cd"
+        }
+      }
+    },
+    {
+      "name": "reject_recovery_missing_execution_reference",
+      "valid": false,
+      "payload": {
+        "v": 1,
+        "kind": "command",
+        "id": "event_recovery_same_batch",
+        "dedupeKey": "command:client_recovery_same_batch",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "data": {
+          "cmd": "recovery_reconcile",
+          "clientMsgId": "client_recovery_same_batch",
+          "serverEpoch": "epoch_demo_a",
+          "reconciliationId": "reconciliationId_demo",
+          "reviewedSnapshotSeq": 42,
+          "decisions": [
+            {
+              "itemId": "item_demo",
+              "evidenceRecordIds": [
+                "evidence_demo"
+              ],
+              "disposition": "record",
+              "execution": {
+                "symbol": "300502.SZ",
+                "side": "buy",
+                "price": "10.00",
+                "qty": 100,
+                "executedAt": 1794792300000
+              },
+              "note": "确认已发生并已包含于本次持仓"
+            }
+          ],
+          "positions": [
+            {
+              "symbol": "300502.SZ",
+              "basePositionRevision": 1,
+              "qty": 100,
+              "availableQty": 100,
+              "cost": "10.00",
+              "asOf": 1794792300000,
+              "reason": "示例",
+              "resolvedExecutionIds": [
+                "execution_recovered"
+              ],
+              "pendingLots": []
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "reject_missing_confirmed_cost",
+      "valid": false,
+      "payload": {
+        "v": 1,
+        "kind": "command",
+        "id": "event_adjust_position",
+        "dedupeKey": "command:client_adjust_position",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "data": {
+          "cmd": "adjust_position",
+          "clientMsgId": "client_adjust_position",
+          "serverEpoch": "epoch_demo_a",
+          "symbol": "300502.SZ",
+          "basePositionRevision": 1,
+          "qty": 100,
+          "availableQty": 100,
+          "cost": null,
+          "asOf": 1794792300000,
+          "reason": "示例",
+          "resolvedExecutionIds": [],
+          "pendingLots": []
+        }
+      }
+    },
+    {
+      "name": "request_get_task_actions",
+      "valid": true,
+      "payload": {
+        "v": 1,
+        "kind": "command",
+        "id": "event_get_task_actions",
+        "dedupeKey": "command:client_get_task_actions",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "data": {
+          "cmd": "get_task_actions",
+          "clientMsgId": "client_get_task_actions",
+          "serverEpoch": "epoch_demo_a",
+          "taskId": "task_demo"
+        }
+      }
+    },
+    {
+      "name": "ack_get_task_actions",
+      "valid": true,
+      "payload": {
+        "v": 1,
+        "kind": "ack",
+        "id": "ack_get_task_actions",
+        "dedupeKey": "ack:client_get_task_actions",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "snapshotSeq": 42,
+        "data": {
+          "refId": "event_get_task_actions",
+          "clientMsgId": "client_get_task_actions",
+          "cmd": "get_task_actions",
+          "ok": true,
+          "result": {
+            "taskId": "task_demo",
+            "items": [
+              {
+                "actionId": "action_demo",
+                "taskId": "task_demo",
+                "type": "created",
+                "at": 1794792300000,
+                "clientMsgId": null,
+                "reason": null,
+                "taskVersion": 1,
+                "actionVersion": 1
+              }
+            ],
+            "nextPageCursor": null,
+            "hasMore": false
+          },
+          "error": null,
+          "requestHash": "a08a6562fcbb0688813c28485e5a604b066b4fc8036824984ef5f83eaae8ed25"
+        }
+      }
+    },
+    {
+      "name": "execution_with_rule_snapshot",
+      "valid": true,
+      "payload": {
+        "v": 1,
+        "kind": "ack",
+        "id": "ack_execution_rule",
+        "dedupeKey": "ack:client_record_execution",
+        "ts": 1794792300000,
+        "serverEpoch": "epoch_demo_a",
+        "snapshotSeq": 42,
+        "data": {
+          "refId": "event_record_execution",
+          "clientMsgId": "client_record_execution",
+          "cmd": "record_execution",
+          "ok": true,
+          "result": {
+            "execution": {
+              "executionId": "execution_demo",
+              "taskId": "task_demo",
+              "symbol": "300502.SZ",
+              "side": "buy",
+              "price": "10.00",
+              "qty": 100,
+              "executedAt": 1794792300000,
+              "channel": null,
+              "priceBasis": "unknown",
+              "orderId": null,
+              "orderQty": null,
+              "positionEffect": "applied",
+              "reconciliationRequired": false,
+              "ruleStatus": "partial",
+              "ruleSnapshotId": "rule_demo",
+              "sellableDate": "2026-11-17",
+              "realizedPnl": null,
+              "warnings": [],
+              "supersedesExecutionId": null,
+              "createdAt": 1794792300000,
+              "note": "示例",
+              "tradeDate": "2026-11-16",
+              "settlement": "T+1",
+              "settlementSource": "snapshot",
+              "verificationScope": "recorded_execution_and_available_rule_data",
+              "ruleSnapshot": {
+                "ruleSnapshotId": "rule_demo",
+                "symbol": "300502.SZ",
+                "tradeDate": "2026-11-16",
+                "channel": "auction",
+                "exchange": "SSE",
+                "instrumentType": "stock",
+                "board": "main",
+                "dayTrading": "NO",
+                "settlement": "T+1",
+                "quantityUnit": 100,
+                "maxOrderQty": null,
+                "minPriceTick": "0.01",
+                "limitRatio": null,
+                "adjustedPrevClose": null,
+                "referencePrice": null,
+                "upperLimit": null,
+                "lowerLimit": null,
+                "riskStatus": "normal",
+                "tradingStatus": "trading",
+                "ruleVersion": "fixture-only",
+                "sources": [
+                  {
+                    "name": "模拟来源，非真实行情",
+                    "ref": "fixture-rule-1",
+                    "asOf": 1794792300000
+                  }
+                ],
+                "sourceTime": 1794792300000,
+                "dataStatus": "missing",
+                "issueFields": [
+                  "upperLimit",
+                  "lowerLimit"
+                ]
+              }
+            },
+            "position": {
+              "symbol": "300502.SZ",
+              "name": "示例标的",
+              "qty": 100,
+              "availableQty": 100,
+              "cost": "10.00",
+              "pendingLots": [],
+              "asOf": 1794792300000,
+              "positionRevision": 1,
+              "reconciliationRequired": false,
+              "lastPrice": "12.00",
+              "priceAsOf": 1794792300000,
+              "priceStatus": "fresh",
+              "marketValue": "1200.00",
+              "unrealizedPnl": "200.00",
+              "unrealizedPnlRatio": "0.2"
+            },
+            "snapshotSeq": 42
+          },
+          "error": null,
+          "requestHash": "fca28ee1af1e1724fa2c3acbce7348e88137551acf46fb22cdaca132bb1d066b"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+# Loopback development. Copy roles.example.toml and populate it offline.
+listen = "127.0.0.1:18443"
+roles_file = "roles.toml"
+metrics_listen = "127.0.0.1:18444"

@@ -1,0 +1,11 @@
+# Copy into a private working config and set the existing data directory and relay settings.
+listen = "127.0.0.1:18765"
+data_dir = "../runtime-data"
+
+[assistant]
+address = "127.0.0.1:3018"
+token_file = "secrets/python-assistant.token"
+
+# Existing Python quant route can run on the same listener.
+[kernel]
+address = "127.0.0.1:3018"

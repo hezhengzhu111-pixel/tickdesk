@@ -1,0 +1,33 @@
+{
+  "cases": [
+    {
+      "name": "ws_must_not_advance_history_cursor",
+      "initialHistoryCursor": "100",
+      "persistedWsIds": [
+        "102"
+      ],
+      "expectedAfterMessageId": "100",
+      "historyPageDescending": [
+        "102",
+        "101"
+      ],
+      "expectedApplyOrder": [
+        "101",
+        "102"
+      ],
+      "expectedHistoryCursor": "102"
+    },
+    {
+      "name": "history_cursor_waits_for_whole_page_persistence",
+      "initialHistoryCursor": "100",
+      "historyPageDescending": [
+        "102",
+        "101"
+      ],
+      "persistedBeforeCrash": [
+        "101"
+      ],
+      "expectedHistoryCursor": "100"
+    }
+  ]
+}

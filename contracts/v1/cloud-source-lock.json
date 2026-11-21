@@ -1,0 +1,105 @@
+{
+  "verifiedAt": "2026-11-15",
+  "files": [
+    {
+      "path": "im-foundation/rust/apps/api-server/src/modules/account/user/handlers.rs",
+      "sha256": "c483b6b7249788ca6859b15a5f852bb441024f9c4fffa04f9ea127d19d154747"
+    },
+    {
+      "path": "im-foundation/rust/apps/api-server/src/modules/auth/token.rs",
+      "sha256": "d83397c48896f2cc28fe4d3c6ea508d2e40e07418012007f9dbe7f6b776831d4"
+    },
+    {
+      "path": "im-foundation/rust/apps/api-server/src/modules/auth/ws.rs",
+      "sha256": "90e39ae42fe85d5b0e4fe8af1d41ba3c1e5605c8865165ac6deab52425b5085e"
+    },
+    {
+      "path": "im-foundation/rust/apps/api-server/src/modules/authz/me.rs",
+      "sha256": "55227357e1faf1037b3eceac25b8399e007233f06ef65c37328ae789fa4eec89"
+    },
+    {
+      "path": "im-foundation/rust/apps/api-server/src/modules/file/handlers.rs",
+      "sha256": "989997116d02249cc46c1e99ca5c7e1fba7d2d7a971758d6bfe65700af754284"
+    },
+    {
+      "path": "im-foundation/rust/apps/api-server/src/modules/messaging/message/message_read.rs",
+      "sha256": "2ed6a1e63e12c6af37fbada75cdcdf83e4082dd098774f0665f591b4af32b6fa"
+    },
+    {
+      "path": "im-foundation/rust/apps/api-server/src/modules/messaging/message/message_send.rs",
+      "sha256": "ae6deabbecf5c08848072ca757818a50d09a6fe95ec247e5c4aed0c0d0ddfd75"
+    },
+    {
+      "path": "im-foundation/rust/apps/api-server/src/modules/messaging/message/message_types.rs",
+      "sha256": "ca4814d18fff4f5c98d666bf3ea5c0728520318cf3b19d4b6b8a04bfe5eb9859"
+    },
+    {
+      "path": "im-foundation/rust/apps/im-server/src/modules/realtime/service/service_helpers.rs",
+      "sha256": "5ee5700d8096e75d24ccb1321b0393ea7f6efe4dc4ccb74c0ea37f9b9ccbdee2"
+    },
+    {
+      "path": "im-foundation/rust/apps/im-server/src/modules/realtime/web.rs",
+      "sha256": "741f3c42710b1a39e857284c3be5f535e74a987e4f2c8a479a16825cc4399bc0"
+    },
+    {
+      "path": "im-foundation/rust/crates/im-common/src/api.rs",
+      "sha256": "5b6b40205bef7f565356a83aeb9c409415cfc3e233020ec6a1814d1000e27a1a"
+    },
+    {
+      "path": "im-foundation/rust/crates/im-common/src/event.rs",
+      "sha256": "75cb3cb1a758038c8145e23fd0124b85c24cb17fefee1507218986f996511766"
+    },
+    {
+      "path": "im-foundation/rust/apps/api-server/src/modules/auth/types.rs",
+      "sha256": "1a061c6b5d6f1776304ad2eec0939d0b79cb86f3fcc8aa634d9ba6b13394f1a9"
+    },
+    {
+      "path": "im-foundation/rust/apps/api-server/src/modules/account/user/types.rs",
+      "sha256": "4fd747efaf0d145bca16ad4c219e685ab20d709c6aceea33c499fcc447f8059a"
+    },
+    {
+      "path": "im-foundation/rust/apps/api-server/src/modules/file/types.rs",
+      "sha256": "a02059b20ca9c43192d75642a3e17d0162d25692ae23b690ff7213e1f4fe196e"
+    },
+    {
+      "path": "im-foundation/rust/apps/api-server/src/config/mod.rs",
+      "sha256": "2a359286e4ac6e0e07e5e912d55766c61289c1530c04eedf422a327e0be4537e"
+    },
+    {
+      "path": "im-foundation/rust/apps/api-server/src/modules/auth/helpers.rs",
+      "sha256": "bbb53c465671539305b17c826f6f270aaa4c7eae72f6c1f473525a89beac79e8"
+    },
+    {
+      "path": "im-foundation/rust/apps/api-server/src/modules/auth/internal.rs",
+      "sha256": "0dc8d6d9a71a53eda1e24bae54a135792905d0cb9cf174512ba60af2d5f8b4dc"
+    },
+    {
+      "path": "im-foundation/rust/apps/api-server/src/modules/messaging/message_routes.rs",
+      "sha256": "6d20ddad8ffc7b193ba5702acb8764c0a9179262e955824cf4522b92d508689a"
+    },
+    {
+      "path": "im-foundation/rust/apps/api-server/src/modules/file/file_routes.rs",
+      "sha256": "c0b8b145a5841462b2c3c8b86591f5d863fb27b1844449140536f5f74858ae21"
+    },
+    {
+      "path": "im-foundation/rust/apps/api-server/src/modules/auth/auth_routes.rs",
+      "sha256": "1bb900ae98a477249690dd30fae4549e25dd529781403f5f3f4d428a36ff34ba"
+    },
+    {
+      "path": "im-foundation/rust/apps/api-server/src/modules/account/user_routes.rs",
+      "sha256": "48d645d3ede28c43fc974e3f82a18b4b3597ef740eae7b46b43766140625c5ab"
+    },
+    {
+      "path": "im-foundation/rust/apps/api-server/src/modules/messaging/message/acceptance.rs",
+      "sha256": "3ed1456b8bb769d68f384184ccfb2eef71547fca4d8610422c6e2b7d80c7a340"
+    },
+    {
+      "path": "im-foundation/rust/apps/api-server/src/modules/file/message_media.rs",
+      "sha256": "f9cadaa1a57ed56bef8bc053386b302dcd6a34bd31d7a75b939eb3301cf430ee"
+    },
+    {
+      "path": "im-foundation/rust/apps/api-server/src/modules/file/helpers.rs",
+      "sha256": "e39ba2fbc0ede356c564038527886873a84f93950b3b7ed9bbb4058f079acd95"
+    }
+  ]
+}

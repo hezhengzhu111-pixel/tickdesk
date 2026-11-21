@@ -1,0 +1,17 @@
+{
+  "_说明": "本地分析 <-> im-foundation 桥接配置。填好后即可把扫描结果推到手机 App，并接收手机操作回复。",
+  "base_url": "https://im.your-domain.com",
+  "internal_secret": "和云服务器 .env 里 IM_INTERNAL_SECRET 保持一致 (至少32字节)",
+  "tenant_id": 1,
+  "assistant_user_id": 0,
+  "owner_user_id": 0,
+  "mode": "private",
+  "group_id": 0,
+  "_字段说明": {
+    "base_url": "云服务器上 im-foundation 对外地址 (经 nginx/HTTPS 反代到 api-server 8082)",
+    "assistant_user_id": "助手账号的用户ID (在 IM 里创建一个员工账号, 如 盯盘助手)",
+    "owner_user_id": "你自己的用户ID (手机 App 登录的账号)",
+    "mode": "private=助手与你私聊(需好友关系); group=群聊(助手和你在同一个群)",
+    "group_id": "mode=group 时填群ID"
+  }
+}

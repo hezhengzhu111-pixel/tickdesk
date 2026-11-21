@@ -1,0 +1,23 @@
+{
+  "portal": "http://127.0.0.1:3018",
+  "relay": "http://127.0.0.1:8899/tsp",
+  "interval_seconds": 300,
+  "sessions": [["09:25", "11:35"], ["12:55", "15:05"]],
+  "buy_strategies": [
+    "trend_breakout",
+    "ma_golden_cross",
+    "breakout_new_high_60d",
+    "volume_price_surge",
+    "macd_golden",
+    "bullish_alignment",
+    "oversold_bounce",
+    "pullback_ma20_bounce"
+  ],
+  "rows_per_strategy": 30,
+  "consensus_min": 2,
+  "top_consensus": 5,
+  "top_single": 5,
+  "track_ttl_scans": 40,
+  "max_sell_alerts": 5,
+  "max_exit_scan": 3000
+}
